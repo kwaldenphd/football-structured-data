@@ -141,6 +141,10 @@ But for now, big picture steps for this workflow:
 
 ## Knute Rockne Coaching Tree
 
+We'll also think in this lab about how structured data can be the starting point for looking at networks and relationships, under the umbrella of network analysis.
+
+The idea of a "coaching tree" 
+
 https://my.nd.edu/news/9551
 
 https://en.wikipedia.org/wiki/Knute_Rockne#Coaching_tree
