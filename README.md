@@ -80,8 +80,6 @@ Discussion Questions:
 - What types of analysis/visualization or exploration would you be able to do with this resource as structured data?
 - Other comments/questions about this source as structured data
 
-
-
 ### Directories Data Processing Overview
 
 Prof. Walden will add more details about the data processing workflow for this source.
@@ -95,15 +93,51 @@ Again, more details to come and we'll talk in-depth about OpenRefine and data cl
 
 ## Football Rosters
 
-https://www.sports-reference.com/cfb/schools/notre-dame/1924.html
+Online sports data provider Sports Reference includes specific college football data resources.
+
+Take a look at [their page for Notre Dame's 1924 team](https://www.sports-reference.com/cfb/schools/notre-dame/1924.html).
+
+Discussion Questions:
+- What parts of information on this page would you want to work with as structured data?
+- What types of analysis/visualization or exploration would you be able to do with this resource as structured data?
+  * What questions or topics would you be able to explore using data from this resource? 
+- Other comments/questions about this source as structured data
 
 ### Football Rosters Data Processing Overview
 
+Prof. Walden has built out a Jupyter Notebook that scrapes the rosters into a combined CSV file in Python.
+- [GitHub]
+- [NBViewer]
+- [Google CoLab]
+
+But for now, big picture steps for this workflow:
+- Scrape HTML tables in Python using BeautifulSoup
+- Clean/wrangle/restructure data in Python as a Pandas DataFrame
+- Write data to CSV file
+
 ## Football Schedules
 
-https://www.sports-reference.com/cfb/schools/notre-dame/1924.html
+Sports Reference's college football resources also include information on Notre Dame football's schedules and season results.
+
+Take a look at [their page for Notre Dame's 1924 season](https://www.sports-reference.com/cfb/schools/notre-dame/1924-schedule.html).
+
+Discussion Questions:
+- What parts of information on this page would you want to work with as structured data?
+- What types of analysis/visualization or exploration would you be able to do with this resource as structured data?
+  * What questions or topics would you be able to explore using data from this resource? 
+- Other comments/questions about this source as structured data
 
 ### Football Schedules Data Processing Overview 
+
+Prof. Walden has built out a Jupyter Notebook that scrapes the rosters into a combined CSV file in Python.
+- [GitHub]
+- [NBViewer]
+- [Google CoLab]
+
+But for now, big picture steps for this workflow:
+- Scrape HTML tables in Python using BeautifulSoup
+- Clean/wrangle/restructure data in Python as a Pandas DataFrame
+- Write data to CSV file
 
 ## Knute Rockne Coaching Tree
 
