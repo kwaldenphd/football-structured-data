@@ -27,13 +27,23 @@ Focus on things like rosters, directories, etc.
 
 ## Football Rosters
 
+https://www.sports-reference.com/cfb/schools/notre-dame/1924.html
+
 ### Football Rosters Data Processing Overview
 
 ## Football Schedules
 
+https://www.sports-reference.com/cfb/schools/notre-dame/1924.html
+
 ### Football Schedules Data Processing Overview 
 
 ## Knute Rockne Coaching Tree
+
+https://my.nd.edu/news/9551
+
+https://en.wikipedia.org/wiki/Knute_Rockne#Coaching_tree
+
+https://www.researchgate.net/publication/228968729_The_NFL_Coaching_Network_Analysis_of_the_Social_Network_Among_Professional_Football_Coaches
 
 ### Rockne Coaching Tree Data Processing Overview
 
@@ -74,6 +84,8 @@ When you start doing this on your own, we'll talk in more detail about tools/wor
 ## RStudio
 
 # Networks
+
+## DataBasic: Connect The Dotes
 
 ## Palladio
 
