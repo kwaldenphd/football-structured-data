@@ -310,7 +310,7 @@ When an institution or team is the `source` node, the weight is the number of se
 ## Things to Take Away From This Section
 
 **Develping a data model takes time (and is sometimes hard/messy).**
-- Don't overlook the conceptual work to figure out the desired endpoint or structure for data from a primary source.
+- Don't overlook the conceptual work needed to figure out the desired endpoint or structure for data from a primary source.
 - Thinking through what data structure or format you want/need for the types of analysis and visualization you want to do helps you make choices about next steps for data scraping/cleaning/wrangling.
 - And as you go through those data processing steps, you are able to keep in mind what the endpoint is, or what you want/need the data to look like at the end of these processes.
 
@@ -409,13 +409,13 @@ Navigate to https://databasic.io/ in a web browser (preferably Chrome).
 
 Click on the `WTFcsv` icon to open the WTFcsv tool.
 
-FIG 1
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_1.png?raw=true" alt="Capture" /></p>
 
 As described on the page, "WTFcsv tells you WTF is going on with your .csv file. Data arrives at your doorstep in the form of a spreadsheet but how do you find a story in rows and columns? WTFcsv provides the first step by characterizing each column's data type and contents so that you can ask more questions."
 
 `WTFcsv` gives you the option to use a sample file or upload your own file.
 
-FIG 2
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_2.png?raw=true" alt="Capture" /></p>
 
 Click on the `Upload a file` icon and select a sample dataset.
 
@@ -423,35 +423,35 @@ The lab procedure is going to used the `combined_nd_schedules_cleaned.csv` file,
 
 Click `Analyze` to analyze the dataset.
 
-Fig 3
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_3.png?raw=true" alt="Capture" /></p>
 
 The WTFcsv results include summary information about the entire dataset as well as a summary view of each field.
 
 For the whole dataset, we can tell the number of rows and columns.
 
-FIG 5
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_4.png?raw=true" alt="Capture" /></p>
 
-FIG 6
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_5.png?raw=true" alt="Capture" /></p>
 
 For each column, we can see the data type (the icon in the top-left corner of that column's tile), a summary visualization for that column (the default tile view), and additional metadata for that column (available by clicking on the circle `i` icon in the top-right corner of the tile).
 
 <blockquote>What is metadata? In the words of information and infrastructure scholar Janet Evans, metadata is "data about data" (Evans, <a href="https://inventingthemedium.com/glossary/">Inventing the Medium: Principles of Interaction Design as a Cultural Practice</a>, glossary). Within WTFcsv, metadata is described as "[summarizing] basic information about your data."</blockquote>
 
-FIG 5
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_5.png?raw=true" alt="Capture" /></p>
 
 Looking at the column visualization for `Day`, we can see this is a string field (circle icon in the top-left), and WTFcsv has given us a bar chart showing the counts for each unique column value.
 
-FIG 6
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_6.png?raw=true" alt="Capture" /></p>
 
 Looking at metadata for `Day` column tile (click the circle `i` icon in the top-right of the tile), we can see this is a string field (a field that includes text characters), the maximum string length, the number of unique values, and the number of entries for the most frequently occurring values.
 
 We can go back to the column visualization by clicking on the chart icon in the top-right of the tile.
 
-FIG 4
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_4.png?raw=true" alt="Capture" /></p>
 
 We can look at the column visualization for `Time` and see it is a time field (clock icon in the top-left), and WTFcsv has given us a line plot showing the number of rows for each time value.
 
-FIG 7
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_7.png?raw=true" alt="Capture" /></p>
 
 We can look at the metadata for the `Time` column (click the circle `i` icon in the top-right of the tile) and see the smallest and largest values in this field, as well as the number of rows with missing data (or `NA` values) and the number of unique values.
 
@@ -459,9 +459,9 @@ Continue exploring the results for the sample dataset you uploaded.
 
 Or, upload and explore another sample dataset.
 
-FIG 8
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_8.png?raw=true" alt="Capture" /></p>
 
-FIG 9
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_9.png?raw=true" alt="Capture" /></p>
 
 You can also click on the arrow icon next to the page title to get a temporary link to share your results.
 
@@ -553,7 +553,7 @@ Select all the cells in your table that include data.
 
 Once you have selected the entire table, click the `Insert` menu option (next to `File`, `Home`, etc) and click the `Table` icon.
 
-FIG 10
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_10.png?raw=true" alt="Capture" /></p>
 
 <p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_3.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_3.png?raw=true" alt="" /></a></p>
 
@@ -563,19 +563,19 @@ Be sure to the `My table has headers` box is selected.
 
 Click `OK` to create the table.
 
-FIG 20
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_20.png?raw=true" alt="Capture" /></p>
 
 Once you've created the table, go to the `Table Design` tab and rename the table.
 
 We also want to add the table to our data model.
 
-FIG 21
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_21.png?raw=true" alt="Capture" /></p>
 
 Select the `Power Pivot` menu option (next to `Table Design`).
 
 Click the `Add to Data Model` icon.
 
-FIG 23
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_22.png?raw=true" alt="Capture" /></p>
 
 In the pop-up Power Pivot window, select `File` --> `Close` to add the table to the data model.
 
@@ -612,7 +612,7 @@ Explore some of the searching, sorting, and filtering operations.
 
 Excel includes a range of built-in chart types that you can use to generate visualizations for data in your table.
 
-FIG 11
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_11.png?raw=true" alt="Capture" /></p>
 
 Click on the `Recommended Charts` icon under `Data`.
 
@@ -638,9 +638,9 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Pivot_table):
 
 Within Excel, PivotTables (and PivotCharts) let us generate more fine-tuned and customized visualizations for data in the workbook.
 
-FIG 18
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_18.png?raw=true" alt="Capture" /></p>
 
-FIG 17
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_17.png?raw=true" alt="Capture" /></p>
 
 To create a PivotTable and PivotChart:
 - Click on the `PivotChart` dropdown in the `Charts` menu bar area
@@ -648,20 +648,19 @@ To create a PivotTable and PivotChart:
 - Check that `Use this workbook's Data Model` and `New Worksheet` are selected.
 - Click `OK` to create the PivotTable.
 
-Fig 19
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_19.png?raw=true" alt="Capture" /></p>
 
 Your data is now formatted as a PivotTable, which allows us to aggregate, analyze, and visualize across different sheets in the workbook.
 
 The steps we took earlier in the lab to name our tables and add them to the data model means we now have a PivotTable and PivotChart that lets us access all three tables for aggregating and visualizing data.
 
-Fig 24
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_24.png?raw=true" alt="Capture" /></p>
 
 The PivotChart side bar allows you to select specific data fields and arrange or restructure them to generate visualizations.
 
 You can click on the drop-down arrow next to each table to see a list of its fields (or columns).
 
-
-Fig 25
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_25.png?raw=true" alt="Capture" /></p>
 
 To show the number of students by major, drag the `Major` field from the `Directory` table into the `Axis (Categories` box.
 
@@ -669,7 +668,7 @@ Then, drag the `Major` field from the `Directory` table into the `Values` box.
 
 The default value and bar chart are showing us the number of students in each major.
 
-Fig 26
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_26.png?raw=true" alt="Capture" /></p>
 
 The `Values` box also can calculate other arithmetic values for numeric data fields. You can click on the drop-down arrow next to a field in `Values` and select `Value Field Settings` to see these additional options.
 
@@ -695,37 +694,40 @@ We would need to connect the roster and directory datasets to be able to access 
 
 <blockquote>The larger concept we're talking about here falls under the big umbrella of data models and relational database systems. Those concepts are outside the scope of this class, but for folks who want to learn more about relational databases, entity relationship diagrams, data models, and structured query language (SQL):
  <ul>
-  <li>
-  </li>
+  <li>Prof. Walden's <a href="https://github.com/kwaldenphd/data-models">"Introduction to relational database systems and data models" lab</a></li>
+  <li>Library Carpentry's <a href="https://librarycarpentry.org/lc-sql/08-database-design/index.html">"Database Design" curriculum</a></li>
+  <li>Prof. Walden's <a href="https://github.com/kwaldenphd/sqlite-intro">"SQLite Intro" lab</a></li>
+  <li>Prof. Walden's <a href="https://github.com/kwaldenphd/sql-queries-joins">"SQL Queries and Joins" lab</a></li>
+  <li>Library Carpentry's <a href="https://librarycarpentry.org/lc-sql/">"SQL" curriculum</a></li>
  </ul>
  </blockquote>
 
 We can connect these two tables using the `Combined_Name` field in the `directory` table and the `Player` field in the `roster` table.
 
-FIG 30
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_30.png?raw=true" alt="Capture" /></p>
 
 First, we need to establish query relationships with each of the tables in our workbook.
 - Click the `From Table/Range` option (under `Get & Transform Data`, top-left) under the `Data` tab
 - In the `Power Query Editor` pop-up window, select `Close & Load`
 
-FIG 31
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_31.png?raw=true" alt="Capture" /></p>
 
 You should now see a `Schedules (2)` sheet that also shows up under `Queries & Connections`.
 
 Do this for each table in the workbook.
 
-FIG 32
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_32.png?raw=true" alt="Capture" /></p>
 
 Now, we need to create a new table that merges connecting records from the `rosters` and `directory` tables.
 
-FIG 29
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_29.png?raw=true" alt="Capture" /></p>
 
 We can do this by using PowerPivot and PowerQuery to merge connecting records in these fields.
 - Click the `Get Data` icon in the `Data` tab
 - Hover over `Combine Queries` in the drop-down
 - Click `Merge` under `Combine Queries`
 
-FIG 33
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_33.png?raw=true" alt="Capture" /></p>
 
 In the `Merge` pop-up window, select the tables and fields to create this relationship.
 - `Player` from `Rosters`
@@ -734,21 +736,21 @@ In the `Merge` pop-up window, select the tables and fields to create this relati
 
 Click `OK` to create the relationship.
 
-FIG 34
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_34.png?raw=true" alt="Capture" /></p>
 
 Now, we see a new `Merge1` table in the `PowerQuery Editor` window.
 
-FIG 35
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_35.png?raw=true" alt="Capture" /></p>
 
 We can rename this table under `Query Settings`.
 
 Now we want to select what columns from the merge will be included in the new table.
 
-FIG 36
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_36.png?raw=true" alt="Capture" /></p>
 
 We can click the arrow icons next to the `Directory` column in the new table to expand the list of merged fields.
 
-FIG 37
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_37.png?raw=true" alt="Capture" /></p>
 
 We want to select fields from the `Directory` table to merge with the `Rosters` table.
 
@@ -756,13 +758,13 @@ The name fields are duplicated, so we can focus on columns with major and home g
 
 Click `OK` to merge these columns.
 
-FIG 38
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_38.png?raw=true" alt="Capture" /></p>
 
 We can now see the merged columns in our new table.
 
 Click `Close & Load` to save these changes and load the new table to the workbook.
 
-FIG 39
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_39.png?raw=true" alt="Capture" /></p>
 
 We can now see a `Merged_Roster_Directory` sheet in our workbook.
 
