@@ -849,7 +849,7 @@ NOTE: Mendoza students in the Business Analytics program have access to Tableau 
 
 It's a large program, so be prepared for the installation process to take some time.
 
-<p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_16.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_16.png?raw=true" alt="" /></a></p>
+<p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/master/screenshots/Capture_16.PNG?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/master/screenshots/Capture_16.PNG?raw=true" alt="" /></a></p>
 
 Once the installation has finished, launch the program.
 
