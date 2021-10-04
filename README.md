@@ -490,7 +490,7 @@ A few notes:
 - This tutorial is written on a Windows computer. Mac users will see slightly different menu options in Excel.
 - Images and screenshots included in this tutorial are from a sample dataset and do not reflect what you will see working with different data.
 - If you do not have Microsoft Excel, some of the tasks we're exploring in Excel (arithmetic operations on a field, generating visualizations, etc) can be accomplished via Google Sheets.
-  * However the Pivot Table and Pivot Chart functionality is not available within Google Sheets.
+  * However the Pivot Chart, Power Pivot, and Power Query functionality is not available within Google Sheets.
 
 ### Getting Data Into Microsoft Excel
 
@@ -991,111 +991,124 @@ RStudio Project:
 
 # Mapping
 
+Up to this point, we have focused on exploratory data analysis/visualization in a Cartesian Coordinate system, that is data plotted on an `X` (horizontal) and `Y` (vertical) axis.
+
+But for data with geographic or geospatial components, we might want to analyze and visualize those spatial components by mapping the data, or using the data to generate maps that use a `latitude` and `longitude` coordinate system.
+
+The next section of the lab covers a few different tools to get started with visualizing spatial data.
+
+The lab procedure is going to used the `combined_nd_schedules_cleaned.csv` file, but you can use any of the sample datasets that include spatial (latitude/longitude) information.
+- Directories
+- Roster data merged with directory data (table we generated from the Excel section of the lab)
+
+For most of these mapping tools, we need data that is georeferenced, or data that includes discrete `latitude` and `longitude` coordinates for each location.
+
+There are lots of different ways to approach geocoding data, but a couple of free online geocoding services:
+- [LocalFocus data journalism batch geocoder](https://geocode.localfocus.nl/)
+- [Texas A&M Geocoding Services](https://geoservices.tamu.edu/Services/Geocode/)
+  * *Requires creating a free account*
+
+Most GIS (geographic information system) software programs also include a geocoding tool:
+- QGIS (open-source)
+  * Bryan Tor and Thomas Sawano, ["QGIS Geocoding Address Tutorial"](https://guides.library.ucsc.edu/DS/Resources/QGIS) *UC Santa Cruz Library Guide* (Fall 2019)
+  * Caitlin Dempsey, ["How to Geocode Addresses Using QGIS"](https://www.gislounge.com/how-to-geocode-addresses-using-qgis/) *GIS Lounge* (9 January 2018) 
+- ArcMap (proprietary)
+  * ArcMap, ["A quick tour of geocoding"](https://desktop.arcgis.com/en/arcmap/latest/manage-data/geocoding/a-quick-tour-of-geocoding.htm) *ArcGIS Desktop*
+  * ArcMap, ["Geocoding a table of addresses in ArcMap"](https://desktop.arcgis.com/en/arcmap/latest/manage-data/geocoding/geocoding-a-table-of-addresses-in-arcmap.htm) *ArcGIS Desktop*
+
+Python and RStudio also have specialized packages to facilitate geocoding data:
+- Python
+  * Abdishakur, ["Geocode with Python"](https://towardsdatascience.com/geocode-with-python-161ec1e62b89) *Towards Data Science* (15 September 2019)
+  * [`Geocoder` library documentation](https://geocoder.readthedocs.io/)
+  * [`GeoPy` library documentation](https://geopy.readthedocs.io/en/stable/)
+- RStudio
+  * Oleksandr Titorchuk, ["Breaking Down Geocoding in R: A Complete Guide"](https://towardsdatascience.com/breaking-down-geocoding-in-r-a-complete-guide-1d0f8acd0d4b) *Towards Data Science* (25 April 2020)
+  * Aleszu Bajak, ["How to geocode a csv of addresses in R"](https://www.storybench.org/geocode-csv-addresses-r/) *StoryBench* (21 April 2017)
+
+All sample datasets for this lab have already been geocoded.
+
 ## Google MyMaps
 
-Google launched <a href="https://www.google.com/maps/about/mymaps/">Google My Maps</a> in 2007 as part of the Google cloud services suite of programs. Through the My Map interface, users with a Google account can map points, lines, and shapes, with additional display customization options. My Maps allows users to generate maps from spreadsheets, work collaboratively on maps, and share interactive maps.
-
-<hr />
-
-# Data
-
-Download the 1870_Federal_Census_Grinnell_Township.csv file from this GitHub repo. Save the 1870 Federal Census Grinnell Township file to your Desktop.
-
-Alternatively, you can go to the data page of Blevins’s personal site. Under the “Regional Data: Western Post Offices and Postmaster Salaries” heading, download the 1871_PostmasterSalaries CSV file.
-
-<hr />
+Google launched [Google My Maps](https://www.google.com/maps/about/mymaps) in 2007 as part of the Google cloud services suite of programs. Through the My Map interface, users with a Google account can map points, lines, and shapes, with additional display customization options. My Maps allows users to generate maps from spreadsheets, work collaboratively on maps, and share interactive maps.
 
 <p align="center"><a href="https://github.com/kwaldenphd/google-mymaps-tutorial/blob/master/screenshots/Capture_1.PNG?raw=true"><img class="aligncenter size-large wp-image-473" src="https://github.com/kwaldenphd/google-mymaps-tutorial/blob/master/screenshots/Capture_1.PNG?raw=true" alt="" width="676" height="332" /></a></p>
 
-1-Sign up for a <a href="https://accounts.google.com/signup/v2/webcreateaccount?hl=en&amp;flowName=GlifWebSignIn&amp;flowEntry=SignUp">free Google Account</a>, and use those credentials to <a href="https://accounts.google.com/ServiceLogin/signinchooser?service=mymaps&amp;passive=1209600&amp;continue=https%3A%2F%2Fwww.google.com%2Fmaps%2Fd%2F%3Fhl%3Den&amp;followup=https%3A%2F%2Fwww.google.com%2Fmaps%2Fd%2F%3Fhl%3Den&amp;hl=en&amp;flowName=GlifWebSignIn&amp;flowEntry=ServiceLogin">log in to My Maps</a>.
+Use your ND Google credentials to log into [Google MyMaps](https://www.google.com/maps/).
 
 <p align="center"><a href="https://github.com/kwaldenphd/google-mymaps-tutorial/blob/master/screenshots/Capture_2.PNG?raw=true"><img class="aligncenter size-full wp-image-474" src="https://github.com/kwaldenphd/google-mymaps-tutorial/blob/master/screenshots/Capture_2.PNG?raw=true" alt="" width="178" height="55" /></a></p>
 
-2-Click on the <strong>Create New Map</strong> icon in the top left-hand corner.
+Click the `Create New Map` icon in the top left-hand corner.
 
 <p align="center"><a href="https://github.com/kwaldenphd/google-mymaps-tutorial/blob/master/screenshots/Capture_7.PNG?raw=true"><img class="aligncenter size-full wp-image-479" src="https://github.com/kwaldenphd/google-mymaps-tutorial/blob/master/screenshots/Capture_7.PNG?raw=true" alt="" width="407" height="295" /></a></p>
 
-3-Name the map by clicking on <strong>Untitled map</strong> in the top left-hand corner. Use <strong>Postmaster Salaries</strong> or a similar descriptive name.
+Name the map by clicking on `Untitled map` in the top left-hand corner. 
+- `Football Lab Map` is absolutely fine as a name
 
 <p align="center"><a href="https://github.com/kwaldenphd/google-mymaps-tutorial/blob/master/screenshots/Capture_3.PNG?raw=true"><img class="aligncenter size-full wp-image-475" src="https://github.com/kwaldenphd/google-mymaps-tutorial/blob/master/screenshots/Capture_3.PNG?raw=true" alt="" width="317" height="308" /></a></p>
 
-4-Click the blue <strong>Import</strong> icon to start the data import process. Select or drop the  <strong>1871_Postmaster_Salary CSV</strong> file to upload the data set. 
+Click the blue `Import` icon to start the data import process. 
+
+Select or drop a `.csv` file with latitude/longitude information to upload the dataset.
 
 <p align="center"><a href="https://github.com/kwaldenphd/google-mymaps-tutorial/blob/master/screenshots/Capture_5.PNG?raw=true"><img class="aligncenter size-full wp-image-477" src="https://github.com/kwaldenphd/google-mymaps-tutorial/blob/master/screenshots/Capture_5.PNG?raw=true" alt="" width="504" height="433" /></a></p>
 
-5-Check that only <strong>Latitude</strong> and <strong>Longitude</strong> are selected before clicking <strong>Continue</strong>. My Maps will keep all the original data records but needs to detect which fields contain spatial data.
+Check that only `Latitude` and `Longitude` are selected before clicking `Continue`. 
+
+My Maps will keep all the original data records but needs to detect which fields contain spatial data.
 
 <p align="center"><a href="https://github.com/kwaldenphd/google-mymaps-tutorial/blob/master/screenshots/Capture_6.PNG?raw=true"><img class="aligncenter size-full wp-image-478" src="https://github.com/kwaldenphd/google-mymaps-tutorial/blob/master/screenshots/Capture_6.PNG?raw=true" alt="" width="509" height="412" /></a></p>
 
-6-The next screen asks what field you want to use for the place marker titles. Select <strong>Name</strong> and click <strong>Finish</strong>.
+The next screen asks what field you want to use for the place marker titles. 
+
+Select a useful title field and click `Finish`.
 
 <p align="center"><a href="https://github.com/kwaldenphd/google-mymaps-tutorial/blob/master/screenshots/Capture_8.PNG?raw=true"><img class="aligncenter size-full wp-image-480" src="https://github.com/kwaldenphd/google-mymaps-tutorial/blob/master/screenshots/Capture_8.PNG?raw=true" alt="" width="307" height="286" /></a></p>
 
-7-Like with Carto, we can <strong>click on the three vertical dots</strong> next to the layer to rename the layer. Name the layer <strong>Postmaster Salaries</strong> or a similar descriptive title.
+Click on the three dots next to the layer to rename the layer with a descriptive name.
 
-8-My Maps is showing a message that 32 rows in the data could not be drawn on the map. If you have additional time, you can come back and explore this error message. For now, click <strong>Dismiss</strong>.
+Depending on the dataset you're using, you may get a message that select rows could not be drawn on the map.
+
+If you have additional time, you can come back and explore this error message. For now, click `Dismiss`
 
 <p align="center"><a href="https://github.com/kwaldenphd/google-mymaps-tutorial/blob/master/screenshots/Capture_9.PNG?raw=true"><img class="aligncenter size-full wp-image-481" src="https://github.com/kwaldenphd/google-mymaps-tutorial/blob/master/screenshots/Capture_9.PNG?raw=true" alt="" width="309" height="41" /></a></p>
 
-9-At the bottom of the pop-up in the top left-hand corner is a <strong>Base map icon</strong> with a dropdown icon. You can explore different available base maps to see what works best with your data. For example, My Maps’s default base map includes topographical data. If that data is not essential for our analysis, a simpler base map (like <strong>Simple Atlas</strong>) can help users focus on the most important aspects of the spatial visualization.
+On the left-hand side of the window is a `Base map` icon that inclues a drop-down menu.
 
-10-<strong>Click on the blue paint roller icon</strong> to open a pop-up with style customization options.
+You can explore different available base maps to see what works best with your data. 
 
-<p align="center"><a href="https://github.com/kwaldenphd/google-mymaps-tutorial/blob/master/screenshots/Capture_10.PNG?raw=true"><img class="aligncenter size-full wp-image-482" src="https://github.com/kwaldenphd/google-mymaps-tutorial/blob/master/screenshots/Capture_10.PNG?raw=true" alt="" width="310" height="267" /></a></p>
+For example, My Maps’s default base map includes topographical data. If that data is not essential for our analysis, a simpler base map (like `Simple Atlas`) can help users focus on the most important aspects of the spatial visualization.
 
-11-Click <strong>Uniform style</strong> and click <strong>Group places by</strong>, then select <strong>PM_Salary</strong> under <strong>Style by data column</strong> to color the data points based on salary categories.
+FIG 48
 
-12-Based on looking at the legend created in the last step, the number of <strong>Nulls</strong> and <strong>Others</strong> means the default options for this style don’t work effectively for our data.
+Click on the blue paint roller icon next to the data layer to open a pop-up with style customization options.
 
-<p align="center"><a href="https://github.com/kwaldenphd/google-mymaps-tutorial/blob/master/screenshots/Capture_11.PNG?raw=true"><img class="aligncenter size-full wp-image-483" src="https://github.com/kwaldenphd/google-mymaps-tutorial/blob/master/screenshots/Capture_11.PNG?raw=true" alt="" width="307" height="294" /></a></p>
+The default setting is a uniform style for all map markers.
 
-13-Click the <strong>blue paint roller icon</strong> again to reopen the customization pop-up. Change the selection from <strong>Categories</strong> to <strong>Ranges</strong>, and change the number from <strong>4</strong> to <strong>10</strong>. My Maps’s default setting calculates categories for the data, but the <strong>range</strong> option lets us determine a <strong>specific number of range distributions</strong>. In this case, specifying <strong>10</strong> ranges effectively represents our data. You can click on the <strong>color</strong> dropdown to select a <strong>color gradient</strong>.
+We want to think about display customization options that are a good fit for the data we're working with.
 
-<p align="center"><a href="https://github.com/kwaldenphd/google-mymaps-tutorial/blob/master/screenshots/Capture_12.PNG?raw=true"><img class="aligncenter size-large wp-image-484" src="https://github.com/kwaldenphd/google-mymaps-tutorial/blob/master/screenshots/Capture_12.PNG?raw=true" alt="" width="676" height="483" /></a></p>
+FIG 43
 
-14-Now that our data is grouped and displayed on the map, <strong>click on points</strong> to see how the My Maps pop-up compares to Carto. What are the limitations of this platform compared to Carto? What are the advantages? Where would you go next in your customization or analysis?
+We can experiment with grouping points by a particular field, coloring points based on discrete categories or numeric ranges (for numeric fields).
+- For example, if you're working with the directory information, you could color points by `Major`.
+- Or if you're working with the schedule information, you could color points by `Conf` or `Season`.
 
-&nbsp;
+FIGURE 45
 
-<hr />
+FIG 46
 
-## Additional exploration:
+FIG 47
 
-<ul>
- 	<li>When we uploaded our data to My Maps, an error message said 32 rows could not be shown on the map. Open the data table and explore what patterns or discrepancies you can find for these rows. Why can't the mapping program visualize this data? What would be involved in editing the data to make these rows display on the map?</li>
- 	<li>Continue exploring the display options in My Maps. What level of customization or analysis does My Maps provide, compared to Carto?</li>
-</ul>
+Once you have a map display you like, you can download, share, or print, using some of the options highlighted in the screenshots.
+- Prof. Walden's sample Google My Map for this lab
+  * [Public map](https://www.google.com/maps/d/edit?mid=1CUC36a-kqnX7ljy8Wtebc6lYvfxVZODV&usp=sharing)
+  * [My Map project](https://www.google.com/maps/d/edit?mid=1CUC36a-kqnX7ljy8Wtebc6lYvfxVZODV&usp=sharing)
 
-<hr />
+### Discussion and Reflection Questions:
 
-# Reflection questions:
-<ul>
- 	<li>How would you compare Carto and Google Maps as mapping tools for digital history?</li>
- 	<li>What are the strengths and weaknesses of each platform?</li>
- 	<li>What types of projects or data could you see working best with a specific tool?</li>
-</ul>
+asdfasf as df
 
-<hr />
-
-# Introduction to Mapping wrap-up
-
-Now that we’ve mapped Blevins’s data using two different tools, let’s explore <a href="http://cameronblevins.org/gotp/">how he maps this data in the larger project</a>. As you explore the maps, keep in mind Blevins was focused on mapping post offices’ hours of service, rather than postmaster salaries which were the focus of our data.
-
-Be sure to read the “About the Map,” “How to Use,” and “About the Data” sections on the interactive mapping site.  Based on the choices you made about analyzing and visualizing your data in this tutorial, what thoughts or reflections do you have on how Blevins made similar choices, just on a much larger scale.
-
-Read about how Blevins uses this data and spatial analysis to construct a historical argument about <a href="http://www.cameronblevins.org/posts/postal-geography-and-the-golden-west/">Postal Geography and the Golden West</a>, as well as <a href="http://www.cameronblevins.org/posts/the-county-problem-in-the-west/">The County Problem in the West</a>. How did Blevins connect the data used in spatial analysis to a larger historical argument? What role did the data and spatial analysis play in that larger argument?
-
-<hr />
-
-# Final reflection questions:
-<ul>
- 	<li>What interested you in this data? Would you have been able to find this information and draw conclusions from it without using spatial analysis tools?</li>
- 	<li>What questions do you still have about this data? How could you answer them? How could you answer them digitally?</li>
- 	<li>Were there any issues we talked about in historical mapping (change over time, error, certainty, etc.) that you think of differently now that you have tried it?</li>
-</ul>
 
 ## ArcGIS Online
-
 
 - [Logging in to ArcGIS Online](#logging-in-to-arcgis-online)
 - [Creating a New Map](#creating-a-new-map)
@@ -1111,83 +1124,80 @@ Read about how Blevins uses this data and spatial analysis to construct a histor
 - [Adding Other Data from ArcGIS Online](#adding-other-data-from-arcgis-online)
 - [Saving, Sharing, and Printing Your Map](#saving-sharing-and-printing-your-map)
 
+ArcGIS is an industry-standard tool developed by geographers in the 1970s, from parent company ESRI.
+
+From the [ArcGIS Online "Overview" page](https://www.esri.com/en-us/arcgis/products/arcgis-online/overview): 
+- "Build interactive web maps with ArcGIS Online, Esri's web-based mapping software. Gain new perspectives and enhanced details as you interact with data, zoom in, and search on the map. Use smart, data-driven mapping styles and intuitive analysis tools to gain location intelligence. Work effectively across your organization by collaboratively building and using maps. Share your insights with specific people or the entire world."
+
 ## Logging in to ArcGIS Online
 
 <p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/ArcGIS-Online-tutorial/blob/DASIL-Workshop/screenshots/Capture_a.png?raw=true" alt="Capture" /></p>
 
-1-Open Firefox or Chrome and navigate to <a href="http://grinnell.maps.arcgis.com/">http://grinnell.maps.arcgis.com/</a> in the web browser.
+Open Firefox or Chrome and navigate to https://www.arcgis.com/sharing/rest/oauth2/signup?client_id=arcgisonline&redirect_uri=http://www.arcgis.com&response_type=token in a web brower.
 
-2-Use the username and password you created after accepting the invitation to sign in.
+Create a free ArcGIS public account.
 
-3- Click the blue <strong>Sign In</strong> button in the middle of the page.
+FIG 49
 
-<p align="center"><img class=" size-full wp-image-54 aligncenter" src="https://github.com/kwaldenphd/ArcGIS-Online-tutorial/blob/DASIL-Workshop/screenshots/Capture_b.png?raw=true" alt="Capture_1" /></p>
+Once you have an account and have logged in, click `Map` in the top-left page menu.
 
-4-Once logged in, click on <strong>Content</strong> in the menu on the top-left of the page.
-
-<hr />
-
-<blockquote><em>Note: This rest of this tutorial is written using a sample data set. Your data, map, and map layers will look different than the images included in the tutorial.</em></blockquote>
+<blockquote>Note: This rest of this tutorial is written using a sample data set. Your data, map, and map layers will look different than the images included in the tutorial.</blockquote>
 
 ## Creating a New Map
-
-<p align="center"><img class=" size-full wp-image-57 aligncenter" src="https://github.com/kwaldenphd/ArcGIS-Online-tutorial/blob/master/screenshots/Capture_4.PNG?raw=true" alt="Capture_4" /></p>
-
-5-Once in Content, click on Create-Map to start building an interactive online map.
-
-<p align="center"><img class=" size-full wp-image-58 aligncenter" src="https://github.com/kwaldenphd/ArcGIS-Online-tutorial/blob/master/screenshots/Capture_5.PNG?raw=true" alt="Capture_5"  /></p>
-
-6-Add a title, tags, and summary, and click the blue OK icon. Provide information that will help you find and identify the map you're creating. 
 
 <p align="center"><img class=" size-full wp-image-59 aligncenter" src="https://github.com/kwaldenphd/ArcGIS-Online-tutorial/blob/master/screenshots/Capture_6.PNG?raw=true" alt="Capture_6"  /></p>
 
 7-You are now in ArcGIS Online’s map builder interface.
 
-<hr />
+<p align="center"><img class=" size-full wp-image-64 aligncenter" src="https://github.com/kwaldenphd/ArcGIS-Online-tutorial/blob/master/screenshots/Capture_11.PNG?raw=true" alt="Capture_11"  /></p>
+
+Click the `Save` icon above the map to save your map.
+
+FIG 50
+
+Add a title, tags, and summary, and click the blue `Save Map` icon. Provide information that will help you find and identify the map you're creating. 
 
 ## Adding Data to Your Map
 
-8-Download the SampleData.csv file from this repo.
-
-This dataset includes details about where Nirvana gave live performances. [Learn more about this dataset.](https://data.world/ben-pfeifer/nirvana-live-performances)
-
-Open the data file in Excel or another spreadsheet program. What data fields are you seeing?
-
 <p align="center"><img class=" size-full wp-image-60 aligncenter" src="https://github.com/kwaldenphd/ArcGIS-Online-tutorial/blob/master/screenshots/Capture_7.png?raw=true" alt="Capture_7"  /></p>
 
-9-Click on the Add icon in the top-left corner of the page, and select Add Layer from File.
+Click on the `Add` icon in the top-left corner of the page, and select `Add Layer from File`.
 
-10-Click the Browse icon and select the CSV file saved to your Desktop.
+Click the Browse icon and select one of the lab CSV files that includes geospatial data.
 
 <p align="center"><img class=" size-full wp-image-61 aligncenter" src="https://github.com/kwaldenphd/ArcGIS-Online-tutorial/blob/master/screenshots/Capture_8.PNG?raw=true" alt="Capture_8"  /></p>
 
-11-Click the blue Import Layer icon to add the data to your map.
+Click the blue `Import Layer` icon to add the data to your map.
 
 <p align="center"><img class=" size-full wp-image-62 aligncenter" src="https://github.com/kwaldenphd/ArcGIS-Online-tutorial/blob/master/screenshots/Capture_9.PNG?raw=true" alt="Capture_9" /></p>
 
-12-Click the blue Done icon to finish adding data to your map.
+Click the blue `Done` icon to finish adding data to your map.
 
 <p align="center"><img class=" size-full wp-image-64 aligncenter" src="https://github.com/kwaldenphd/ArcGIS-Online-tutorial/blob/master/screenshots/Capture_11.PNG?raw=true" alt="Capture_11"  /></p>
 
-13-Click the Save icon above the map to save your map.
-
-<hr />
+Click the `Save` icon above the map to save your map.
 
 ## Customizing Your Map
 
-The default setting for ArcGIS Online is to display the locations in your data without any styling or customization. Hover your cursor over the data layer to see additional customization options. You can use multiple layers to display or highlight different aspects of the data on the map.
+The default setting for ArcGIS Online is to display the locations in your data without any styling or customization. 
+
+Hover your cursor over the data layer to see additional customization options. 
+
+You can use multiple layers to display or highlight different aspects of the data on the map.
 
 ### Basemap
 
 <p align="center"><img class=" size-full wp-image-63 aligncenter" src="https://github.com/kwaldenphd/ArcGIS-Online-tutorial/blob/master/screenshots/Capture_10.PNG?raw=true" alt="Capture_10"  /></p>
 
-You can change the background map by click a different option in the Basemap dropdown.
+You can change the background map by click a different option in the `Basemap` dropdown.
 
 ### Legend
 
 <p align="center"><img class=" wp-image-66 aligncenter" src="https://github.com/kwaldenphd/ArcGIS-Online-tutorial/blob/master/screenshots/Capture_13.PNG?raw=true" alt="Capture_13" /></p>
 
-If you want to style points by location, emotion, or another attribute, click on the Change Style icon. Choose an element from your data, and explore the drawing style options.
+If you want to style points by particular fields, click on the `Change Style` icon. 
+
+Choose an element from your data, and explore the drawing style options.
 
 ### Point symbol, color, and size
 
@@ -1195,7 +1205,7 @@ If you want to style points by location, emotion, or another attribute, click on
 
 <p align="center"><img class=" size-full wp-image-68 aligncenter" src="https://github.com/kwaldenphd/ArcGIS-Online-tutorial/blob/master/screenshots/Capture_15.PNG?raw=true" alt="Capture_15"  /></p>
 
-Click on the Change Style icon, and click the blue Options icon.
+Click on the `Change Style` icon, and click the blue `Options` icon to explore options for customizing point symbol, color, size, etc..
 
 ### Heatmaps and clustering
 
@@ -1219,8 +1229,6 @@ Click on the Configure Pop-up option to select what data fields display in the p
 
 Hover your cursor over the data layer and click the three dots that appear to see additional options for customizing transparency, copying a layer, or naming a layer.
 
-<hr />
-
 14-Explore display options for this data. One layer does not have to communicate all relevant aspects of the data.
 
 <p align="center"><img class=" size-full wp-image-65 aligncenter" src="https://github.com/kwaldenphd/ArcGIS-Online-tutorial/blob/master/screenshots/Capture_12.png?raw=true" alt="Capture_12" /></p>
@@ -1233,170 +1241,171 @@ Hover your cursor over the data layer and click the three dots that appear to se
 
 17-Save the Web Map regularly to avoid losing any changes.
 
-## Adding Other Data From ArcGIS Online
-
-<p align="center"><img class=" size-full wp-image-72 aligncenter" src="https://github.com/kwaldenphd/ArcGIS-Online-tutorial/blob/DASIL-Workshop/screenshots/Capture_7.png?raw=true" alt="Capture_7"  /></p>
-
-31-Select Add--Search for Layers to bring in data that other users have published to ArcGIS Online.
-
-<p align="center"><img class=" size-full wp-image-72 aligncenter" src="https://github.com/kwaldenphd/ArcGIS-Online-tutorial/blob/DASIL-Workshop/screenshots/Capture_n.png?raw=true"  /></p>
-
-32-Click on My Content to open up a drop-down menu. Select the option to search through ArcGIS Online.
-
-33-Use different key words or terms to find other data that you might want to bring into your map.
-
 ## Saving, Sharing, and Printing Your Map
 
 34-Save your map regularly by clicking the Save icon.
 
 <p align="center"><img class=" size-full wp-image-72 aligncenter" src="https://github.com/kwaldenphd/ArcGIS-Online-tutorial/blob/DASIL-Workshop/screenshots/Capture_j.png?raw=true"  /></p>
 
-35-Click the Share icon when you are ready to share your map with other users in the Grinnell organization or the general public.
+35-Click the Share icon when you are ready to share your map.
 
 <p align="center"><img class=" size-full wp-image-72 aligncenter" src="https://github.com/kwaldenphd/ArcGIS-Online-tutorial/blob/DASIL-Workshop/screenshots/Capture_k.png?raw=true" /></p>
 
 36-Click the Print icon to generate a static image with your map and legend that you can save as an image or print to a PDF.
+- [Prof. Walden's sample map for this lab](https://arcg.is/1n5i1e)
 
+### Additional Resources
+
+FIG 51
+
+There's a lot more you can do with ArcGIS Online.
+
+NOTE: Notre Dame provides subscription access to ArcGIS Online. Email Prof. Walden for next steps on being added to the ND enterprise account.
+
+The tutorials on the landing page are a great place to start.
+
+We'll do more with ArcGIS Online in the next lab when we work with digital exhibits. But there are a lot of additional things you can do with ArcGIS Online, especially around bringing interactive maps in conversation with text/media/etc (StoryMaps), or creating interactive dashboards similar to Carto's functionality (ArcGIS Web App Builder).
+
+[More info on StoryMaps](https://www.esri.com/en-us/arcgis/products/arcgis-storymaps/stories)
+
+A few examples of things folks are doing with StoryMaps:
+- [Mapping LGBTQ+ St. Louis (Washington University St. Louis)](https://storymaps.arcgis.com/stories/9675a82d3d564c80b950361e709dff5e)
+- [Collection of StoryMaps from Library of Congress, Smithsonian, etc.](https://storymaps-classic.arcgis.com/en/gallery/#s=0&md=storymaps-industry:libraries-museums-institutions)
+- [Three Empires of Islam at the Metropolitan Museum of Art](https://storymaps.arcgis.com/stories/fa22b665c7894790b1b0441d0593289c)
+- [Bombing Missions of the Vietnam War](https://storymaps.arcgis.com/stories/2eae918ca40a4bd7a55390bba4735cdb)
+
+A WebApp Builder example:
+- [Mapping Absence in Shakespeare](https://arcg.is/a1Pnq)
+  * [Project website](https://absentshakespeare.sites.grinnell.edu/)
+- [Mapping Islamophobia](https://mappingislamophobia.org/)
+  * [Reporting Islamophobia](https://grinnell.maps.arcgis.com/apps/instant/interactivelegend/index.html?appid=11caab7d852b4ec88defce3f3c100e42)
+  * [Countering Islamophobia](https://grinnell.maps.arcgis.com/apps/instant/interactivelegend/index.html?appid=f2215ec572a84047923fbb7f41665b19)
+  
 ## Carto
 
-Historians have long used spatial analysis, but digital mapping tools have made it possible for historians to explore larger and more complex spatial data sets. Northeastern University historian Cameron Blevins does this in his research on the relationship between state formation, westward expansion, and the U.S. postal service. In this tutorial, we will be using some of the data sets from Blevins’s research to learn more about some of the digital spatial analysis and visualization tools used in historical research.
+[Carto](https://carto.com) is a cloud-computing platform released in 2011 by developer Vizzuality. Written in Ruby and Javascript, Carto is designed to allow businesses to analyze and visualize spatial data without prior or detailed technical GIS knowledge. As we’ll learn in another tutorial, GIS programs like ArcGIS are not always intuitive and user-friendly. Carto was designed as an alternative, with a web-hosted option that doesn’t require a local installation, although Carto is available as <a href="https://github.com/CartoDB/CartoDB">open source software</a>. The short version—users can work with Carto in the browser without needing to set up their own server to host the program. The web-based version of Carto is considered a ["freemium"](https://carto.com/pricing) software- free for some types of users with limited web-based functionality with scaled pricing plans for long-term use.
 
-<hr />
+From [Carto](https://carto.com/help/getting-started/student-accounts/): "Students can create a free CARTO account via GitHub’s Student Developer Pack."
 
-## How Blevins describes his research (from<a href="http://www.cameronblevins.org/research/"> his personal site</a>):
+[Sign up](https://education.github.com/pack) for a free GitHub Student Developer Pack.
 
-<em>My current project is a spatial history of two of the defining projects of the late nineteenth-century United States: state formation and western expansion. Between the 1860s and the 1890s, the western United States underwent one of the most dramatic reorganizations of people, land, capital, and resources in American history. How did this happen so quickly, and across such a large and inhospitable area? Why were so many people willing and able to move to such shockingly remote places? How did the American state consolidate its control over this vast territory? I argue that the sprawling infrastructure of the U.S. Post holds the key to understanding the speed and scale of western expansion. Gossamer Network uses a database of more than 100,000 post offices <a href="http://cameronblevins.org/gotp">to map the spread of the postal network in the western United States</a>. This presents one of the most comprehensive and detailed spatial renderings of the nineteenth-century state that has ever been assembled.</em>
+The Developer Pack also gives you discounted or free access to a range of different toolks and resources, including Canva, Digital Ocean, Microsoft Azure, and Carto.
 
-<em>This analysis leads to a series of new interpretations about the American state and the West. The U.S. Post was the era’s most spatially expansive institution. No other network, public or private, connected so many different people in so many different places across such a large area. It did so by operating what I’ve termed a “gossamer network.” The U.S. Post expanded across space by grafting the public functions of mail service onto the existing operations of private businesses: contracting with a stagecoach company to transport bags of mail, or paying a local businessman to periodically distribute letters from his general store. This flexible, ethereal structure allowed the U.S. Post to expand and contract across remote areas with a stunning speed. Its ability to move in lockstep with Anglo-Americans had enormous consequences for the West, accelerating a pattern of imperial conquest and settler colonialism while serving as the underlying machinery of governance in the region. Gossamer Network sheds new light on the familiar subject of western expansion and forces us to reconsider the very nature of state power during this era.</em>
-
-<hr />
-
-## Preliminary reflection questions:
-<ul>
- 	<li>What are Blevins’s research questions?</li>
- 	<li>Why (and how) is spatial analysis important to addressing those questions?</li>
- 	<li>What types of data do you think Blevins might work with for this project?</li>
- 	<li>Do you see any potential challenges or limitations in using spatial data as the foundation for this project?</li>
-</ul>
-
-<hr />
-
-## Data
-
-1-Download the 1870_Federal_Census_Grinnell_Township.csv file from this GitHub repo. Save the 1870 Federal Census Grinnell Township file to your Desktop.  
-
-Alternatively, you can go to the <a href="http://www.cameronblevins.org/postal-data/">data page</a> of Blevins’s personal site. Under the “Regional Data: Western Post Offices and Postmaster Salaries” heading, download the <strong>1871_PostmasterSalaries CSV file</strong>.
-
-2-Open the file in Microsoft Excel.
-
-3-What fields are represented in the data? What questions do you have about the data?
-
-4-Compare the <a href="https://babel.hathitrust.org/cgi/pt?id=loc.ark:/13960/t3kw65n8k;view=1up;seq=7">original data source</a> and what you see in the Excel table—what differences do you observe in how the data is represented? What types of questions do you think this data might be able to address? What gaps or absences do you notice in the data?
-
-5-Save the file to your <strong>Desktop</strong> as a <strong>CSV</strong>. If Excel displays a warning message when you try to save as a CSV, click <strong>OK</strong> and continue.
-
-<hr />
-
-<blockquote>A note on geocoding:
-
-The process of adding spatial information to data or determining exact coordinates for locations is called geocoding. As you notice in Blevins’s data, the original data source does not include specific geocordinates for every post office location. Historically, gazetteer publications (essentially a phone book with locations and geocoordinates) were used to find place information for spatial data. Best practice for limited data sets is still to use a gazetteer to georeferenced spatial data, and the internet has increased the availability and searchability of gazetteers. However, manual geocoding is not feasible for many larger data sets. A variety of free and paid services offer automated geocoding.</blockquote>
-
-<hr />
-
-## The United States in 1871
-
-One of the challenges in historical spatial analysis is maps, boundaries, and territories change over time. A map of the United States in 1800 looks very different than what we encounter in Google Maps or MapQuest. Explore <a href="https://www.davidrumsey.com/luna/servlet/detail/RUMSEY~8~1~26362~1100036:United-States-&amp;-territories-?sort=Pub_List_No_InitialSort%2CPub_Date%2CPub_List_No%2CSeries_No">a map of the U.S.</a> that was drawn and published in 1871. Not all territories drawn on the map had been granted statehood in 1871. Consult a <a href="https://en.wikipedia.org/wiki/List_of_U.S._states_by_date_of_admission_to_the_Union">chronological list of U.S. states by date of admission to the Union</a> to see what territories on the map would not have been recognized states in 1871.
-
-### Reflection questions:
-<ul>
- 	<li>Why do you think it is important to understand the historical spatial context for Blevins’s data?  What all do we know about context?</li>
- 	<li>How would something like knowing states’ dates of admission to the Union impact how we analyze spatial data?</li>
- 	<li>What features on the 1871 map stand out as significant?</li>
-</ul>
-
-<hr />
-
-## Carto
-
-<a href="https://carto.com/">Carto</a> is a cloud-computing platform released in 2011 by developer Vizzuality. Written in Ruby and Javascript, Carto is designed to allow businesses to analyze and visualize spatial data without prior or detailed technical GIS knowledge. As we’ll learn in another tutorial, GIS programs like ArcGIS are not always intuitive and user-friendly. Carto was designed as an alternative, with a web-hosted option that doesn’t require a local installation, although Carto is available as <a href="https://github.com/CartoDB/CartoDB">open source software</a>. The short version—users can work with Carto in the browser without needing to set up their own server to host the program. The web-based version of Carto is considered a <a href="https://carto.com/pricing/">“freemium” software</a>—free for some types of users with limited web-based functionality with scaled pricing plans for long-term use. Anyone can register for a 30 day Carto trial, which is what we will be using in this tutorial.
-
-<hr />
-
-6-If you do not already have a Carto account, <a href="https://carto.com/signup/">register</a> for a free 30 day trial. No billing and payment information is required to sign up.
+Once you have signed up for the GitHub Student Developer Pack, create a free Carto account.
 
 <p align="center"><a href="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_1.PNG?raw=true"><img class="aligncenter size-large wp-image-461" src="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_1.PNG?raw=true" alt="" width="676" height="335" /></a></p>
 
+Log in to Carto. If needed, click on `My Dashboard`
+
 <p align="center"><a href="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_2.PNG?raw=true"><img class="aligncenter size-full wp-image-462" src="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_2.PNG?raw=true" alt="" width="424" height="211" /></a></p>
 
-7-<strong>Log in</strong> to Carto. Next to your name in the top menu is a <strong>Maps</strong> icon with a dropdown arrow. Select <strong>Your datasets</strong> from the dropdown.
+Next to your name in the top menu is a `Maps` icon with a dropdown arrow. 
+
+Select `Your datasets` from the dropdown
 
 <p align="center"><a href="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_3.PNG?raw=true"><img class="aligncenter size-full wp-image-463" src="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_3.PNG?raw=true" alt="" width="381" height="77" /></a></p>
 
 <p align="center"><a href="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_4.PNG?raw=true"><img class="aligncenter size-large wp-image-464" src="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_4.PNG?raw=true" alt="" width="676" height="549" /></a></p>
 
-8-Click on the <strong>New Dataset</strong> icon in the upper right-hand corner of the page.
+Click the `New Dataset` icon in the upper right-hand corner of the page.
 
-9-You can browse to select the <strong>1871_PostmasterSalary CSV file</strong> from your <strong>Desktop</strong>, or drag and drop it into the upload section of the page.
+Select one of the `CSV` files for this lab that includes geospatial data, or drag and drop it into the upload section of the page.
 
 <p align="center"><a href="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_5.PNG?raw=true"><img class="aligncenter size-full wp-image-465" src="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_5.PNG?raw=true" alt="" width="273" height="98" /></a></p>
 
-10-Click the <strong>Connect Dataset</strong> blue icon in the bottom right-hand corner of the page to upload the dataset to Carto.
+10-Click the `Connect Dataset` blue icon in the bottom right-hand corner of the page to upload the dataset to Carto.
 
 <p align="center"><a href="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_6.PNG?raw=true"><img class="aligncenter size-large wp-image-466" src="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_6.PNG?raw=true" alt="" width="676" height="329" /></a></p>
 
-11-Once your data has been added to Carto, compare how the data was structured in Excel versus how it is structured and described in Carto. What similarities do you notice? What has changed? Why do you think Carto made these changes or added this additional information?
+Once your data has been added to Carto, compare how the data was structured in Excel or Tableau versus how it is structured and described in Carto. 
+- What similarities do you notice? What has changed? Why do you think Carto made these changes or added this additional information?
 
 <p align="center"><a href="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_7.PNG?raw=true"><img class="aligncenter size-full wp-image-467" src="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_7.PNG?raw=true" alt="" width="181" height="78" /></a></p>
 
-12-Click the blue <strong>Create Map</strong> icon in the bottom right-hand corner of the page.
+Click the blue `Create Map` icon in the bottom right-hand corner of the page.
 
 <p align="center"><a href="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_8.PNG?raw=true"><img class="aligncenter size-large wp-image-468" src="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_8.PNG?raw=true" alt="" width="676" height="331" /></a></p>
 
-13-Once you’ve created a map, you move into Carto’s <strong>builder environment</strong>. Use the four-step tour to learn more about Carto’s map editing page.
+Once you’ve created a map, you move into Carto’s `builder environment`. Use the four-step tour to learn more about Carto’s map editing page.
 
 <p align="center"><a href="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_13.PNG?raw=true"><img class="aligncenter size-full wp-image-450" src="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_13.PNG?raw=true" alt="" width="347" height="398" /></a></p>
 
-14-<strong>Rename the map</strong> by clicking on the three vertical dots next to the <strong>table_1871_postmas… header</strong>. Click <strong>Rename</strong> and change your map’s title to “Postmaster Salaries” or another descriptive phrase. You can also rename the map by double-clicking the title.
+Rename the map by clicking on the three vertical dots next to the data file name.
 
-15-Let’s explore the map editing page. Use the plus or minus symbols in the bottom left-hand corner of the map to zoom in and out on the map. Double-clicking an area or using your mouse scroll wheel are also ways to zoom in and out.
+Click `Rename` to add a descriptive title. You can also rename the map by double-clicking the title.
+
+Let’s explore the map editing page. 
+- Use the plus or minus symbols in the bottom left-hand corner of the map to zoom in and out on the map. 
+- Double-clicking an area or using your mouse scroll wheel are also ways to zoom in and out.
 
 <p align="center"><a href="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_11.PNG?raw=true"><img class="aligncenter size-full wp-image-471" src="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_11.PNG?raw=true" alt="" width="324" height="307" /></a></p>
 
 <p align="center"><a href="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_12.PNG?raw=true"><img class="aligncenter size-full wp-image-449" src="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_12.PNG?raw=true" alt="" width="346" height="947" /></a></p>
 
-16-Click on any map point and click on the small light blue pencil icon that appears. Clicking this editing icon shows you that point’s attributes, such as its latitude, longitude, and other descriptive information. If needed, you could edit point data on this screen.
+Click on any map point and click on the small light blue pencil icon that appears. 
 
-17-To exit looking at data points, click the <strong>Back</strong> arrow in the top left-hand corner of the page.
+Clicking this editing icon shows you that point’s attributes, such as its latitude, longitude, and other descriptive information. 
+- If needed, you could edit point data on this screen.
+
+To exit looking at data points, click the `Back` arrow in the top left-hand corner of the page.
 
 <p align="center"><a href="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_10.PNG?raw=true"><img class="aligncenter size-full wp-image-470" src="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_10.PNG?raw=true" alt="" width="306" height="287" /></a></p>
 
-18-Although we are only working with one data layer in this tutorial, many mapping projects work with multiple layers so naming data layers is a useful practice. <strong>Click on the three vertical dots</strong> next to the data set’s title. Click <strong>rename</strong> and enter an appropriate descriptive name for the data set. You can also rename the data set by double-clicking the title.
+Although we are only working with one data layer in this tutorial, many mapping projects work with multiple layers so naming data layers is a useful practice. 
+
+To rename the data layer:
+- Click on the three vertical dots next to the dataset’s title. 
+- Click `rename` and enter an appropriate descriptive name for the data set. 
+- You can also rename the data set by double-clicking the title.
 
 <p align="center"><a href="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_14.PNG?raw=true"><img class="aligncenter size-full wp-image-451" src="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_14.PNG?raw=true" alt="" width="347" height="946" /></a></p>
 
-19-Click on the <strong>dataset layer</strong> to move into Carto’s <strong>layer pane</strong>. Another brief tour can help you navigate the layer pane, which includes a menu with <strong>Data, Analysis, Style, Pop-Up,</strong> and <strong>Legend</strong> options.
+Click on the data layer to move into Carto’s layer editing environment.
+
+Another brief tour can help you navigate the layer pane, which includes a menu with `Data`, `Analysis`, `Style`, `Pop-Up`, and `Legend` options.
 
 <p align="center"><a href="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_15.PNG?raw=true"><img class="aligncenter size-full wp-image-452" src="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_15.PNG?raw=true" alt="" width="332" height="222" /></a></p>
 
-20-We’ll explore spatial analysis more in a later tutorial, but select <strong>Style</strong> from the layer menu. <strong>Aggregation</strong> offers different ways to visualize your data points on the map, from the default circular points to hexagons to heat maps and time animations. What types of aggregation are most effective for this data set? What types of aggregation do not work for this data set? What aspects of the data are highlighted in different aggregations?
+Select `Style` from the layer menu.
 
-21-The second option in the <strong>Style</strong> menu allows you to change the size and color of your data points. In Carto’s default settings, point size and color is standardized across all data points.
+`Aggregation` offers different ways to visualize your data points on the map, from the default circular points to hexagons to heat maps and time animations. 
+- What types of aggregation are most effective for this data set? 
+- What types of aggregation do not work for this data set? 
+- What aspects of the data are highlighted in different aggregations?
+
+The second option in the `Style` menu allows you to change the size and color of your data points. 
+
+In Carto’s default settings, point size and color is standardized across all data points.
 
 <p align="center"><a href="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_16.PNG?raw=true"><img class="aligncenter size-full wp-image-453" src="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_16.PNG?raw=true" alt="" width="325" height="240" /></a></p>
 
-22-Under <strong>Point Size</strong>, switch the selection from <strong>Fixed</strong> to <strong>By value</strong>, and select <strong>pm_salary</strong>. Sizing points by value selects a data field and sizes points based on how frequently they appear in the dataset.
+Under `Point Size`, switch the selection from `Fixed` to `By value` to size points by a numeric data field.
+
+Sizing points by value selects a data field and sizes points based on how frequently they appear in the dataset.
 
 <p align="center"><a href="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_17.PNG?raw=true"><img class="aligncenter size-full wp-image-454" src="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_17.PNG?raw=true" alt="" width="379" height="334" /></a></p>
 
-23-When sizing points by value, you can customize how many buckets (categories) you want to have, as well as how the distribution of those buckets is calculated. Carto’s default setting uses <strong>Quantiles</strong> to calculate bucket distribution, but you can select other ways to calculate those ranges.
+When sizing points by value, you can customize how many buckets (categories) you want to have, as well as how the distribution of those buckets is calculated. 
 
-24-What happens when you change the <strong>number of buckets</strong>, <strong>min/max values</strong>, or the <strong>way bucket distribution is calculated</strong>? What impact do these choices have on how your data is represented on the map? What factors would you need to consider when making these choices to accurately represent your data and analysis?
+Carto’s default setting uses Quantiles to calculate bucket distribution, but you can select other ways to calculate those ranges.
+
+Discussion questions:
+- What happens when you change the number of buckets, min/max values, or the way bucket distribution is calculated?
+- What impact do these choices have on the way your data is represented on the map?
+- What factors would you need to consider when making these choices to represent, analyze, and visualize data?
 
 <p align="center"><a href="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_16.PNG?raw=true"><img class="aligncenter size-full wp-image-453" src="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_16.PNG?raw=true" alt="" width="325" height="240" /></a></p>
 
-25-In addition to sizing points by value, we can also assign colors to points based on their value. Switch the <strong>Point Size</strong> selection back to <strong>Fixed</strong>, and switch the <strong>Point Color</strong> selection from <strong>Solid</strong> to <strong>By Value</strong>. Select the <strong>pm_salary</strong> value to recolor your points based on salary ranges.
+In addition to sizing points by value, we can also assign colors to points based on their value. 
+- Switch the `Point Size` selection back to `Fixed`
+- Switch the `Point Color` selection from `Solid` to `By Value`
+- Select a data field (numeric or string) to use for point color
 
-26-Like with <strong>Point Size</strong>, Carto gives you the option of selecting your number of buckets and how those bucket ranges are calculated. You can also use one of Carto’s preset color palettes or build your own custom color set using a free online resource like <a href="http://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3">Color Brewer</a>. Carto also gives you the option to change the size of your points (<strong>point size</strong>), the size of your point outline (<strong>stroke size</strong>) and the color of your point outline (<strong>stroke color</strong>).
+As with `Point Size`, Carto lets you select your number of buckets and how those bucket ranges are calculated. 
+
+You can use one of Carto’s preset color palettes or build your own custom color set using a free online resource like [Color Brewer](http://colorbrewer2.org). 
+
+Carto also gives you the option to change the size of your points (`point size`), the size of your point outline (`point stroke`) and the color of your point outline (`stroke color`).
 
 <p align="center"><a href="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_19.PNG?raw=true"><img class="aligncenter size-full wp-image-456" src="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_19.PNG?raw=true" alt="" width="344" height="826" /></a></p>
 
@@ -1431,7 +1440,6 @@ As we read in the introduction to this tutorial, this dataset includes spatial i
 <p align="center"><a href="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_23.PNG?raw-true"><img class="size-full wp-image-460 aligncenter" src="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_23.PNG?raw=true" alt="" width="332" height="233" /></a></p>
 
 In this tutorial, we have been focusing on editing a data layer in Carto. The program also includes tools that let you analyze your data (<strong>Layers-&gt;Analysis</strong>) and add interactive <strong>widgets</strong> for a dynamic public interface.
-
 
 ## Mapping in Python
 
@@ -1561,6 +1569,16 @@ We also have a deep bench of expertise in the [Navari Family Center for Digital 
   * Matt is an absolute wizard with all things GIS, mapping, and spatial data. His many areas of expertise include QGIS and mapping in RStudio.
 
 We'll come back to these on-campus resources when we start working on the final project.
+
+## MAPPING QUESTIONS/WRAP UP
+
+
+# Final reflection questions:
+<ul>
+ 	<li>What interested you in this data? Would you have been able to find this information and draw conclusions from it without using spatial analysis tools?</li>
+ 	<li>What questions do you still have about this data? How could you answer them? How could you answer them digitally?</li>
+ 	<li>Were there any issues we talked about in historical mapping (change over time, error, certainty, etc.) that you think of differently now that you have tried it?</li>
+</ul>
 
 # Networks
 
