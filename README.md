@@ -1170,11 +1170,69 @@ RStudio Project:
 
 ## Other Mapping Tools/Resources
 
-ArcGIS StoryMaps: https://github.com/kwaldenphd/ArcGIS-StoryMaps
+### ArcGIS StoryMaps and Web App Builder
 
-ArcGIS Web App Builder: https://github.com/kwaldenphd/ArcGIS-WebAppBuilder
+We'll do more with ArcGIS Online in the next lab when we work with digital exhibits. But there are a lot of additional things you can do with ArcGIS Online, especially around bringing interactive maps in conversation with text/media/etc (StoryMaps), or creating interactive dashboards similar to Carto's functionality (ArcGIS Web App Builder).
 
-ArcMap: https://github.com/kwaldenphd/ArcMap-introduction
+NOTE: Notre Dame provides subscription access to ArcGIS Online. Email Prof. Walden for next steps on being added to the ND enterprise account.
+
+[More info on StoryMaps](https://www.esri.com/en-us/arcgis/products/arcgis-storymaps/stories)
+
+A few examples of things folks are doing with StoryMaps:
+- [Mapping LGBTQ+ St. Louis (Washington University St. Louis)](https://storymaps.arcgis.com/stories/9675a82d3d564c80b950361e709dff5e)
+- [Collection of StoryMaps from Library of Congress, Smithsonian, etc.](https://storymaps-classic.arcgis.com/en/gallery/#s=0&md=storymaps-industry:libraries-museums-institutions)
+- [Three Empires of Islam at the Metropolitan Museum of Art](https://storymaps.arcgis.com/stories/fa22b665c7894790b1b0441d0593289c)
+- [Bombing Missions of the Vietnam War](https://storymaps.arcgis.com/stories/2eae918ca40a4bd7a55390bba4735cdb)
+
+A WebApp Builder example:
+- [Mapping Absence in Shakespeare](https://arcg.is/a1Pnq)
+  * [Project website](https://absentshakespeare.sites.grinnell.edu/)
+- [Mapping Islamophobia](https://mappingislamophobia.org/)
+  * [Reporting Islamophobia](https://grinnell.maps.arcgis.com/apps/instant/interactivelegend/index.html?appid=11caab7d852b4ec88defce3f3c100e42)
+  * [Countering Islamophobia](https://grinnell.maps.arcgis.com/apps/instant/interactivelegend/index.html?appid=f2215ec572a84047923fbb7f41665b19)
+  
+Tutorials:
+- [ArcGIS StoryMaps](https://github.com/kwaldenphd/ArcGIS-StoryMaps)
+- [ArcGIS Web App Builder](https://github.com/kwaldenphd/ArcGIS-WebAppBuilder)
+
+### ArcMap and QGIS
+
+There are also desktop software applications that can be used for spatial data analysis and visualization.
+
+NOTE: This is not a GIS (geographical information systems) class. Prof. Walden can connect folks with resources, but advanced GIS work is beyond the scope of the class.
+
+#### ArcMap
+
+ArcGIS is an industry-standard tool developed by geographers in the 1970s. As digital historians have pursued more complex and large-scale spatial analysis projects, ArcGIS is a tool frequently used to visualize and analyze spatial data. The ArcGIS Online platform (not covered in this tutorial but featured in many digital mapping projects) allows data analyzed and visualized in ArcGIS to be interactive and publicly-accessible. 
+- NOTE: The ArcGIS desktop application is only available for PC users.
+
+Tutorials:
+- [Getting Started with ArcMap](https://github.com/kwaldenphd/ArcMap-introduction)
+
+Current ND students have access to the ArcMap title through OIT.
+- [Virtual Computer Lab](http://go.nd.edu/vcl)
+- [Contact OIT about getting ArcMap on your personal computer](https://oit.nd.edu/services/software/software-downloads/arcgis-desktop/)
+
+#### QGIS
+
+QGIS is a powerful open-source alternative to ArcMap that works across operating systems.
+
+Documentation:
+- [More information abou tthe QGIS project](https://qgis.org/en/site/index.html)
+- [Download QGIS](https://qgis.org/en/site/forusers/download.html)
+
+Tutorials:
+- [QGIS Documentation](https://docs.qgis.org/3.16/en/docs/training_manual/index.html)
+- Jim Clifford, Josh MacFadyen, and Daniel Macfarlane, "Installing QGIS 2.0 and Adding Layers," The Programming Historian 2 (2013), https://doi.org/10.46430/phen0031.
+- Justin Colson, "Geocoding Historical Data using QGIS," The Programming Historian 6 (2017), https://doi.org/10.46430/phen0066.
+
+## On-Campus Resources
+
+We also have a deep bench of expertise in the [Navari Family Center for Digital Scholarship](https://cds.library.nd.edu/):
+- [Matt Sisk](https://directory.library.nd.edu/directory/employees/msisk1), GIS/Anthropology Librarian
+  * Matt is an absolute wizard with all things GIS, mapping, and spatial data. His many areas of expertise include QGIS and mapping in RStudio.
+
+We'll come back to these on-campus resources when we start working on the final project.
 
 # Networks
 
