@@ -330,38 +330,193 @@ When an institution or team is the `source` node, the weight is the number of se
 
 # Exploratory Data Visualization
 
-## DataBasic: WTFcsv
+## Data
 
-### What is DataBasic?
+We'll be using three sample datasets in the Exploratory Data Analysis section of the lab.
+
+`ND_Directory_Cleaned_Geography.csv` represents a data structure based on the 1922-1923 student directory. Fields in the dataset include:
+- `Combined_Name` (combined first name, last name, and major field)
+- `Last_Name` (standarized last name)
+- `First_Name` (standardized first name)
+- `Major` (standardized major)
+- `Combined_Address` (combined street, city, state, and country field)
+- `Street` (standardized-ish street)
+- `City` (standardized city)
+- `State` (standardized state)
+- `Country` (standardized country)
+- `Standardized_Address` (standardized combined street, city, state, country field)
+- `Standardized_City_State` (standardized city, state, country field)
+- `Country` (standardized country)
+- `Latitude` (latitude)
+- `Longitude` (longitude)
+
+`combined_nd_rosters.csv` represents a data structure scraped from Sports Reference's Notre Dame college football season roster pages. Fields in the dataset include:
+- `Rk` (player rank on team at end of season)
+- `Season` (season)
+- `Player` (combined player name field)
+- `First_Name` (player first name)
+- `Last_Name` (player last name)
+- `G` (number of games)
+- `RushingAtt` (number of rushing yards attempted)
+- `RushingYds` (number of actual rushing yards)
+- `RushingAvg` (average number of rushing yards per attempt)
+- `RushingTD` (number of rushing touchdowns)
+- `ReceivingRec` (number of receiving receptions)
+-  `ReceivingYds` (number of receiving yards)
+-  `ReceivingAvg` (average number of receiving yards per reception)
+-  `ReceivingTD` (number of receiving touchdowns)
+-  `ScrimmagePlays` (number of plays from scrimmage, rush attempts + receptions)
+-  `ScrimmageYds` (number of scrimmage yards, rushing + receiving yards)
+-  `ScrimmageAvg` (average number of yards from scrimmage per play)
+-  `ScrimmageTD` (number of touchdowns from scrimmage, receiving + rushing touchdowns)
+
+`combined_nd_schedules_cleaned.csv` represents a data structure scraped from Sports Reference's Notre Dame college football season results pages. Fields in the dataset include:
+- `G` (game number)
+- `Season` (season or year)
+- `Standarized_Date` (standardized game date, YYYY-MM-DD)
+- `Date` (original date field, MM DD, YYYY)
+- `Day` (game day of week)
+- `Time` (game time of day)
+- `School` (Notre Dame, includes ranking)
+- `Standardized_School` (standardized Notre Dame school field, does not include ranking)
+- `Game_Type` (home, away, neutral site game)
+- `Opponent` (opponent, includes ranking)
+- `Standarized_Opponent` (standardized opponent school field, does not include ranking)
+- `Post_Season` (Y/N field indicating if game is postseason/bowl/playoff game)
+- `Conf` (conference)
+- `Result` (W/L/T game result)
+- `Combined_Location` (combined game location, location/city/state/country)
+- `City` (game site city)
+- `State` (game site state)
+- `Country` (game site country)
+- `Pts` (number of ND points in game)
+- `Opp` (number of opponent points in game`
+- `W` (win number)
+- `L` (loss number)
+- `T` (tie number)
+- `Streak` (W/L/T streak)
+- `Notes` (additional notes on game)
+- `Latitude` (latitude)
+- `Longitude` (longitude)
+
+## DataBasic: WTFcsv
 
 According to [its website,](https://databasic.io) “DataBasic is a suite of easy-to-use web tools for beginners that introduce concepts of working with data. These simple tools make it easy to work with data in fun ways, so you can learn how to find great stories to tell.” DataBasic is developed and supported by MIT’s [Center for Civic Media](https://civic.mit.edu/) and Emerson College’s [Engagement Lab.](https://elab.emerson.edu/)
 
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/DataBasic-tutorial/blob/master/screenshots/Capture_1.jpg?raw=true" alt="Capture" /></p>
+
 Navigate to https://databasic.io/ in a web browser (preferably Chrome). 
 
-REPLACE WITH WTFCSV
+Click on the `WTFcsv` icon to open the WTFcsv tool.
 
-Click on the WordCounter icon to open the WordCounter tool. 
+FIG 1
 
-As described on the page, “WordCounter analyzes your text and tells you the most common words and phrases. This tool helps you count words, bigrams, and trigrams in plain text. This is often the first step in quantitative text analysis.”
+As described on the page, "WTFcsv tells you WTF is going on with your .csv file. Data arrives at your doorstep in the form of a spreadsheet but how do you find a story in rows and columns? WTFcsv provides the first step by characterizing each column's data type and contents so that you can ask more questions."
 
+`WTFcsv` gives you the option to use a sample file or upload your own file.
 
-#### Reflection Questions
+FIG 2
 
-- What do you notice about the lyrics in the Barrio Fino album through the results displayed in WordCounter?
-- How does WordCounter’s results shape your understanding of the lyrics?
-- What additional questions do you have about the lyrics? 
+Click on the `Upload a file` icon and select a sample dataset.
+
+The lab procedure is going to used the `combined_nd_schedules_cleaned.csv` file, but you can use any of the sample datasets as we move through this section of the lab.
+
+Click `Analyze` to analyze the dataset.
+
+Fig 3
+
+The WTFcsv results include summary information about the entire dataset as well as a summary view of each field.
+
+For the whole dataset, we can tell the number of rows and columns.
+
+FIG 5
+
+FIG 6
+
+For each column, we can see the data type (the icon in the top-left corner of that column's tile), a summary visualization for that column (the default tile view), and additional metadata for that column (available by clicking on the circle `i` icon in the top-right corner of the tile).
+
+<blockquote>What is metadata? In the words of information and infrastructure scholar Janet Evans, metadata is "data about data" (Evans, <a href="https://inventingthemedium.com/glossary/">Inventing the Medium: Principles of Interaction Design as a Cultural Practice</a>, glossary). Within WTFcsv, metadata is described as "[summarizing] basic information about your data."</blockquote>
+
+FIG 5
+
+Looking at the column visualization for `Day`, we can see this is a string field (circle icon in the top-left), and WTFcsv has given us a bar chart showing the counts for each unique column value.
+
+FIG 6
+
+Looking at metadata for `Day` column tile (click the circle `i` icon in the top-right of the tile), we can see this is a string field (a field that includes text characters), the maximum string length, the number of unique values, and the number of entries for the most frequently occurring values.
+
+We can go back to the column visualization by clicking on the chart icon in the top-right of the tile.
+
+FIG 4
+
+We can look at the column visualization for `Time` and see it is a time field (clock icon in the top-left), and WTFcsv has given us a line plot showing the number of rows for each time value.
+
+FIG 7
+
+We can look at the metadata for the `Time` column (click the circle `i` icon in the top-right of the tile) and see the smallest and largest values in this field, as well as the number of rows with missing data (or `NA` values) and the number of unique values.
+
+Continue exploring the results for the sample dataset you uploaded. 
+
+Or, upload and explore another sample dataset.
+
+FIG 8
+
+FIG 9
+
+You can also click on the arrow icon next to the page title to get a temporary link to share your results.
+
+This tool does not include an image export option for specific visualizations- screenshots are your best option for capturing these visuals.
+
+### WTFcsv Discussion and Reflection Questions
+
+- What do you notice about the results for this dataset (or these datasets) displayed in WTFcsv?
+- How does the tool's results shape your understanding of the data?
+- What additional questions do you have about this data (or these datasets)? Where would you go next with exploring this dataset using some of the analysis tools/approaches highlighted in the tool?
+- Other comments/questions/observations
 
 ## Excel
 
-# Analyzing Data in Microsoft Excel
+Microsoft Excel is a proprietary spreadsheet program that is part of the Microsoft Office (or Office365) suite of tools/programs.
 
-1-Download the HUM295_Sample_Data.xlsx file from this GitHub repo. Open the file in Microsoft Excel.
+The Microsoft Office suite is available via campus computers and the virtual computer lab.
+- [Campus Computer Labs](https://inside.nd.edu/task/all/computerlabs)
+- [Virtual Computer Lab](https://inside.nd.edu/task/all/virtual-computer-lab)
 
-Save the file to your Desktop. Microsoft Excel includes wide range of data analysis tools that require minimal specialized technical knowledge.
+OIT also provides [free access to the Office suite through Office365](https://inside.nd.edu/task/all/office-365-portal), which includes an option to download and install on your local machine.
 
-This dataset includes data on the number of Iowa students who took AP courses in the 2011-2012 school year.
+A few notes:
+- This tutorial is written on a Windows computer. Mac users will see slightly different menu options in Excel.
+- Images and screenshots included in this tutorial are from a sample dataset and do not reflect what you will see working with different data.
+- If you do not have Microsoft Excel, some of the tasks we're exploring in Excel (arithmetic operations on a field, generating visualizations, etc) can be accomplished via Google Sheets.
+  * However the Pivot Table and Pivot Chart functionality is not available within Google Sheets.
 
-&nbsp;
+### Getting Data Into Microsoft Excel
+
+The sample datasets provided for this lab are in a `CSV` (comma-separated values) plain-text format.
+
+The operations we are going to explore in Excel require using a workbook file format, rather than a single `CSV` table or sheet.
+
+The goal is to end up with an Excel workbook (or Google Sheets project) that includes the three sample datasets we're using in this section of the lab.
+
+One option is to open a blank Excel workbook, save it with a descriptive file name, and import each CSV.
+- HESA, "[Importing `*.csv` formatted data into Excel](https://www.hesa.ac.uk/support/user-guides/import-csv)"
+
+We can also download an Excel workbook that already has these CSV files loaded into a single workbook.
+- [Download from GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Football_Lab2_Combined_Workbook.xlsx)
+- [Download from Google Drive](https://docs.google.com/spreadsheets/d/12LogN6lkr5yfG3tbs9SAdOO6YvuYqP0CkQVkHqQwONQ/edit?usp=sharing)
+  * Click `File` --> `Download` --> `Microsoft Excel (.xlsx)`
+
+If you're working in Google Sheets, you can [make a copy of the Google Sheet project](https://docs.google.com/spreadsheets/d/12LogN6lkr5yfG3tbs9SAdOO6YvuYqP0CkQVkHqQwONQ/copy).
+
+You can also import each CSV file to a new Google Sheets project.
+- `File` --> `Import`
+- Upload file from your computer or select CSV file in Google Drive
+- Select `Comma` as the delimiter
+  * Google Docs Help Center, "[Import data sets & spreadsheets](https://support.google.com/docs/answer/40608?hl=en&co=GENIE.Platform%3DDesktop)* 
+
+## Analyzing Data in Microsoft Excel
+
+We can use Excel's `AutoSum` tool to calculate preliminary arithmetic operations on data in our workbook.
 
 <p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_1.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_1.png?raw=true" alt="" /></a></p>
 
@@ -369,30 +524,109 @@ This dataset includes data on the number of Iowa students who took AP courses in
 
 <p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_1aa.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_1aa.png?raw=true" alt="" /></a></p>
 
-2-To calculate the number of American Indian and Alaksa students who took AP courses, select the values in column D ("Number of American Indian/Alaska Native Students), and <strong>click the AutoSum icon</strong>.
+Identify a numeric column in one of the workbook sheets.
+
+Use your cursor to select the values in that column.
+
+Click the `AutoSum` icon.
 
 <p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_1b.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_1b.png?raw=true" alt="" /></a></p>
 
-3-Excel has calculated the sum of the values in your selected cells. The result (118) is printed below your selected values.
+Excel has calculated the sum of the values in your selected cells. The result is printed below your selected values.
 
-4-The AutoSum function defaults to calculating the sum of selected cells, but it can also perform other mathematical calculations.
+The AutoSum function defaults to calculating the sum of selected cells, but it can also perform other mathematical calculations.
+
+For folks working in Google Sheets, the `Functions` icon is in the menu bar, next to the filter and language icons. The drop-down list includes many of the same arithmetic operations covered with the AutoSum tool in Excel.
 
 ## Creating a Table in Excel
 
-<p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_2.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_2.png?raw=true" alt="" /></a></p>
+Let's say we want to be able to interact with our dataset by sorting, filtering, etc.
+
+This can be useful for data wrangling/cleaning, or summarizing operations.
+
+Within Excel, we can access these operations by creating a `Table` from our data.
+
+Before creating a table, remove any AutoSum results or outputs.
+
+Select all the cells in your table that include data.
+- An easy way to do this is to select the top-left cell, use `Control-Shift-Right Arrow` (PC users) or `Command-Shift-Right Arrow` (Mac users) to select all columns with data and `Control-Shift-Down Arrow` (PC users) or `Command-Shift-Down Arrow` (Mac users) to select all rows with data.
+
+Once you have selected the entire table, click the `Insert` menu option (next to `File`, `Home`, etc) and click the `Table` icon.
+
+FIG 10
 
 <p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_3.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_3.png?raw=true" alt="" /></a></p>
 
-5-Select all the cells in your table that include data. Click Insert -- Table to format the data as a table within Excel. 
+Excel has already determined your selection is the data source for the table.
+
+Be sure to the `My table has headers` box is selected.
+
+Click `OK` to create the table.
+
+For folks working in Google Sheets, there is not an equivalent for this step. Google Sheets already treats your spreadsheet as a table.
+
+BUT, before you start sorting/filtering/etc, you probably want to freeze the first row in the spreadsheet as a column header.
+- `View` -- `Freeze` -- `1 row`
 
 <p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_4.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_4.png?raw=true" alt="" /></a></p>
 
 <p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_5a.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_5a.png?raw=true" alt="" /></a></p>
 
-6-Formatting your data as a table in Excel allows you to sort values within specific columns, and filter the values that display in your table.
+Formatting your data as a table in Excel allows you to sort values within specific columns, and filter the values that display in your table.
 
+You can access these tools by clicking the arrow drop-down icon in the first row for each column (in the cell with the column header).
 
-# Data Visualization with Microsoft Excel
+For folks working in Google Sheets, many of these same tools are under the `Data` dropdown menu.
+
+Go through the process of creating a table for each sheet in your workbook (or for Google Sheets users, freeze the first row in each sheet to preserve the column headers).
+
+Explore some of the searching, sorting, and filtering operations.
+
+### Discussion and Reflection Questions
+
+- How do the AutoSum calculations impact or inform your understanding of the data?
+- What questions do you have about the data or calculations?
+- Why would it be helpful to be able to sort/filter/etc within a dataset?
+- As you explore the sort/search/filter functionality, what questions emerge about the data?
+- Other comments/questions/observations
+
+## Data Visualization with Microsoft Excel
+
+Excel includes a range of built-in chart types that you can use to generate visualizations for data in your table.
+
+FIG 11
+
+Click on the `Recommended Charts` icon under `Data`.
+
+Explore the different options Excel recommends for visualizing your data.
+
+Click on `OK` in the `Insert Chart` pop-up window to insert a chart to your workbook sheet.
+
+You can also click on a specific chart type in the `Charts` menu area to build your own visualizations.
+
+For folks working in Google Sheets:
+- Google Docs Help Center, "[Types of charts & graphs in Google Sheets](https://support.google.com/docs/answer/190718?hl=en)"
+- Google Docs Help Center, "[Add & edit a chart or graph](https://support.google.com/docs/answer/63824?hl=en&co=GENIE.Platform%3DDesktop)"
+
+### Discussion and Reflection Questions
+
+asdfjlasjfd ;asfas 
+
+## Pivot Tables in Excel
+
+But one of the things we might want to be able to do with these datasets is connect across them, or generate visualizations that connect across the different discrete datasets.
+
+For example, think about the information that is contained in the directory dataset and the data that is contained in the football roster dataset.
+
+Theoretically, individuals who played on the football team were also students who attended class and majored in particular subjects.
+
+Let's say we wanted to generate visualizations of the home states or majors for individuals playing on the football team.
+
+We would need to connect the roster and directory datasets to be able to access information across both tables.
+
+<blockquote>The larger concept we're talking about here falls under the big umbrella of data models and relational database systems. Those concepts are outside the scope of this class, but for folks who want to learn more about relational databases, entity relationship diagrams, data models, and structured query language (SQL):
+ <ul>
+  <li>
 
 <p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_6.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_6.png?raw=true" alt="" /></a></p>
 
