@@ -107,14 +107,12 @@ To get us started in this lab, Prof. Walden has prepared a few sample datasets b
 We'll use these datasets as a starting point for our work in this lab, and as a model/starting point for thinking about what you could do on your own with structured data in this lab.
 
 The sample datasets include:
-- 1922 Student Directory
-- Combined Football Rosters from Sports Reference
-- Combined Football Schedules from Sports Reference
-- Knute Rockne coaching tree from Wikipedia
+- [1922 Student Directory](#directories)
+- [Combined Football Rosters from Sports Reference](#football-rosters)
+- [Combined Football Schedules from Sports Reference](#football-schedules)
+- [Knute Rockne coaching tree from Wikipedia](#knute-rockne-coaching-tree)
 
-<blockquote> What is a CSV? 
-
-A comma-separated value file (CSV) is a structured tabular data format in which column values are separated by a comma. Computer programs like Microsoft Excel parse those values and display the underlying data in a spreadsheet format. Saving tabular data as a CSV file type avoids much of the additional formatting added by programs like Microsoft Excel. </blockquote>
+<blockquote> What is a CSV? <br>&nbspA comma-separated value file (CSV) is a structured tabular data format in which column values are separated by a comma. Computer programs like Microsoft Excel parse those values and display the underlying data in a spreadsheet format. Saving tabular data as a CSV file type avoids much of the additional formatting added by programs like Microsoft Excel. </blockquote>
 
 ## Directories
 
@@ -331,6 +329,25 @@ When an institution or team is the `source` node, the weight is the number of se
 
 # Exploratory Data Visualization
 
+From [Wikipedia](https://en.wikipedia.org/wiki/Exploratory_data_analysis): "In statistics, exploratory data analysis is an approach of analyzing data sets to summarize their main characteristics, often using statistical graphics and other data visualization methods...EDA is for seeing what the data can tell us beyond the formal modeling or hypothesis testing task."
+
+To think about this another way, "the purpose of EDA is to use summary statistics and visualizations to better understand data, and find clues about the tendencies of the data, its quality and to formulate assumptions and the hypothesis of our analysis" (Andrew Andrade and Lukasz Golab, ["Exploratory Data Analysis"](https://datascienceguide.github.io/exploratory-data-analysis) *Data Science Guide*)
+
+- [Data](#data)
+- [DataBasic: WTFcsv](#databasic-wtfcsv)
+- [Excel](#excel)
+  * [Getting Data Into Excel](#getting-data-into-excel)
+  * [Analyzing Data in Excel](#analyzing-data-in-excel)
+  * [Creating a Table](#creating-a-table)
+  * [Data Visualization](#data-visualization)
+  * [PivotTables and PivotCharts](#pivottables-and-pivotcharts) 
+  * [PowerQuery](#powerquery)
+- [Tableau](#tableau)
+  * [Uploading to Tableau Public](#uploading-to-tableau-public)
+  * [Discussion and Reflection Questions](#discussion-and-reflection-questions)
+- [Python](#python)
+- [RStudio](#rstudio)
+
 ## Data
 
 We'll be using three sample datasets in the Exploratory Data Analysis section of the lab.
@@ -516,7 +533,7 @@ You can also import each CSV file to a new Google Sheets project.
 - Select `Comma` as the delimiter
   * Google Docs Help Center, "[Import data sets & spreadsheets](https://support.google.com/docs/answer/40608?hl=en&co=GENIE.Platform%3DDesktop)* 
 
-## Analyzing Data in Microsoft Excel
+### Analyzing Data in Microsoft Excel
 
 We can use Excel's `AutoSum` tool to calculate preliminary arithmetic operations on data in our workbook.
 
@@ -540,7 +557,7 @@ The AutoSum function defaults to calculating the sum of selected cells, but it c
 
 For folks working in Google Sheets, the `Functions` icon is in the menu bar, next to the filter and language icons. The drop-down list includes many of the same arithmetic operations covered with the AutoSum tool in Excel.
 
-## Creating a Table in Excel
+### Creating a Table
 
 Let's say we want to be able to interact with our dataset by sorting, filtering, etc.
 
@@ -602,7 +619,7 @@ For folks working in Google Sheets, many of these same tools are under the `Data
 
 Explore some of the searching, sorting, and filtering operations.
 
-### Discussion and Reflection Questions
+#### Discussion and Reflection Questions
 
 - How do the AutoSum calculations impact or inform your understanding of the data?
 - What questions do you have about the data or calculations?
@@ -610,7 +627,7 @@ Explore some of the searching, sorting, and filtering operations.
 - As you explore the sort/search/filter functionality, what questions emerge about the data?
 - Other comments/questions/observations
 
-## Data Visualization with Microsoft Excel
+### Data Visualization with Microsoft Excel
 
 Excel includes a range of built-in chart types that you can use to generate visualizations for data in your table.
 
@@ -628,11 +645,11 @@ For folks working in Google Sheets:
 - Google Docs Help Center, "[Types of charts & graphs in Google Sheets](https://support.google.com/docs/answer/190718?hl=en)"
 - Google Docs Help Center, "[Add & edit a chart or graph](https://support.google.com/docs/answer/63824?hl=en&co=GENIE.Platform%3DDesktop)"
 
-### Discussion and Reflection Questions
+#### Discussion and Reflection Questions
 
 What types of visualizations were you able to generate in Excel using PivotChart? How could those visualizations shape or impact your understanding of the data? Did you generate any visualizations that were confusing or misleading? Alternatively, did you generate any visualizations that were unexpected or illuminating?
 
-## PivotTables and PivotCharts in Excel
+### PivotTables and PivotCharts
 
 From [Wikipedia](https://en.wikipedia.org/wiki/Pivot_table):
 
@@ -772,7 +789,7 @@ We can now see a `Merged_Roster_Directory` sheet in our workbook.
 
 We could use this new sheet the connects roster and directory information to aggregate and visualize this data, using the PivotChart tools covered earlier in the lab.
 
-### Additional Resources
+#### Additional Resources
 
 We're just scratching the surface of things you can do in Excel using PowerPivot, PowerQuery, and PivotTables.
 
@@ -799,7 +816,7 @@ For more on PowerPivot and PowerQuery:
 - Microsoft Support, "[Power Pivot- Overview and Learning](https://support.microsoft.com/en-us/office/power-pivot-overview-and-learning-f9001958-7901-4caa-ad80-028a6d2432ed)"
 - Microsoft Support, "[Power Query documentation](https://docs.microsoft.com/en-us/power-query/)"
 
-### Takeaways from all the Excel adventures...
+#### Takeaways from all the Excel adventures...
 
 You're probably wondering why we spent so much time working in Excel and exploring some of the more advanced functionality, and that's a fair question.
 
@@ -814,7 +831,7 @@ A few reasons:
 Additionally, these Excel workflows can help those without a data science/programming/data engineering/etc background understand some of the core concepts and steps involved in data modeling and database systems.
 - This helps immensely when you're in a work setting where you need to be able to talk to or interact with folks working in and around database engineering. Even if you're not the one building or maintaining the workflows, you are much better equipped to have intelligent conversations about what those individuals are doing and what you need these systems to do.
 
-## Reflection Questions
+#### Reflection Questions
 
 What types of visualizations were you able to generate in Excel using PivotChart? How could those visualizations shape or impact your understanding of the data? Did you generate any visualizations that were confusing or misleading? Alternatively, did you generate any visualizations that were unexpected or illuminating?
 
@@ -907,17 +924,6 @@ Click `File` --> `Save to Tableau Public`, and use your login credentials to sav
 
 Your Tableau Public online profile can host your interactive visualizations, and also gives you the option to share, download, and embed the interactive content.
 
-### Discussion and Reflection Questions:
-
-Experiment with other data fields and calculations to generate different types of visualizations. You can add new worksheets or duplicate an existing worksheet to build multiple visualizations.
-
-What types of visualizations were you able to generate in Tableau? How were those visualizations similar or different than what you generated in Excel?
-
-How could those visualizations shape or impact your understanding of the data? Did you generate any visualizations that were confusing or misleading? Alternatively, did you generate any visualizations that were unexpected or illuminating?</blockquote>
-
-- How is the data in Tableau presented or organized differently than the same information in Excel? 
-- What similarities or differences do you notice between the two user interfaces for building data visualizations?
-
 ## Python
 
 We can also use a programming language like Python to generate and customize many of the types of visualizations we created using Excel and Tableau.
@@ -989,6 +995,17 @@ RStudio Project:
 - [GitHub, `.zip`](https://drive.google.com/file/d/1zex8zotq6TpLtzcDukl0NtH8oxaswBqR/view?usp=sharing)
 - [RStudio Cloud](https://rstudio.cloud/project/2977118)
 
+## EDA Discussion and Reflection Questions:
+
+Experiment with other data fields and calculations to generate different types of visualizations. You can add new worksheets or duplicate an existing worksheet to build multiple visualizations.
+
+What types of visualizations were you able to generate in Tableau? How were those visualizations similar or different than what you generated in Excel?
+
+How could those visualizations shape or impact your understanding of the data? Did you generate any visualizations that were confusing or misleading? Alternatively, did you generate any visualizations that were unexpected or illuminating?</blockquote>
+
+- How is the data in Tableau presented or organized differently than the same information in Excel? 
+- What similarities or differences do you notice between the two user interfaces for building data visualizations?
+
 # Mapping
 
 Up to this point, we have focused on exploratory data analysis/visualization in a Cartesian Coordinate system, that is data plotted on an `X` (horizontal) and `Y` (vertical) axis.
@@ -1026,6 +1043,14 @@ Python and RStudio also have specialized packages to facilitate geocoding data:
   * Aleszu Bajak, ["How to geocode a csv of addresses in R"](https://www.storybench.org/geocode-csv-addresses-r/) *StoryBench* (21 April 2017)
 
 All sample datasets for this lab have already been geocoded.
+
+- [Google MyMaps](#google-mymaps)
+- [ArcGIS Online](#arcgis-online)
+- [Carto](#carto)
+- [Mapping in Python](#mapping-in-python)
+- [Mapping in RStudio](#mapping-in-rstudio)
+- [Mapping Reflection/Discussion Questions](#mapping-reflectiondiscussion-questions
+- [Other Mapping Tools/Resources](#other-mapping-toolsresources)
 
 ## Google MyMaps
 
@@ -1514,7 +1539,19 @@ RStudio Project:
 - [GitHub, `.zip`](https://drive.google.com/file/d/1zex8zotq6TpLtzcDukl0NtH8oxaswBqR/view?usp=sharing)
 - [RStudio Cloud](https://rstudio.cloud/project/2977118)
 
+## MAPPING QUESTIONS/WRAP UP
+# Final reflection questions:
+<ul>
+ 	<li>What interested you in this data? Would you have been able to find this information and draw conclusions from it without using spatial analysis tools?</li>
+ 	<li>What questions do you still have about this data? How could you answer them? How could you answer them digitally?</li>
+ 	<li>Were there any issues we talked about in historical mapping (change over time, error, certainty, etc.) that you think of differently now that you have tried it?</li>
+</ul>
+
 ## Other Mapping Tools/Resources
+
+- [ArcGIS StoryMaps and Web App Builder](#arcgis-storymaps-and-web-app-builder)
+- [ArcMap and QGIS](#arcmap-and-qgis)
+- [On-Campus Resources](#on-campus-resources)
 
 ### ArcGIS StoryMaps and Web App Builder
 
@@ -1580,17 +1617,13 @@ We also have a deep bench of expertise in the [Navari Family Center for Digital 
 
 We'll come back to these on-campus resources when we start working on the final project.
 
-## MAPPING QUESTIONS/WRAP UP
-
-
-# Final reflection questions:
-<ul>
- 	<li>What interested you in this data? Would you have been able to find this information and draw conclusions from it without using spatial analysis tools?</li>
- 	<li>What questions do you still have about this data? How could you answer them? How could you answer them digitally?</li>
- 	<li>Were there any issues we talked about in historical mapping (change over time, error, certainty, etc.) that you think of differently now that you have tried it?</li>
-</ul>
-
 # Networks
+
+- [DataBasic: Connect the Dots](#databasic-connect-the-dots)
+- [Palladio](#palladio)
+- [Gephi](#gephi)
+- [Network Discussion/Reflection Questions](#network-discussionreflection-questions)
+- [Other Network Tools/Resources](#other-network-toolsresources)
 
 ## DataBasic: Connect The Dots
 
