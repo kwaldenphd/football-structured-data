@@ -1,0 +1,895 @@
+---
+title: "nd-football-eda"
+author: "K. Walden"
+date: "10/3/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Notre Dame Football EDA
+
+## R Markdown Overview
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+## Install and Load Packages
+
+```{r}
+# install.packages("leaflet")
+# install.packages("geojsonio")
+# install.packages("dplyr")
+# install.packages("htmltools")
+# install.packages("magrittr")
+# install.packages("ggplot2")
+# install.packages("plotly")
+# install.packages("viridis")
+# install.packages("tidyr")
+
+library(leaflet)    # The map-making package
+library(geojsonio)  # A package for geographic and spatial data, requires the latest version of dplyr
+library(dplyr)      # Used for data manipulation and merging
+library(htmltools)  # Used for constructing map labels using HTML
+library(magrittr)   # Used for piping
+library(ggplot2)    # Used for visualization
+library(plotly)     # Used for interactive visualization
+library(viridis)    # colormap
+library(tidyr)      # used for data cleaning
+```
+
+## Exploratory Data Analysis With Combined ND Football Schedules
+
+### Load Schedules as DataFrame
+
+```{r}
+# load data from file to dataframe
+football <- read.csv("combined_nd_schedules_cleaned.csv")
+
+# check data has loaded
+football
+```
+
+```{r}
+# load data from url
+football <- read.csv("https://raw.githubusercontent.com/kwaldenphd/football-structured-data/main/data/combined_nd_schedules_cleaned.csv")
+
+# check data has loaded
+football
+```
+
+### Static Visualization With ggplot2
+
+```{r}
+# scatterplot of points by season
+ggplot(data=football) + geom_point(mapping= aes(x=Season, y=Pts))
+```
+
+```{r}
+# bar plot with number of games for each day of the week
+ggplot(data=football, aes(x=Day)) + geom_bar()
+```
+
+```{r}
+# bar plot with overall number of wins/losses/ties
+ggplot(data=football, aes(x=Result)) + geom_bar()
+```
+
+```{r}
+# bar plot with overall number of home/away/neutral site games
+ggplot(data=football, aes(x=Game_Type)) + geom_bar()
+```
+
+Additional resources on plotting with ggplot:
+- Tutorials
+  * Prof. Walden's [ggplot intro](https://github.com/kwaldenphd/ggplot-intro) lab
+  * Ryan Miller's "[Creating Graphs with ggplot2](https://remiller1450.github.io/s230f19/ggplot.html)" lab (Fall 2019, Intro to Data Science STA 230 course, Grinnell College)
+- [The R Graph Gallery](https://www.r-graph-gallery.com/index.html)
+- Documentation
+  * [ggplot2, Tidyverse](https://ggplot2.tidyverse.org/index.html)
+  * ["Data visualization with ggplot2 :: cheat sheet](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf)
+  * Winston Chang, *[R Graphics Cookbook: Practical Recipes for Visualizing Data](http://www.cookbook-r.com/Graphs/)* (O'Reilly, 2013)
+  * [RStudio Education](https://education.rstudio.com/learn/)
+
+## Plotting Geospatial Data (Static Visualizations)
+
+```{r}
+# install.packages("sf")
+# install.packages("sp")
+# install.packages("tmap")
+# install.packages("maps")
+
+library(sf)
+library(sp)
+library(tmap)
+library(maps)
+```
+
+### Show Point Data
+
+```{r}
+# scatterplot of latitude and longitude 
+plot(football$Longitude, football$Latitude, axes=TRUE)
+```
+
+```{r}
+# remove rows with no lat/long data
+football_map <- football[!is.na(football$Latitude) & !is.na(football$Longitude),]
+
+# show updated dataframe
+football_map
+```
+
+```{r}
+# create spatial dataframe
+points <- st_as_sf(football_map, coords=c("Longitude", "Latitude"), crs=4326, agr="constant")
+
+# show spatial dataframe
+points
+```
+
+```{r}
+# show basic plot of data points
+plot(points)
+```
+### Get Basemap
+
+```{r}
+# get world polygons
+world <- map('world', col='grey', fill=TRUE, bg='white', lwd=0.5, mar=rep(0,4), border=0, ylim=c(-80,80))
+
+# show world df
+world
+```
+
+```{r}
+# basic world map
+ggplot() + geom_polygon(data=world, aes(x=long, y=lat, group=group), fill="grey", alpha=0.3) + theme_void() + coord_map()
+```
+
+```{r}
+# plot point data on world basemap
+ggplot() + geom_polygon(data=world, aes(x=long, y=lat, group=group), fill='grey', alpha=0.3) + geom_point(data=football, aes(x=Longitude, y=Latitude)) + theme_void() + coord_map()
+```
+
+```{r}
+# same scatter plot map with points colored by conference
+ggplot() + geom_polygon(data=world, aes(x=long, y=lat, group=group), fill='grey', alpha=0.3) + geom_point(data=football, aes(x=Longitude, y=Latitude, color=Conf)) + theme_void() + coord_map()
+```
+
+```{r}
+# same scatter plot map with points colored by season
+ggplot() + geom_polygon(data=world, aes(x=long, y=lat, group=group), fill='grey', alpha=0.3) + geom_point(data=football, aes(x=Longitude, y=Latitude, color=Season)) + theme_void() + coord_map()
+```
+
+Additional resources on static spatial visualization:
+- [The R Graph Gallery](https://www.r-graph-gallery.com/index.html)
+  * [R Graph Gallery, Common Map Boundaries](https://www.r-graph-gallery.com/278-the-maps-library.html)
+  * [R Graph Gallery, Bubble map with ggplot2](https://www.r-graph-gallery.com/330-bubble-map-with-ggplot2.html)
+- Eric Weinberg, "Using Geospatial Data to Inform Historical Research in R," *The Programming Historian* 7 (2018), https://doi.org/10.46430/phen0075.
+
+## Interactive Visualization With Plotly
+
+```{r}
+# stacked bar chart with season on x axis and number of points on y axis, colored by conference
+ggplot(football, aes(fill=Conf, y=Pts, x=Season)) + geom_bar(position="stack", stat="identity")
+```
+
+```{r}
+# interactive version of stacked bar chart
+stacked_bar <- ggplot(football, aes(fill=Conf, y=Pts, x=Season)) + geom_bar(position="stack", stat="identity")
+
+ggplotly(stacked_bar)
+```
+
+```{r}
+# plotting directly to plotly
+plot_ly(data=football, type="scatter", mode="markers", x = ~Season, y=~Pts, color = ~Conf)
+```
+
+```{r}
+# custom hover labels for previous scatterplot
+plot_ly(data=football, type="scatter", mode="markers", x = ~Season, y=~Pts, color = ~Conf, text= ~paste0("Number of points scored: ", Pts, "<br> Against: ", Standardized_Opponent))
+```
+
+### Animations in Plotly
+
+`plotly` graphics can be animated using the frame argument where each frame indicates a snapshot in time at which the graphic is to be created.
+
+So thinking about the football schedule data, we could have a frame for each year or season.
+
+```{r}
+# bar plot with number of pts by conference, with season as frame
+plot_ly(data=football, type="bar", x=~Conf, y=~Pts, frame=~Season, showlegend=FALSE)
+```
+
+
+## Interactive Mapping With Plotly
+
+```{r}
+# map scatterplot with points colored by conference
+
+# geometry styling
+g <- list(
+  scope = 'usa',
+  projection = list(type = 'albers usa'),
+  showland = TRUE,
+  landcolor = toRGB("gray95"),
+  subunitcolor = toRGB("gray85"),
+  countrycolor = toRGB("gray85"),
+  countrywidth = 0.5,
+  subunitwidth = 0.5
+)
+
+# create scatterplot
+fig <- plot_geo(football, lat=~Latitude, lon=~Longitude)
+
+# add markers
+fig <- fig %>% add_markers(color = ~Conf, symbol = I("circle"), size = I(8))
+
+# show figure
+fig
+```
+
+```{r}
+# map scatterplot with points colored by conference, added season frame
+
+# geometry styling
+g <- list(
+  scope = 'usa',
+  projection = list(type = 'albers usa'),
+  showland = TRUE,
+  landcolor = toRGB("gray95"),
+  subunitcolor = toRGB("gray85"),
+  countrycolor = toRGB("gray85"),
+  countrywidth = 0.5,
+  subunitwidth = 0.5
+)
+
+# create scatterplot
+fig <- plot_geo(football, lat=~Latitude, lon=~Longitude)
+
+# add markers
+fig <- fig %>% add_markers(color = ~Conf, symbol = I("circle"), size = I(8), frame=~Season)
+
+# show figure
+fig
+```
+
+Additional resources on interactive spatial visualization with plotly:
+- [The R Graph Gallery](https://www.r-graph-gallery.com/index.html)
+  * [Interative Bubble Map With ggplot2 and plotly](https://www.r-graph-gallery.com/bubble-map.html)
+
+## Interactive Mapping With Leaflet
+
+`Leaflet` is a popular open-source JavaScript library used to create interactive maps.
+
+For more on `leaflet`, check out [the JavaScript library documentation](https://leafletjs.com/). 
+
+### Basemap
+
+```{r}
+# call leaflet and add tiles
+map <- leaflet() %>%
+  addTiles()
+
+# print map
+map
+```
+
+```{r}
+# show list of available tiles
+head(providers)
+```
+
+```{r}
+# alternate tiles
+map <- leaflet() %>%
+  addProviderTiles(providers$Esri.WorldTopo)
+
+# show map
+map
+```
+
+### Adding Point Data to Map
+
+```{r}
+# leaflet basemap with markers from football dataframe
+map <- leaflet(data=football) %>%
+  addTiles() %>%
+  addMarkers(lng=~Longitude, lat=~Latitude,
+             label=~paste(Standardized_Opponent, Result),
+             popup=~paste("Opponent: ", Standardized_Opponent, "<br> Result", Result))
+
+# show map
+map
+```
+
+```{r}
+# scatterplot map with alternate basemap, points colored by conference
+
+# set color
+map_test <- colorFactor(terrain.colors(12), football$Conf)
+
+# generate map
+map <- leaflet(data = football) %>% 
+  addProviderTiles(providers$CartoDB.Positron) %>% 
+  addCircleMarkers(radius = 5, lng = ~Longitude, lat = ~Latitude, 
+                   color = ~map_test(Conf), fillOpacity = 0.5, stroke = FALSE, 
+                   popup = ~paste("Opponent: ", Standardized_Opponent, "<br/> Season: ", Season))
+
+# show map
+map
+```
+
+Additional resources on interactive mapping with `leaflet`:
+- Tutorials
+  * Prof. Walden's [Making Maps in RStudio](https://github.com/kwaldenphd/leaflet-r) lab
+  * Ryan Miller's "[Making Maps in R With Leaflet](https://remiller1450.github.io/s230f19/maps.html)" (Fall 2019, Intro to Data Science STA 230 course, Grinnell College)
+  * ["Leaflet for R](https://rstudio.github.io/leaflet/) RStudio tutorial/documentation
+- [The R Graph Gallery](https://www.r-graph-gallery.com/index.html)
+  * [The Leaflet Package for Interactive Maps](https://www.r-graph-gallery.com/map.html)
+  
+# Exploratory Data Analysis/Visualization With Single Year ND Directory
+
+## Load Data as DataFrame
+
+```{r}
+# load data from file
+directory <- read.csv("ND_Directory_Cleaned_Geography.csv")
+
+# check data has loaded
+directory
+```
+
+```{r}
+# load data from url
+directory <- read.csv("https://raw.githubusercontent.com/kwaldenphd/football-structured-data/main/data/ND_Directory_Cleaned_Geography.csv")
+
+# check data has loaded
+directory
+```
+
+### Static Visualization With ggplot2
+
+```{r}
+# horizontal bar plot with number of students by country
+ggplot(data=directory, aes(x=Country)) + geom_bar() + coord_flip()
+```
+
+```{r}
+# bar chart with number of students by major
+ggplot(data= directory, aes(x=Major, fill=Major)) + geom_bar()
+```
+
+```{r}
+# horizontal bar chart with number of students by state
+ggplot(data=directory, aes(x=State)) + geom_bar() + coord_flip()
+```
+
+## Plotting Geospatial Data (Static Visualizations)
+
+```{r}
+# scatterplot of latitude and longitude 
+plot(directory$Longitude, directory$Latitude, axes=TRUE)
+```
+
+```{r}
+# cast latitude column to float
+directory$Latitude <- as.double(directory$Latitude)
+
+# cast longitude column to float
+directory$Longitude <- as.double(directory$Longitude)
+
+# show updated dataframe
+directory
+```
+
+```{r}
+# remove rows with no lat/long data
+directory_map <- directory[!is.na(directory$Latitude) & !is.na(directory$Longitude),]
+
+# show updated dataframe
+directory_map
+```
+
+```{r}
+# create spatial dataframe
+points <- st_as_sf(directory_map, coords=c("Longitude", "Latitude"), crs=4326, agr="constant")
+
+# show spatial dataframe
+points
+```
+
+```{r}
+# show basic plot of data points
+plot(points)
+```
+### Get Basemap
+
+```{r}
+# get world polygons
+world <- map('world', col='grey', fill=TRUE, bg='white', lwd=0.5, mar=rep(0,4), border=0, ylim=c(-80,80))
+
+# show world df
+world
+```
+
+```{r}
+# basic world map
+ggplot() + geom_polygon(data=world, aes(x=long, y=lat, group=group), fill="grey", alpha=0.3) + theme_void() + coord_map()
+```
+
+```{r}
+# plot point data on world basemap
+ggplot() + geom_polygon(data=world, aes(x=long, y=lat, group=group), fill='grey', alpha=0.3) + geom_point(data=directory_map, aes(x=Longitude, y=Latitude)) + theme_void() + coord_map()
+```
+
+```{r}
+# same scatter plot map with points colored by major
+ggplot() + geom_polygon(data=world, aes(x=long, y=lat, group=group), fill='grey', alpha=0.3) + geom_point(data=directory_map, aes(x=Longitude, y=Latitude, color=Major)) + theme_void() + coord_map()
+```
+
+## Interactive Visualization With Plotly
+
+```{r}
+# bar chart with number of students by major
+ggplot(data= directory, aes(x=Major, fill=Major)) + geom_bar()
+```
+
+```{r}
+# interactive version of same bar chart
+bar_chart <- ggplot(data= directory, aes(x=Major, fill=Major)) + geom_bar()
+
+# show plot
+ggplotly(bar_chart)
+```
+
+
+```{r}
+# custom hover labels for previous bar chart
+ggplotly(bar_chart, text = ~paste0("Number of students by major: ", Major))
+```
+
+```{r}
+# bar plot with number of students by state
+bar_chart <- ggplot(data= directory, aes(x=State, fill=State)) + geom_bar()
+
+# show plot
+ggplotly(bar_chart)
+```
+
+```{r}
+# bar plot with number of students by country
+bar_chart <- ggplot(data= directory, aes(x=Country, fill=Country)) + geom_bar()
+
+# show plot
+ggplotly(bar_chart)
+```
+
+## Interactive Mapping With Plotly
+
+```{r}
+# map scatterplot with points colored by major
+
+# geometry styling
+g <- list(
+  scope = 'usa',
+  projection = list(type = 'albers usa'),
+  showland = TRUE,
+  landcolor = toRGB("gray95"),
+  subunitcolor = toRGB("gray85"),
+  countrycolor = toRGB("gray85"),
+  countrywidth = 0.5,
+  subunitwidth = 0.5
+)
+
+# create scatterplot
+fig <- plot_geo(directory, lat=~Latitude, lon=~Longitude)
+
+# add markers
+fig <- fig %>% add_markers(color = ~Major, symbol = I("circle"), size = I(8))
+
+# show figure
+fig
+```
+
+Additional resources on interactive spatial visualization with plotly:
+- [The R Graph Gallery](https://www.r-graph-gallery.com/index.html)
+  * [Interative Bubble Map With ggplot2 and plotly](https://www.r-graph-gallery.com/bubble-map.html)
+
+## Interactive Mapping With Leaflet
+
+`Leaflet` is a popular open-source JavaScript library used to create interactive maps.
+
+For more on `leaflet`, check out [the JavaScript library documentation](https://leafletjs.com/). 
+
+### Basemap
+
+```{r}
+# call leaflet and add tiles
+map <- leaflet() %>%
+  addTiles()
+
+# print map
+map
+```
+
+```{r}
+# show list of available tiles
+head(providers)
+```
+
+```{r}
+# alternate tiles
+map <- leaflet() %>%
+  addProviderTiles(providers$Esri.WorldTopo)
+
+# show map
+map
+```
+
+### Adding Point Data to Map
+
+```{r}
+# leaflet basemap with markers from directory dataframe
+map <- leaflet(data=directory) %>%
+  addTiles() %>%
+  addMarkers(lng=~Longitude, lat=~Latitude,
+             label=~paste(Major),
+             popup=~paste("Major: ", Major))
+
+# show map
+map
+```
+
+```{r}
+# scatterplot map with alternate basemap, points colored by major
+
+# set color
+map_test <- colorFactor(terrain.colors(12), directory$Major)
+
+# generate map
+map <- leaflet(data = directory) %>% 
+  addProviderTiles(providers$CartoDB.Positron) %>% 
+  addCircleMarkers(radius = 5, lng = ~Longitude, lat = ~Latitude, 
+                   color = ~map_test(Major), fillOpacity = 0.5, stroke = FALSE, 
+                   popup=~paste("First Name: ", First_Name, "<br/> Last Name: ", Last_Name, "<br/> Major: ", Major))
+
+# show map
+map
+```
+
+# Exploratory Data Analysis/Visualization With Combined ND Football Rosters
+
+## Load Rosters as DataFrame
+
+
+```{r}
+# load data from file
+rosters <- read.csv("combined_nd_rosters.csv")
+
+# check data has loaded
+rosters
+```
+
+```{r}
+# load data from url
+rosters <- read.csv("https://raw.githubusercontent.com/kwaldenphd/football-structured-data/main/data/combined_nd_rosters.csv")
+
+# check data has loaded
+rosters
+```
+
+### Static Visualization With ggplot2
+
+```{r}
+# bar plot with season on the X axis and number of games on the Y axis
+ggplot(data=rosters, aes(x=Season, y=G, color=Season)) + geom_bar(stat='identity')
+```
+
+```{r}
+# scatterplot with Season on X axis and Rushing Yards on the Y axis
+ggplot(data=rosters, aes(x=Season, y=RushingYds, color=Season)) + geom_point()
+```
+
+```{r}
+# line plot with Season on the X axis and Rushing average column on the Y axis
+ggplot(data=rosters, aes(x=Season, y=RushingAvg)) + geom_line()
+```
+
+```{r}
+# tidy data using gather to plot multiple numeric variables for specific stats
+tidy_rosters <- gather(rosters, key=Description, value = Stat, 7:18)
+
+# show tidied df
+tidy_rosters
+```
+
+```{r}
+# line plot with season on x axis and numeric stats on y axis
+ggplot(tidy_rosters, aes(x=Season, y=Stat, group=Description, color=Description)) + geom_line()
+```
+
+### Interactive Visualization With Plotly
+
+
+```{r}
+# scatterplot with Season on X axis and Rushing Yards on the Y axis
+ggplot(data=rosters, aes(x=Season, y=RushingYds, color=Season)) + geom_point()
+```
+
+```{r}
+# interactive version of scatterplot bar chart
+scatter_plot <- ggplot(data=rosters, aes(x=Season, y=RushingYds, color=Season)) + geom_point()
+
+ggplotly(scatter_plot)
+```
+
+```{r}
+# plotting directly to plotly
+plot_ly(data=rosters, type="scatter", mode="markers", x = ~Season, y=~RushingYds, color = ~Season)
+```
+
+```{r}
+# custom hover labels for previous scatterplot
+plot_ly(data=rosters, type="scatter", mode="markers", x = ~Season, y=~RushingYds, color = ~Season, text= ~paste0("Number of Rushing Yards: ", RushingYds))
+```
+
+### Animations in Plotly
+
+`plotly` graphics can be animated using the frame argument where each frame indicates a snapshot in time at which the graphic is to be created.
+
+So thinking about the football schedule data, we could have a frame for each year or season.
+
+```{r}
+# bar plot with rushing avg yards per game, with season as frame
+plot_ly(data=rosters, type="bar", x=~G, y=~RushingAvg, frame=~Season, showlegend=FALSE)
+```
+
+# Merging Roster Data and Directory Data
+
+Sample workflow for merging directory data and roster data for single season/academic year (1924-1925).
+
+```{r}
+# create new df with roster from select season
+single_yr_roster <- filter(rosters, Season == 1923 | Season == 1924)
+
+# show new df
+single_yr_roster
+```
+
+```{r}
+# SQL style join using merge on first and last name columns
+merged_df <- left_join(x = single_yr_roster, y=directory, by = c("First_Name", "Last_Name"))
+
+# show new df
+merged_df
+```
+
+## Static Data Visualization With ggplot
+
+```{r}
+# horizontal bar plot with number of students by country
+ggplot(data=merged_df, aes(x=Country)) + geom_bar() + coord_flip()
+```
+
+```{r}
+# bar chart with number of students by major
+ggplot(data= merged_df, aes(x=Major, fill=Major)) + geom_bar()
+```
+
+```{r}
+# horizontal bar chart with number of students by state
+ggplot(data=merged_df, aes(x=State)) + geom_bar() + coord_flip()
+```
+
+### Plotting Geospatial Data With `ggplot` 
+
+```{r}
+# scatterplot of latitude and longitude 
+plot(merged_df$Longitude, merged_df$Latitude, axes=TRUE)
+```
+
+```{r}
+# cast latitude column to float
+merged_df$Latitude <- as.double(merged_df$Latitude)
+
+# cast longitude column to float
+merged_df$Longitude <- as.double(merged_df$Longitude)
+
+# show updated dataframe
+merged_df
+```
+
+```{r}
+# remove rows with no lat/long data
+merged_df_map <- merged_df[!is.na(merged_df$Latitude) & !is.na(merged_df$Longitude),]
+
+# show updated dataframe
+merged_df_map
+```
+
+```{r}
+# create spatial dataframe
+points <- st_as_sf(merged_df_map, coords=c("Longitude", "Latitude"), crs=4326, agr="constant")
+
+# show spatial dataframe
+points
+```
+
+```{r}
+# show basic plot of data points
+plot(points)
+```
+### Get Basemap
+
+```{r}
+# get world polygons
+world <- map('world', col='grey', fill=TRUE, bg='white', lwd=0.5, mar=rep(0,4), border=0, ylim=c(-80,80))
+
+# show world df
+world
+```
+
+```{r}
+# basic world map
+ggplot() + geom_polygon(data=world, aes(x=long, y=lat, group=group), fill="grey", alpha=0.3) + theme_void() + coord_map()
+```
+
+```{r}
+# plot point data on world basemap
+ggplot() + geom_polygon(data=world, aes(x=long, y=lat, group=group), fill='grey', alpha=0.3) + geom_point(data=merged_df_map, aes(x=Longitude, y=Latitude)) + theme_void() + coord_map()
+```
+
+```{r}
+# same scatter plot map with points colored by major
+ggplot() + geom_polygon(data=world, aes(x=long, y=lat, group=group), fill='grey', alpha=0.3) + geom_point(data=merged_df_map, aes(x=Longitude, y=Latitude, color=Major)) + theme_void() + coord_map()
+```
+
+## Interactive Visualization With Plotly
+
+```{r}
+# bar chart with number of students by major
+ggplot(data= merged_df, aes(x=Major, fill=Major)) + geom_bar()
+```
+
+```{r}
+# interactive version of same bar chart
+bar_chart <- ggplot(data= merged_df, aes(x=Major, fill=Major)) + geom_bar()
+
+# show plot
+ggplotly(bar_chart)
+```
+
+
+```{r}
+# custom hover labels for previous bar chart
+ggplotly(bar_chart, text = ~paste0("Number of players by major: ", Major))
+```
+
+```{r}
+# bar plot with number of students by state
+bar_chart <- ggplot(data= merged_df, aes(x=State, fill=State)) + geom_bar()
+
+# show plot
+ggplotly(bar_chart)
+```
+
+```{r}
+# bar plot with number of students by country
+bar_chart <- ggplot(data= merged_df, aes(x=Country, fill=Country)) + geom_bar()
+
+# show plot
+ggplotly(bar_chart)
+```
+
+## Interactive Mapping With Plotly
+
+```{r}
+# map scatterplot with points colored by major
+
+# geometry styling
+g <- list(
+  scope = 'usa',
+  projection = list(type = 'albers usa'),
+  showland = TRUE,
+  landcolor = toRGB("gray95"),
+  subunitcolor = toRGB("gray85"),
+  countrycolor = toRGB("gray85"),
+  countrywidth = 0.5,
+  subunitwidth = 0.5
+)
+
+# create scatterplot
+fig <- plot_geo(merged_df_map, lat=~Latitude, lon=~Longitude)
+
+# add markers
+fig <- fig %>% add_markers(color = ~Major, symbol = I("circle"), size = I(8))
+
+# show figure
+fig
+```
+
+Additional resources on interactive spatial visualization with plotly:
+- [The R Graph Gallery](https://www.r-graph-gallery.com/index.html)
+  * [Interative Bubble Map With ggplot2 and plotly](https://www.r-graph-gallery.com/bubble-map.html)
+
+## Interactive Mapping With Leaflet
+
+`Leaflet` is a popular open-source JavaScript library used to create interactive maps.
+
+For more on `leaflet`, check out [the JavaScript library documentation](https://leafletjs.com/). 
+
+### Basemap
+
+```{r}
+# call leaflet and add tiles
+map <- leaflet() %>%
+  addTiles()
+
+# print map
+map
+```
+
+```{r}
+# show list of available tiles
+head(providers)
+```
+
+```{r}
+# alternate tiles
+map <- leaflet() %>%
+  addProviderTiles(providers$Esri.WorldTopo)
+
+# show map
+map
+```
+
+### Adding Point Data to Map
+
+```{r}
+# leaflet basemap with markers from directory dataframe
+map <- leaflet(data=merged_df_map) %>%
+  addTiles() %>%
+  addMarkers(lng=~Longitude, lat=~Latitude,
+             label=~paste(Major),
+             popup=~paste("Major: ", Major))
+
+# show map
+map
+```
+
+```{r}
+# scatterplot map with alternate basemap, points colored by major
+
+# set color
+map_test <- colorFactor(terrain.colors(12), merged_df_map$Major)
+
+# generate map
+map <- leaflet(data = merged_df_map) %>% 
+  addProviderTiles(providers$CartoDB.Positron) %>% 
+  addCircleMarkers(radius = 5, lng = ~Longitude, lat = ~Latitude, 
+                   color = ~map_test(Major), fillOpacity = 0.5, stroke = FALSE, 
+                   popup=~paste("First Name: ", First_Name, "<br/> Last Name: ", Last_Name, "<br/> Major: ", Major))
+
+# show map
+map
+```
