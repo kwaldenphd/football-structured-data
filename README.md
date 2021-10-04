@@ -1409,37 +1409,46 @@ Carto also gives you the option to change the size of your points (`point size`)
 
 <p align="center"><a href="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_19.PNG?raw=true"><img class="aligncenter size-full wp-image-456" src="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_19.PNG?raw=true" alt="" width="344" height="826" /></a></p>
 
-27-Select the <strong>Pop-Up</strong> icon in the layer menu. Pop-Ups include data that displays when you click on a specific map point. In Carto’s default settings, no customized pop-ups appear.
+Select the `Pop-Up` icon in the layer menu. 
 
-28-Select <strong>Click</strong> to design the pop-up that appears when you click on a map point. Select <strong>Hover</strong> to design the pop-up that appears when you hover over a map point.
+Pop-Ups include data that displays when you click on a specific map point. In Carto’s default settings, no customized pop-ups appear.
 
-29-For <strong>Click</strong> and <strong>Hover</strong>, Carto allows you to determine the size and coloring of the pop-up window, as well as what data fields are displayed (and how they are labeled).
+Select `Click` to design the pop-up that appears when you click on a map point. 
+
+Select `Hover` to design the pop-up that appears when you hover over a map point.
+
+For `Click` and `Hover`, Carto lets you to determine the size and coloring of the pop-up window, as well as what data fields are displayed (and how they are labeled).
 
 <p align="center"><a href="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_20.PNG?raw=true"><img class="aligncenter size-full wp-image-457" src="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_20.PNG?raw=true" alt="" width="497" height="837" /></a></p>
 
-30-If you wanted to further customize your pop-ups, Carto provides an <strong>HTML view</strong> where you could further customize the style of text in your pop-ups.
+If you wanted to further customize your pop-ups, Carto provides an `HTML view` where you could further customize the style of text in your pop-ups.
 
 <p align="center"><a href="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_8.PNG?raw=true"><img class="aligncenter size-large wp-image-468" src="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_8.PNG?raw=true" alt="" width="676" height="331" /></a></p>
 
 <p align="center"><a href="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_21.PNG?raw=true"><img class="aligncenter size-full wp-image-458" src="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_21.PNG?raw-true" alt="" width="111" height="62" /></a></p>
 
-31-Once you are satisfied with the styling of your pop-ups, click the <strong>back</strong> arrow to return to the main editing page. Because Carto is a cloud-based service, it is saving edits as you make them. However, the map project will not be published or shared until you click the <strong>Publish</strong> blue rectangular icon on the bottom left-hand side of the page.
+Once you are satisfied with the styling of your pop-ups, click the `back` arrow to return to the main editing page. 
 
-<hr />
+Because Carto is a cloud-based service, it is saving edits as you make them. 
 
-## Extra time?
+However, the map project will not be published or shared until you click the `Publish` blue rectangular icon on the bottom left-hand side of the page.
+- [Prof. Walden's sample map for this lab](https://kwalden.carto.com/builder/be217bb8-46f4-47a1-83dc-96ccd200e175/embed)
 
-### Making corrections to your data:
-
-As we read in the introduction to this tutorial, this dataset includes spatial information about post offices located in the western United States. You have noticed three map points in the Mediterranean when you loaded the data into Carto. Open the editor for those data points and see what steps are needed to correctly geocode the data.
-
-### Additional features to explore:
+### Additional Resources
 
 <p align="center"><a href="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_22.PNG?raw=true"><img class="size-full wp-image-459 aligncenter" src="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_22.PNG?raw=true" alt="" width="340" height="299" /></a></p>
 
 <p align="center"><a href="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_23.PNG?raw-true"><img class="size-full wp-image-460 aligncenter" src="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_23.PNG?raw=true" alt="" width="332" height="233" /></a></p>
 
-In this tutorial, we have been focusing on editing a data layer in Carto. The program also includes tools that let you analyze your data (<strong>Layers-&gt;Analysis</strong>) and add interactive <strong>widgets</strong> for a dynamic public interface.
+In this tutorial, we have been focusing on editing a data layer in Carto. The program also includes tools that let you analyze your data (`Layers` and `Analysis`) and add interactive `Widgets` for a dynamic public interface.
+
+Fig 52
+
+[Link to Prof. Walden's sample map with widgets for this lab](https://kwalden.carto.com/builder/be217bb8-46f4-47a1-83dc-96ccd200e175/embed)
+
+Fig 53
+
+To learn more about Carto's features and functionality: https://carto.com/help/
 
 ## Mapping in Python
 
