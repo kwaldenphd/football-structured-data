@@ -592,12 +592,78 @@ Your Tableau Public online profile can host your interactive visualizations, and
 
 ## Python
 
+We can also use a programming language like Python to generate and customize many of the types of visualizations we created using Excel and Tableau.
+
+Prof. Walden has built out a Jupyter notebook that goes into more detail about using Python for exploratory data analysis for the sample datasets presented in this lab.
+
+Since we're dealing with single data files, running things on your personal computer should not cause any problems.
+
+But you can also make copies of the CoLab notebooks and connect to data files within Google Drive.
+
+To mount Google Drive files within CoLab:
+- [Google Colab, "External Data: Local Files, Drive, Sheets, and Cloud Storage"](https://colab.research.google.com/notebooks/io.ipynb#scrollTo=XDg9OBaYqRMd)
+- Mdkaish Ansari, "[How to Connect Google Colab with Google Drive](https://www.marktechpost.com/2019/06/07/how-to-connect-google-colab-with-google-drive/)" *Markettechpost* (7 June 2019)
+
+The Jupyter notebook uses the following programs and Python libraries:
+- `matplotlib`
+- `pandas`
+- `geopandas`
+- `plotly`
+
+The Jupyter notebook includes sample code for the following steps/tasks, using the roster, directory, and schedule datasets:
+- Load data as Pandas `DataFrame`
+- Merging directory and roster datasets
+- Static visualization with `Pandas` and `Matplotlib`
+- Static geospatial data visualization with `geopandas`, `shapely`, and `matplotib`
+- Interactive visualization with `plotly`
+- Interactive geospatial data visualization with `plotly`
+
+Jupyter Notebook:
+- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/notebooks/nd-football-eda.ipynb)
+- [NBviewer](https://nbviewer.jupyter.org/github/kwaldenphd/football-structured-data/blob/main/notebooks/nd-football-eda.ipynb)
+- [Google CoLab](https://drive.google.com/file/d/1MybxGo9ngdm20rzV1xAqAGYZwNsLINTM/view?usp=sharing)
+
 ## RStudio
+
+We can also use a scripting language like R/RStudio to generate and customize many of the types of visualizations we created using Excel and Tableau.
+
+Prof. Walden has built out an RMarkdown file that goes into more detail about using R for exploratory data analysis for the sample datasets presented in this lab.
+
+The RMarkdown file uses the following programs and packages:
+- `tidyr`
+- `dplyr`
+- `magrittr`
+- `ggplot2`
+- `viridis`
+- `htmltools`
+- `geojsonio`
+- `plotly`
+- `leaflet`
+- `sf`
+- `sp`
+- `tmap`
+- `maps`
+
+The RMarkdown notebook includes sample code for the following steps/tasks, using the roster, directory, and schedule datasets:
+- Load data as `DataFrame`
+- Merging directory and roster datasets using `dplyr` and `tidyr`
+- Static visualization with `ggplot2`
+- Static geospatial data visualization with `ggplot2`, `sf, `sp`, `tmap`, and `maps`
+- Interactive visualization with `plotly`
+- Interactive geospatial data visualization with `plotly` and `leaflet`
+
+RMarkdown File:
+- [`.rmd` file on GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/notebooks/nd-football-eda.Rmd)
+- [`.rmd` file on Google Drive](https://drive.google.com/file/d/1gvhci2x1IVsHOFCEwkeVvm_HSUPU0l2V/view?usp=sharing)
+- [RStudio Cloud](https://rstudio.cloud/project/2977118)
+
+RStudio Project:
+- [GitHub, `.zip`](https://drive.google.com/file/d/1zex8zotq6TpLtzcDukl0NtH8oxaswBqR/view?usp=sharing)
+- [RStudio Cloud](https://rstudio.cloud/project/2977118)
 
 # Mapping
 
 ## Google MyMaps
-
 
 Google launched <a href="https://www.google.com/maps/about/mymaps/">Google My Maps</a> in 2007 as part of the Google cloud services suite of programs. Through the My Map interface, users with a Google account can map points, lines, and shapes, with additional display customization options. My Maps allows users to generate maps from spreadsheets, work collaboratively on maps, and share interactive maps.
 
@@ -1041,7 +1107,66 @@ In this tutorial, we have been focusing on editing a data layer in Carto. The pr
 
 ## Mapping in Python
 
+As mentioned earlier in the lab, Prof. Walden has built out a Jupyter notebook that goes into more detail about using Python for exploratory data analysis for the sample datasets presented in this lab.
+
+That notebook also includes sample code for static and interactive mapping in Python.
+
+The Jupyter notebook uses the following programs and Python libraries:
+- `matplotlib`
+- `pandas`
+- `geopandas`
+- `plotly`
+
+The Jupyter notebook includes sample code for the following steps/tasks, using the roster, directory, and schedule datasets:
+- Load data as Pandas `DataFrame`
+- Merging directory and roster datasets
+- Static visualization with `Pandas` and `Matplotlib`
+- Static geospatial data visualization with `geopandas`, `shapely`, and `matplotib`
+- Interactive visualization with `plotly`
+- Interactive geospatial data visualization with `plotly`
+
+Jupyter Notebook:
+- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/notebooks/nd-football-eda.ipynb)
+- [NBviewer](https://nbviewer.jupyter.org/github/kwaldenphd/football-structured-data/blob/main/notebooks/nd-football-eda.ipynb)
+- [Google CoLab](https://drive.google.com/file/d/1MybxGo9ngdm20rzV1xAqAGYZwNsLINTM/view?usp=sharing)
+
 ## Mapping in RStudio
+
+As mentioned earlier in the lab, Prof. Walden has built out an RMarkdown file that goes into more detail about using RStudio for exploratory data analysis for the sample datasets presented in this lab.
+
+That RMarkdown file also includes sample code for static and interactive mapping in RStudio.
+
+The RMarkdown file uses the following programs and packages:
+- `tidyr`
+- `dplyr`
+- `magrittr`
+- `ggplot2`
+- `viridis`
+- `htmltools`
+- `geojsonio`
+- `plotly`
+- `leaflet`
+- `sf`
+- `sp`
+- `tmap`
+- `maps`
+
+The RMarkdown notebook includes sample code for the following steps/tasks, using the roster, directory, and schedule datasets:
+- Load data as `DataFrame`
+- Merging directory and roster datasets using `dplyr` and `tidyr`
+- Static visualization with `ggplot2`
+- Static geospatial data visualization with `ggplot2`, `sf, `sp`, `tmap`, and `maps`
+- Interactive visualization with `plotly`
+- Interactive geospatial data visualization with `plotly` and `leaflet`
+
+RMarkdown File:
+- [`.rmd` file on GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/notebooks/nd-football-eda.Rmd)
+- [`.rmd` file on Google Drive](https://drive.google.com/file/d/1gvhci2x1IVsHOFCEwkeVvm_HSUPU0l2V/view?usp=sharing)
+- [RStudio Cloud](https://rstudio.cloud/project/2977118)
+
+RStudio Project:
+- [GitHub, `.zip`](https://drive.google.com/file/d/1zex8zotq6TpLtzcDukl0NtH8oxaswBqR/view?usp=sharing)
+- [RStudio Cloud](https://rstudio.cloud/project/2977118)
 
 ## Other Mapping Tools/Resources
 
