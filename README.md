@@ -60,6 +60,14 @@ This tutorial was reviewed by <a href="https://www.grinnell.edu/users/purcelsj">
 <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license"><img style="border-width: 0;" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" alt="Creative Commons License" /></a>
 Network Analysis-Part III (Gephi) is licensed under a <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
+### Text and Data Mining for ND Archive Materials
+
+Any text and data mining endeavor is supported by heroic and ongoing work that happens at the nexus of digital infrastructure, archives/special collections, metadata, digital preservation. The workflows outlined in this project would not be possible without significant past, present, and ongoing work from colleagues in the University of Notre Dame Libraries, specifically (but not exclusively)...
+- [University Archives](http://archives.nd.edu/) (Patrick Milhoan, Scott Kirycki, Joseph Smith, and Matthew Wilken)
+- [Rare Books and Special Collections](https://rarebooks.library.nd.edu/) (Rachel Bohlmann, Tracy Bergstrom, Sara Weber)
+- [Navari Family Center for Digital Scholarship](https://cds.library.nd.edu/) (Daniel Johnson, Eric Lease Morgan, Matthew Sisk)
+- [Digital Services](https://directory.library.nd.edu/directory/departments/1195) (Mikala Narlock)
+
 # Table of Contents
 
 - [Background](#background)
@@ -180,12 +188,28 @@ Discussion Questions:
 
 ### Directories Data Processing Overview
 
+Let's take a look at one way of transforming the directory into structured data.
+
+- Initial OCR output (`DIR_1922_1923.txt`)
+  * [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/DIR_1922_1923.txt)
+  * [Google Drive](
+- First iteration of OpenRefine output (`ND_Directory_Raw.csv`)
+  * [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/ND_Directory_Raw.csv)
+  * [Google Drive]
+- Second iteration of OpenRefine output (`ND_Directory_Cleaned.csv`)
+  * [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/ND_Directory_Cleaned.csv)
+  * [Google Drive](
+- Excel output with merged geographic data (`ND_Directory_Cleaned_Geography.csv`)
+  * [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/ND_Directory_Cleaned_Geography.csv)
+  * [Google Drive]
+
 Prof. Walden will add more details about the data processing workflow for this source.
 
 But for now, big picture steps for this workflow:
 - Scrape plain text from the directory using Optical Character Recognition (OCR) in Python
 - Clean/wrangle/restructure data using OpenRefine
 - More data cleaning/wrangling in OpenRefine (using a lot of regular expressions)
+- Data wrangling in Excel to incorporate latitude/longitude information for mapping
 
 Again, more details to come and we'll talk in-depth about OpenRefine and data cleaning later in this lab.
 
@@ -204,14 +228,20 @@ Discussion Questions:
 ### Football Rosters Data Processing Overview
 
 Prof. Walden has built out a Jupyter Notebook that scrapes the rosters into a combined CSV file in Python.
-- [GitHub]
-- [NBViewer]
+- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/notebooks/sf-nd-football-rosters.ipynb)
+- [NBViewer](https://nbviewer.jupyter.org/github/kwaldenphd/football-structured-data/blob/main/notebooks/sf-nd-football-rosters.ipynb)
 - [Google CoLab]
 
-But for now, big picture steps for this workflow:
+Data scraping output: `combined_nd_rosters.csv`
+- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/combined_nd_rosters.csv)
+- [Google Drive]()
+
+Big picture steps for this workflow:
 - Scrape HTML tables in Python using BeautifulSoup
 - Clean/wrangle/restructure data in Python as a Pandas DataFrame
 - Write data to CSV file
+
+Eventually, we'll explore how we can get geographic information for these rosters by connecting the rosters with student directories.
 
 ## Football Schedules
 
@@ -228,40 +258,133 @@ Discussion Questions:
 ### Football Schedules Data Processing Overview 
 
 Prof. Walden has built out a Jupyter Notebook that scrapes the rosters into a combined CSV file in Python.
-- [GitHub]
-- [NBViewer]
+- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/notebooks/sf-nd-schedules.ipynb)
+- [NBViewer](https://nbviewer.jupyter.org/github/kwaldenphd/football-structured-data/blob/main/notebooks/sf-nd-schedules.ipynb)
 - [Google CoLab]
 
-But for now, big picture steps for this workflow:
+Data scraping output: `combined_nd_schedules.csv`
+- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/combined_nd_schedules.csv)
+- [Google Drive]()
+
+Excel data wrangling output: `combined_nd_schedules_cleaned.csv`
+- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/combined_nd_schedules_cleaned.csv)
+- [Google Drive](
+
+Big picture steps for this workflow:
 - Scrape HTML tables in Python using BeautifulSoup
 - Clean/wrangle/restructure data in Python as a Pandas DataFrame
 - Write data to CSV file
+- Data wrangling in Excel to incorporate latitude/longitude information for mapping
 
 ## Knute Rockne Coaching Tree
 
 We'll also think in this lab about how structured data can be the starting point for looking at networks and relationships, under the umbrella of network analysis.
 
-The idea of a "coaching tree" 
+### What is a network?
 
-https://my.nd.edu/news/9551
+According to Miriam Posner, networks are “a finite set (or sets) of actors and the relations defined on them. It consists of three elements: 
+- (1) a set of actors;
+- (2) each actor has a set of individual attributes; and 
+- (3) a set of ties that defines at least one relation among actors.” 
+ 
+A network graph is “a common way to visually represent social networks, consisting of two dimensions: actors and relations (also called nodes and edges). Nodes are the entities in graph (also called vectors)..[edges] are the relationships between nodes.” 
 
-https://en.wikipedia.org/wiki/Knute_Rockne#Coaching_tree
+Learn more via the [PDF included in this Repository](https://github.com/kwaldenphd/football-structured-data/blob/main/files/Posner_SocialNetworkAnalysisGlossary.pdf)
 
-https://www.researchgate.net/publication/228968729_The_NFL_Coaching_Network_Analysis_of_the_Social_Network_Among_Professional_Football_Coaches
+### Coaching tree as a type of network
+
+From [Wikipedia](https://en.wikipedia.org/wiki/Coaching_tree):
+
+"A coaching tree is similar to a family tree except that it shows the relationships of coaches instead of family members. There are several ways to define a relationship between two coaches. The most common way to make the distinction is if a coach worked as an assistant on a particular head coach's staff for at least a season then that coach can be counted as being a branch on the head coach's coaching tree. Coaching trees can also show philosophical influence from one head coach to an assistant.
+
+"Coaching trees are common in the National Football League and most coaches in the NFL can trace their lineage back to a certain head coach for whom they previously worked as an assistant."
+
+We can think of a coaching tree as a type of network, where the relationship of coaches in the tree is understood via nodes and edges.
+
+Let's take a look at a couple different representations of Knute Rockne's coaching tree:
+- "[Rockne's Coaching Tree](https://my.nd.edu/news/9551)" *Notre Dame, Alumni & Friends* (26 March 2013)
+- "[Knute Rockne, Coaching Tree](https://en.wikipedia.org/wiki/Knute_Rockne#Coaching_tree)", *Wikipedia*
+
+Discussion Questions:
+- What parts of information on this page would you want to work with as structured data?
+- What types of analysis/visualization or exploration would you be able to do with this resource as structured data?
+  * What questions or topics would you be able to explore using data from this resource? 
+- Other comments/questions about this source as structured data
+
+We'll come back to Rockne's coaching tree and network analysis later in the lab. But as an example of research that uses this approach/method:
+- Andrew Fast and David Donald Jensen, "[The NFL Coaching Network: Analysis of the Social Network Among Professional Football Coaches](https://www.researchgate.net/publication/228968729_The_NFL_Coaching_Network_Analysis_of_the_Social_Network_Among_Professional_Football_Coaches)" *American Association for Artificial Intelligence* (2006)
 
 ### Rockne Coaching Tree Data Processing Overview
 
+No fancy Jupyter Notebooks for this one. Prof. Walden went through a few iterations of how to organize and structure the Rockne coaching tree facilitate network analysis.
+
+The `Rockne_Coaching_Tree` Excel workbook documents this iterative process:
+- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Rockne_Coaching_Tree.xlsx)
+- [Google Drive](https://docs.google.com/spreadsheets/d/1B2RaD_qtrQaupo6FznKzuAMnYCGt6eEJJ-aAcU9z8I4/edit?usp=sharing)
+
+
+The first step was to take the information on Wikipedia and map it onto a tabular data structure that would move in the direction of having nodes, edges, and weights.
+
+The `Original_Coaching_Tree.csv` file reflects this preliminary structure.
+- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Rockne_Coaching_Tree_Full.csv)
+- [Google Drive]()
+
+The preliminary structure included the following columns:
+- `Name` (player/coach name)
+- `Played_Under` (Rockne)
+- `Years_Played` (years playing at ND)
+- `ND_No_Years` (total number of years played at ND)
+- `Next_Inst` (institution person coached at next)
+- `Years_Next_Inst` (years at next institution)
+- `Coach_No_Years` (total nubmer of years coaching at next institution)
+- `Coach_Rk` (coaching rank, head coach or associate)
+
+The most straightforward way to represent this data as a network is to have `source` and `target` nodes, in which Rockne is the source and the person who played/coached for him is the target. 
+
+The `Simplified_Coaching_Tree_CTD.csv` file reflects this `source-target` structure:
+- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Simplified_Coaching_Tree_CTD.csv)
+- [Google Drive]()
+
+We can also include the other institutions these individuals played at as source nodes.
+
+The `Alternate_Simplified_Coaching_Tree_CTD.csv` file reflects this expanded `source-target` structure:
+- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Alternate_Simplified_Coaching_Tree_CTD.csv)
+- [Google Drive]()
+
+But the simplified `source-target` structure doesn't account for aspects of these relationships like how many years someone played at ND, or how many years they coached at subsequent institutions.
+
+We can use the concept of weighted edges to incorporate these other pieces of data.
+
+One way to incorporate weighted edges is to use the number of years someone played at ND or coached elsewhere as the weight.
+
+The `Full_Coaching_Tree_Edges.csv` file reflects this weighted edge structure.
+- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Full_Coaching_Tree_Edges.csv)
+- [Google Drive]()
+
+When Rockne is the `source` node, the weight is the number of seasons the `target` individual played under him at ND.
+
+When an institution or team is the `source` node, the weight is the number of seasons the `target` individual coached at this program.
+
 ## Things to Take Away From This Section
 
-Develping a data model is hard
+**Develping a data model takes time (and is sometimes hard/messy).**
+- Don't overlook the conceptual work to figure out the desired endpoint or structure for data from a primary source.
+- Thinking through what data structure or format you want/need for the types of analysis and visualization you want to do helps you make choices about next steps for data scraping/cleaning/wrangling.
+- And as you go through those data processing steps, you are able to keep in mind what the endpoint is, or what you want/need the data to look like at the end of these processes.
 
-Developing a data model takes time
+**Reproducability and version control are your friends.**
+- You could fire up a Google Sheet or Excel File and hack away at manually entering values from a digitized student directory, Sports Reference web page, etc.
+- And sometimes, when you're dealing with data that has a very limited scope and you're not totally sure what the endpoint is going to be in terms of structure, hacking away at the process makes sense.
+- *See also: how Prof. Walden approached the Knute Rockne coaching tree data*
+- But when we're talking about 100+ years of data on Sports Reference, dozens of student directories, etc., data processing approaches that are reproducible and automated are your friend.
+  * Taking the example of Sports Reference web pages, this approach means you just have to figure out one page and then iterate over the other pages that have the same format/structure.
+  * Or for student directories, you'll figure out what steps need to happen for cleaning/wrangling each document.
+- Data cleaning with tools like OpenRefine, Python, and RStudio lends itself to having reproducible workflows with some level of version control built in
 
-Reproducability and version control are your friends
-
-In the words of Tim Gunn, make it work.
-
-When you start doing this on your own, we'll talk in more detail about tools/workflows/strategies/etc.
+**But also, in the words of Tim Gunn, the goal at the end of the day is to make it work.**
+- If trying to make something happen with Python/RStudio is proving to be incredibly time-intensive, and an Excel pivot table or PowerQuery gets you where you need to go, that's absolutely fine. 
+- Prioritize reproducability and version control when and where possible, but don't let perfect be the enemy of getting something you can work with.
+- When you start doing this on your own, we'll talk in more detail about tools/workflows/strategies/etc. for the materials you're working with and the topics/questions you want to explore.
 
 # Exploratory Data Visualization
 
