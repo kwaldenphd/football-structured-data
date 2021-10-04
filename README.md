@@ -1662,13 +1662,19 @@ NetworkX: https://github.com/kwaldenphd/NetworkX-tutorial
 
 ### OpenRefine
 
+
+
 ### Data Cleaning in Excel
+
+
 
 ### Data Cleaning in Python
 
 ### Data Cleaning in RStudio
 
 ### Command Line (regular expressions)
+
+
 
 ## Tool Directory
 
