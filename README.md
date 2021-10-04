@@ -336,7 +336,8 @@ When an institution or team is the `source` node, the weight is the number of se
 We'll be using three sample datasets in the Exploratory Data Analysis section of the lab.
 
 `ND_Directory_Cleaned_Geography.csv` represents a data structure based on the 1922-1923 student directory. Fields in the dataset include:
-- `Combined_Name` (combined first name, last name, and major field)
+- `Combined_Name_Original` (combined first name, last name, and major field)
+- `Combined_Name` (combined first name, last name field)
 - `Last_Name` (standarized last name)
 - `First_Name` (standardized first name)
 - `Major` (standardized major)
@@ -819,70 +820,74 @@ What types of visualizations were you able to generate in Excel using PivotChart
 
 ## Tableau
 
+[Tableau](https://www.tableau.com) is a software company founded in Silicon Valley in 2003. Developed by researchers affiliated with Stanford University’s Computer Science Department, Tableau is a commercialized application of academic research. Represented as DATA on the New York Stock Exchange after a 2013 initial public offering, Tableau reported $877 million in revenue in <a href="s1.q4cdn.com/149179428/files/doc_financials/2017/FY2016-Annual-Report.pdf">the 2017 fiscal year</a>. Most often deployed in business environments, Tableau Desktop is a subscription-based data analysis and visualization software. Tableau Server and Tableau Online offer subscription-based web-publishing options for making data and interactive visualizations available on the web. Tableau Public offers limited Tableau Desktop functionality with some options for uploading visualizations through the Tableau Public website.
 
-<a href="https://www.tableau.com/">Tableau</a> is a software company founded in Silicon Valley in 2003. Developed by researchers affiliated with Stanford University’s Computer Science Department, Tableau is a commercialized application of academic research. Represented as DATA on the New York Stock Exchange after a 2013 initial public offering, Tableau reported $877 million in revenue in <a href="s1.q4cdn.com/149179428/files/doc_financials/2017/FY2016-Annual-Report.pdf">the 2017 fiscal year</a>. Most often deployed in business environments, Tableau Desktop is a subscription-based data analysis and visualization software. Tableau Server and Tableau Online offer subscription-based web-publishing options for making data and interactive visualizations available on the web. Tableau Public offers limited Tableau Desktop functionality with some options for uploading visualizations through the Tableau Public website.
+To get started, you'll need to download the free version of Tableau (Tableau Public) on your personal computer.
 
-<hr />
+FIGURE 40
 
-13-<strong>Open Tableau</strong> by clicking on the <strong>Desktop icon</strong>, or searching in the <strong>Start menu</strong>.
+Head to https://public.tableau.com/ in a web browser and enter your email to download the program.
+
+NOTE: Mendoza students in the Business Analytics program have access to Tableau through the [Mendoza virtual computer lab](https://inside.nd.edu/task/all/virtual-computer-lab-mendoza-anaytics).
+
+It's a large program, so be prepared for the installation process to take some time.
 
 <p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_16.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_16.png?raw=true" alt="" /></a></p>
 
-14-<strong>Click on Microsoft Excel</strong> and navigate to the <strong>1870 Federal Census Grinnell Township file</strong> saved to your Desktop.
+Once the installation has finished, launch the program.
 
-15-Click <strong>Open</strong> to load the data into Tableau.
+Tableau can connect to a number of different data sources and file types.
+
+You can load single `CSV` files for the sample datasets we're working with in this section of the lab, or you can upload the entire `Football_Lab2_Combined_Workbook` workbook file.
+- [Download from GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Football_Lab2_Combined_Workbook.xlsx)
+- [Download from Google Drive](https://docs.google.com/spreadsheets/d/12LogN6lkr5yfG3tbs9SAdOO6YvuYqP0CkQVkHqQwONQ/edit?usp=sharing)
+  * Click `File` --> `Download` --> `Microsoft Excel (.xlsx)`
+
+NOTE: Images and screenshots included in this tutorial are from a sample dataset and do not reflect what you will see working with different data.
+
+Once you've selected the data you want to load, click `Open` to load the data in Tableau.
 
 <p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_20.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_20.png?raw=true" alt="" /></a></p>
 
-16-Tableau's Data Source previews the structure of the data we loaded from the Excel file. Tableau determines what type of data is contained in each field (integer number values, dates, geographic spatial information, strings of letters or characters, etc.).
+Tableau's Data Source previews the structure of the data we loaded from the Excel file. 
 
-17-If we wanted to analyze or visualize data from multiple tables, Tableau's <strong>Data Source tab</strong> offers some functionality for joining tables and building a database structure.
+Tableau determines what type of data is contained in each field (integer number values, dates, geographic spatial information, strings of letters or characters, etc.).
+
+If we wanted to analyze or visualize data from multiple tables, Tableau's Data Source offers some functionality for joining tables and building a database structure.
 
 <p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/master/screenshots/Capture_19.PNG?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/master/screenshots/Capture_19.PNG?raw=true" alt="" /></a></p>
 
+<p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_20.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_20.png?raw=true" alt="" /></a></p>
+
+Click on the `Sheet 1` icon next to `Data Source` to move into Tableau's visualization builder interface.
+
+Tableau distinguishes between `Dimensions` (data fields that cannot be aggregated) and `Measures` (data fields that can be aggregated--or have mathematical operations performed on them).
+
 <p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_21.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_21.png?raw=true" alt="" /></a></p>
 
-18-Click on the <strong>Sheet 1 icon</strong> next to Data Source to move into Tableau's visualization builder interface.
-
-<blockquote>How is the data in Tableau presented or organized differently than the same information in Excel? What similarities or differences do you notice between the two user interfaces for building data visualizations?</blockquote>
-
-19-Tableau distinguishes between <strong>Dimensions</strong> (data fields that cannot be aggregated) and <strong>Measures</strong> (data fields that can be aggregated--or have mathematical operations performed on them).
-
-20-To visualize the distribution of students taking certain types of AP courses, we need a graph that counts the number of students for each AP course category.
-
-<p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_22.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_22.png?raw=true" alt="" /></a></p>
-
-21-Drag "Advanced Placement Course Enrollment...." from Dimensions to Rows, and "Number of......Students" to Columns.
+You can move fields in the dataset to `Columns` and `Rows` to generate aggregate tables.
+- This is similar to what we were able to do in Excel using a PivotTable
 
 <p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_23.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_23.png?raw=true" alt="" /></a></p>
 
-22-Tableau recognizes the combination of data elements and automatically generates a vertical bar chart.
+Once you've created an aggregate table for select fields, Tableau may generate a visualization, or the `Show Me` panel on the right-hand side of the window shows other visualization types possible for this data selection.
 
-23-<strong>Move your cursor over the chart</strong> to see the interactive data points.
+You can move your cursor over the chart to see the interactive data points.
 
-<p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataVizscreenshots/Capture_23.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_23.png?raw=true" alt="" /></a></p>
+FIG 41
 
-24-Tableau recognizes the combination of data elements and automatically generates a vertical bar chart.
+Tableau allows chart customization with the `Marks` panel.
 
-25-<strong>Move your cursor over the chart</strong> to see the interactive data points.
+You can drag specific fields from `Dimensions` or `Measures` onto elements in the `Marks` panel to customize labels, size, shapes, color, etc.
 
-<p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataVizscreenshots/Capture_25.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_25.png?raw=true" alt="" /></a></p>
+FIG 42
 
-26-Tableau allows chart customization with the <strong>Marks panel</strong>. For example, dragging the "Advanced Placement...." field from <strong>Dimensions</strong> to the <strong>Color</strong> icon in <strong>Marks</strong> colors the bars according to the different AP Course categories.
+The `Show Me` panel on the right-hand side of the Tableau window shows other types of visualizations you can build in Tableau using this combination of data fields and calculations.
 
-<p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataVizscreenshots/Capture_24.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_24.png?raw=true" alt="" /></a></p>
+### Additional Resources
 
-27-The <strong>Show Me panel</strong> on the right-hand side of the Tableau window shows other types of visualizations you can build in Tableau using this combination of data fields and calculations.
-
-28-Experiment with other data fields and calculations to generate different types of visualizations. You can add new worksheets or duplicate an existing worksheet to build multiple visualizations.
-
-## Reflection Questions
-
-What types of visualizations were you able to generate in Tableau? How were those visualizations similar or different than what you generated in Excel?
-
-How could those visualizations shape or impact your understanding of the data? Did you generate any visualizations that were confusing or misleading? Alternatively, did you generate any visualizations that were unexpected or illuminating?</blockquote>
-
-<hr />
+- Tableau Public, ["How-To Videos and Resources"](https://public.tableau.com/en-us/s/resources)
+- Miriam Posner, ["Getting started with Tableau Public"](http://miriamposner.com/classes/dh201w19/tutorials-guides/data-visualization/getting-started-with-tableau-public/) tutorial for Winter 2019 "Digital Humanities 201" class
 
 ## Uploading to Tableau Public
 
@@ -892,7 +897,7 @@ One of Tableau's features is that it allows users to upload interactive data vis
 
 If you have additional time, <a href="https://public.tableau.com/en-us/s/">create a free profile</a> on Tableau Public's website.
 
-Click <strong>File-&gt; Save to Tableau Public</strong>, and use your login credentials to save your Tableau workbook to Tableau Public's website.
+Click `File` --> `Save to Tableau Public`, and use your login credentials to save your Tableau workbook to Tableau Public's website.
 
 <p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/master/screenshots/Capture_29.PNG?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/master/screenshots/Capture_29.PNG?raw=true" alt="" /></a></p>
 
@@ -901,6 +906,17 @@ Click <strong>File-&gt; Save to Tableau Public</strong>, and use your login cred
 <p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/master/screenshots/Capture_31.PNG?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/master/screenshots/Capture_31.PNG?raw=true" alt="" /></a></p>
 
 Your Tableau Public online profile can host your interactive visualizations, and also gives you the option to share, download, and embed the interactive content.
+
+### Discussion and Reflection Questions:
+
+Experiment with other data fields and calculations to generate different types of visualizations. You can add new worksheets or duplicate an existing worksheet to build multiple visualizations.
+
+What types of visualizations were you able to generate in Tableau? How were those visualizations similar or different than what you generated in Excel?
+
+How could those visualizations shape or impact your understanding of the data? Did you generate any visualizations that were confusing or misleading? Alternatively, did you generate any visualizations that were unexpected or illuminating?</blockquote>
+
+- How is the data in Tableau presented or organized differently than the same information in Excel? 
+- What similarities or differences do you notice between the two user interfaces for building data visualizations?
 
 ## Python
 
