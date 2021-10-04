@@ -1,0 +1,86 @@
+Source,Target,Type,Weight
+Knute Rockne,Chuck Riley,Undirected,1
+Knute Rockne,Gus Dorais,Undirected,4
+Knute Rockne,Stan Cofall,Undirected,3
+Knute Rockne,Charlie Bachman,Undirected,3
+Knute Rockne,Dutch Bergman,Undirected,3
+Knute Rockne,Slip Madigan,Undirected,3
+Knute Rockne,"Maurice J. ""Clipper"" Smith",Undirected,4
+Knute Rockne,Hunk Anderson,Undirected,4
+Knute Rockne,Buck Shaw,Undirected,3
+Knute Rockne,Earl Walsh,Undirected,3
+Knute Rockne,Eddie Anderson,Undirected,3
+Knute Rockne,Chet A. Wynne,Undirected,3
+Knute Rockne,Harry Mehre,Undirected,3
+Knute Rockne,Tom Lieb,Undirected,4
+Knute Rockne,Frank Thomas,Undirected,3
+Knute Rockne,Edgar Miller,Undirected,3
+Knute Rockne,Don Miller,Undirected,3
+Knute Rockne,Adam Walsh,Undirected,3
+Knute Rockne,Jim Crowley,Undirected,3
+Knute Rockne,Noble Kizer,Undirected,3
+Knute Rockne,Elmer Layden,Undirected,3
+Knute Rockne,Chuck Collins,Undirected,3
+Knute Rockne,Harry Stuhldreher,Undirected,3
+Knute Rockne,Joe Bach,Undirected,2
+Knute Rockne,John Weibel,Undirected,2
+Knute Rockne,Rex Enright,Undirected,3
+Knute Rockne,Larry Mullins,Undirected,4
+Knute Rockne,Frank Leahy,Undirected,3
+Knute Rockne,Frank Carideo,Undirected,3
+Knute Rockne,Marchmont Schwartz,Undirected,3
+New Mexico,Chuck Riley,Undirected,2
+Notre Dame,Gus Dorais,Undirected,1
+Gonzaga,Gus Dorais,Undirected,5
+Wake Forest,Stan Cofall,Undirected,1
+Florida,Charlie Bachman,Undirected,5
+Kansas State,Charlie Bachman,Undirected,8
+Michigan State,Charlie Bachman,Undirected,14
+Washington (NFL),Dutch Bergman,Undirected,1
+Catholic,Dutch Bergman,Undirected,11
+Iowa,Slip Madigan,Undirected,2
+St. Mary's,Slip Madigan,Undirected,19
+Gonzaga,"Maurice J. ""Clipper"" Smith",Undirected,4
+Villanova,"Maurice J. ""Clipper"" Smith",Undirected,7
+Notre Dame,Hunk Anderson,Undirected,2
+NC State,Hunk Anderson,Undirected,2
+NC State,Buck Shaw,Undirected,1
+Fordham,Earl Walsh,Undirected,1
+Iowa,Eddie Anderson,Undirected,2
+Philadelphia (NFL),Buck Shaw,Undirected,2
+Nevada,Buck Shaw,Undirected,4
+Auburn,Chet A. Wynne,Undirected,4
+Kentucky,Chet A. Wynne,Undirected,4
+Creighton,Chet A. Wynne,Undirected,7
+Ole Miss,Harry Mehre,Undirected,8
+49ers (NFL),Buck Shaw,Undirected,9
+Georgia,Harry Mehre,Undirected,10
+Florida,Tom Lieb,Undirected,6
+Loyola Los Angeles,Tom Lieb,Undirected,9
+Alabama,Frank Thomas,Undirected,6
+Navy,Edgar Miller,Undirected,2
+Georgia Tech,Don Miller,Undirected,4
+Ohio State,Don Miller,Undirected,4
+Santa Clara,Adam Walsh,Undirected,4
+Michigan State,Jim Crowley,Undirected,5
+Purdue,Noble Kizer,Undirected,7
+Duquesne,Elmer Layden,Undirected,7
+Notre Dame,Elmer Layden,Undirected,7
+North Carolina,Chuck Collins,Undirected,8
+Fordham,Jim Crowley,Undirected,9
+Wisconsin,Harry Stuhldreher,Undirected,9
+Villanova,Harry Stuhldreher,Undirected,11
+Bowdoin,Adam Walsh,Undirected,18
+Duquesne,Joe Bach,Undirected,1
+Vanderbilt,John Weibel,Undirected,2
+Duquesne,John Weibel,Undirected,1
+Pittsburgh (NFL),Joe Bach,Undirected,4
+South Carolina,Rex Enright,Undirected,15
+Loyola New Orleans,Larry Mullins,Undirected,2
+St. Benedict's,Larry Mullins,Undirected,5
+St. Ambrose,Larry Mullins,Undirected,5
+Boston College,Frank Leahy,Undirected,2
+Missouri,Frank Carideo,Undirected,2
+Notre Dame,Frank Leahy,Undirected,11
+Creighton,Marchmont Schwartz,Undirected,5
+Stanford,Marchmont Schwartz,Undirected,9
