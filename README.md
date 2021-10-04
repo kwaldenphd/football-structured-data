@@ -206,9 +206,7 @@ When you start doing this on your own, we'll talk in more detail about tools/wor
 
 # Exploratory Data Visualization
 
-## DataBasic
-
-### WTFcsv
+## DataBasic: WTFcsv
 
 ## Excel
 
@@ -220,13 +218,13 @@ When you start doing this on your own, we'll talk in more detail about tools/wor
 
 # Mapping
 
-## Palladio
-
 ## ArcGIS Online
 
-## Python
+## Mapping in Python
 
-## RStudio
+## Mapping in RStudio
+
+## Other Mapping Tools/Resources
 
 # Networks
 
@@ -236,7 +234,7 @@ When you start doing this on your own, we'll talk in more detail about tools/wor
 
 ## Gephi
 
-## Python
+## Other Network Tools/Resources
 
 # Next Steps (aka, now it's your turn!)
 
@@ -248,17 +246,16 @@ When you start doing this on your own, we'll talk in more detail about tools/wor
 
 ### OpenRefine
 
-### Excel
+### Data Cleaning in Excel
 
-### Python
+### Data Cleaning in Python
 
-### RStudio
+### Data Cleaning in RStudio
 
 ### Command Line (regular expressions)
 
-## Data Analysis/Visualization
+## Tool Directory
 
-List of tools:
 - Static 2D visualizations
   * WTFcsv
   * Excel
