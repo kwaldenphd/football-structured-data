@@ -563,6 +563,26 @@ Be sure to the `My table has headers` box is selected.
 
 Click `OK` to create the table.
 
+FIG 20
+
+Once you've created the table, go to the `Table Design` tab and rename the table.
+
+We also want to add the table to our data model.
+
+FIG 21
+
+Select the `Power Pivot` menu option (next to `Table Design`).
+
+Click the `Add to Data Model` icon.
+
+FIG 23
+
+In the pop-up Power Pivot window, select `File` --> `Close` to add the table to the data model.
+
+Go through this process of creating a table (under `Data`), renaming the table (under `Table Design`), and adding the table to the data model (under `Power Pivot`) for each sheet in the workbook.
+
+Renaming tables and adding them to the data model is an important step down the line when we want to start aggregating the data for more fine-tuned analysis and visualization.
+
 For folks working in Google Sheets, there is not an equivalent for this step. Google Sheets already treats your spreadsheet as a table.
 
 BUT, before you start sorting/filtering/etc, you probably want to freeze the first row in the spreadsheet as a column header.
@@ -577,8 +597,6 @@ Formatting your data as a table in Excel allows you to sort values within specif
 You can access these tools by clicking the arrow drop-down icon in the first row for each column (in the cell with the column header).
 
 For folks working in Google Sheets, many of these same tools are under the `Data` dropdown menu.
-
-Go through the process of creating a table for each sheet in your workbook (or for Google Sheets users, freeze the first row in each sheet to preserve the column headers).
 
 Explore some of the searching, sorting, and filtering operations.
 
@@ -610,9 +628,60 @@ For folks working in Google Sheets:
 
 ### Discussion and Reflection Questions
 
-asdfjlasjfd ;asfas 
+What types of visualizations were you able to generate in Excel using PivotChart? How could those visualizations shape or impact your understanding of the data? Did you generate any visualizations that were confusing or misleading? Alternatively, did you generate any visualizations that were unexpected or illuminating?
 
-## Pivot Tables in Excel
+## PivotTables and PivotCharts in Excel
+
+From [Wikipedia](https://en.wikipedia.org/wiki/Pivot_table):
+
+"A pivot table is a table of grouped values that aggregates the individual items of a more extensive table within one or more discrete categories. This summary might include sums, averages, or other statistics, which the pivot table groups together using a chosen aggregation function applied to the grouped values."
+
+Within Excel, PivotTables (and PivotCharts) let us generate more fine-tuned and customized visualizations for data in the workbook.
+
+FIG 18
+
+FIG 17
+
+To create a PivotTable and PivotChart:
+- Click on the `PivotChart` dropdown in the `Charts` menu bar area
+- Select the `PivotChart & PivotTable` option
+- Check that `Use this workbook's Data Model` and `New Worksheet` are selected.
+- Click `OK` to create the PivotTable.
+
+Fig 19
+
+Your data is now formatted as a PivotTable, which allows us to aggregate, analyze, and visualize across different sheets in the workbook.
+
+The steps we took earlier in the lab to name our tables and add them to the data model means we now have a PivotTable and PivotChart that lets us access all three tables for aggregating and visualizing data.
+
+Fig 24
+
+The PivotChart side bar allows you to select specific data fields and arrange or restructure them to generate visualizations.
+
+You can click on the drop-down arrow next to each table to see a list of its fields (or columns).
+
+
+Fig 25
+
+To show the number of students by major, drag the `Major` field from the `Directory` table into the `Axis (Categories` box.
+
+Then, drag the `Major` field from the `Directory` table into the `Values` box.
+
+The default value and bar chart are showing us the number of students in each major.
+
+Fig 26
+
+The `Values` box also can calculate other arithmetic values for numeric data fields. You can click on the drop-down arrow next to a field in `Values` and select `Value Field Settings` to see these additional options.
+
+You can right click on various parts of the bar chart to customize colors and labels.
+
+#### Discussion and Reflection Questions
+
+Experiment with other PivotChart functions and other data fields to generate different types of visualizations.
+
+What types of visualizations were you able to generate in Excel using PivotChart? How could those visualizations shape or impact your understanding of the data? Did you generate any visualizations that were confusing or misleading? Alternatively, did you generate any visualizations that were unexpected or illuminating?
+
+### PowerQuery
 
 But one of the things we might want to be able to do with these datasets is connect across them, or generate visualizations that connect across the different discrete datasets.
 
@@ -627,53 +696,119 @@ We would need to connect the roster and directory datasets to be able to access 
 <blockquote>The larger concept we're talking about here falls under the big umbrella of data models and relational database systems. Those concepts are outside the scope of this class, but for folks who want to learn more about relational databases, entity relationship diagrams, data models, and structured query language (SQL):
  <ul>
   <li>
+  </li>
+ </ul>
+ </blockquote>
 
-<p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_6.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_6.png?raw=true" alt="" /></a></p>
+We can connect these two tables using the `Combined_Name` field in the `directory` table and the `Player` field in the `roster` table.
 
-1-Start in <strong>cell A1</strong> and <strong>select all cells in the sheet</strong> that contain data. Click <strong>Insert-&gt; PivotChart</strong>.
+FIG 30
 
-<p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_7.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_7.png?raw=true" alt="" /></a></p>
+First, we need to establish query relationships with each of the tables in our workbook.
+- Click the `From Table/Range` option (under `Get & Transform Data`, top-left) under the `Data` tab
+- In the `Power Query Editor` pop-up window, select `Close & Load`
 
-2-Leave the default selections in the pop-up window and click <strong>OK</strong>.
+FIG 31
 
-<p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_8.PNG?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_8.PNG?raw=true" alt="" /></a></p>
-  
-3-Your data is now formatted as a <strong>PivotChart</strong> sheet, which will allow sorting, filtered searching, and visualization.
+You should now see a `Schedules (2)` sheet that also shows up under `Queries & Connections`.
 
-<p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_10.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_10.png?raw=true" alt="" /></a></p>
+Do this for each table in the workbook.
 
-4-The <strong>PivotChart side bar</strong> allows you to select specific data fields and arrange or restructure them to generate visualizations.
+FIG 32
 
-<p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_9.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_9.png?raw=true" alt="" /></a></p>
+Now, we need to create a new table that merges connecting records from the `rosters` and `directory` tables.
 
-<p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_10.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_10.png?raw=true" alt="" /></a></p>
+FIG 29
 
-<p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_11.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_11.png?raw=true" alt="" /></a></p>
+We can do this by using PowerPivot and PowerQuery to merge connecting records in these fields.
+- Click the `Get Data` icon in the `Data` tab
+- Hover over `Combine Queries` in the drop-down
+- Click `Merge` under `Combine Queries`
 
+FIG 33
 
-<p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_12.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_12.png?raw=true" alt="" /></a></p>
+In the `Merge` pop-up window, select the tables and fields to create this relationship.
+- `Player` from `Rosters`
+- `Combined_Name` from `Directory`
+- `Left Outer` under the `Join Kind` drop-down
 
-5-To compare the number of students taking AP courses, click and drag the "Advanced Placement Course...." field into the Axis (Categories) box. Click and drag the a "Number of ...... " field into the Values box.
+Click `OK` to create the relationship.
 
-6-The <strong>default Value and bar chart</strong> is showing us a count of the number of data points represented in each field.
+FIG 34
 
-<p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_13.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_13.png?raw=true" alt="" /></a></p>
+Now, we see a new `Merge1` table in the `PowerQuery Editor` window.
 
-7-Click on the arrow next to a field in the Values box and select Value Field Settings.
+FIG 35
 
-<p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_14.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_14.png?raw=true" alt="" /></a></p>
+We can rename this table under `Query Settings`.
 
-8-Click <strong>Sum</strong> to have Excel calculate the total number of students for that field.
+Now we want to select what columns from the merge will be included in the new table.
 
-9-Make this change for any fields in the Values box.
+FIG 36
 
-<p align="center"><a href="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_15.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/excel-pivot-tables-tutorial/blob/HUM295-DataViz/screenshots/Capture_15.png?raw=true" alt="" /></a></p>
+We can click the arrow icons next to the `Directory` column in the new table to expand the list of merged fields.
 
-10-We now have a bar chart that compares the number of students who took specific types of AP courses.
+FIG 37
 
-11-You can right click on various parts of the bar chart to customize colors and labels.
+We want to select fields from the `Directory` table to merge with the `Rosters` table.
 
-12-Experiment with other PivotChart functions and other data fields to generate different types of visualizations.
+The name fields are duplicated, so we can focus on columns with major and home geographic information.
+
+Click `OK` to merge these columns.
+
+FIG 38
+
+We can now see the merged columns in our new table.
+
+Click `Close & Load` to save these changes and load the new table to the workbook.
+
+FIG 39
+
+We can now see a `Merged_Roster_Directory` sheet in our workbook.
+
+We could use this new sheet the connects roster and directory information to aggregate and visualize this data, using the PivotChart tools covered earlier in the lab.
+
+### Additional Resources
+
+We're just scratching the surface of things you can do in Excel using PowerPivot, PowerQuery, and PivotTables.
+
+Google Sheets has some of the PivotTable functionality, but does not currently support things like PowerPivot and PowerQuery.
+
+For more on PivotTables in Google Sheets:
+- Google Docs Help, "[Create & use pivot tables](https://support.google.com/docs/answer/1272900?hl=en&co=GENIE.Platform%3DDesktop)"
+- Google Docs Help, "[Create and edit pivot tables](https://support.google.com/a/users/answer/9308944?hl=en)"
+
+For more on data models and queries/joins:
+- Microsoft Support, "[Relationships between tables in a Data Model](https://support.microsoft.com/en-us/office/relationships-between-tables-in-a-data-model-533dc2b6-9288-4363-9538-8ea6e469112b)"
+- Microsoft Support, "[Create a Data Model in Excel](https://support.microsoft.com/en-us/office/create-a-data-model-in-excel-87e7a54c-87dc-488e-9410-5c75dbcb0f7b)"
+- Microsoft Support, "[Merge queries and join tables](https://support.microsoft.com/en-us/office/merge-queries-and-join-tables-cbd17828-7a50-4dc6-9aac-20af4ef6d8a6)"
+
+For more on PivotTables and PivotCharts:
+- Microsoft Support, "[Overview of PivotTables and PivotCharts](https://support.microsoft.com/en-us/office/overview-of-pivottables-and-pivotcharts-527c8fa3-02c0-445a-a2db-7794676bce96)"
+- Microsoft Support, "[Create a PivotTable to analyze worksheet data](https://support.microsoft.com/en-us/office/create-a-pivottable-to-analyze-worksheet-data-a9a84538-bfe9-40a9-a8e9-f99134456576)"
+- Microsoft Support, "[Create a PivotChart](https://support.microsoft.com/en-us/office/create-a-pivotchart-c1b1e057-6990-4c38-b52b-8255538e7b1c)"
+
+For more on PowerPivot and PowerQuery:
+- Microsoft Support, "[Get started with Power Pivot in Microsoft Excel](https://support.microsoft.com/en-us/office/create-a-pivotchart-c1b1e057-6990-4c38-b52b-8255538e7b1c)"
+- Microsoft Support, "[Power Pivot: Powerful data analysis and data modeling in Excel](https://support.microsoft.com/en-us/office/power-pivot-powerful-data-analysis-and-data-modeling-in-excel-a9c2c6e2-cc49-4976-a7d7-40896795d045)"
+- Microsoft Support, "[Learn to use Power Query and Power Pivot in Excel](https://support.microsoft.com/en-us/office/learn-to-use-power-query-and-power-pivot-in-excel-42d895c2-d1d7-41d0-88da-d1ed7ecc102d"
+- Microsoft Support, "[Power Pivot- Overview and Learning](https://support.microsoft.com/en-us/office/power-pivot-overview-and-learning-f9001958-7901-4caa-ad80-028a6d2432ed)"
+- Microsoft Support, "[Power Query documentation](https://docs.microsoft.com/en-us/power-query/)"
+
+### Takeaways from all the Excel adventures...
+
+You're probably wondering why we spent so much time working in Excel and exploring some of the more advanced functionality, and that's a fair question.
+
+Folks with computer science/data science backgrounds and programming chops are probably wondering why we would spend so much time figuring out how to do things in a proprietary software program that can be accomplished programmatically in open-source programs like Python, RStudio, and SQL.
+
+A few reasons:
+- Google Sheets is a powerful spreadsheet tool, but there's a reason Excel is an industry standard for more organizations/companies that have more advanced data processing workflows and don't necessarily have data scientists/computer scientists/programmers on staff
+- Excel integrates with other data processing workflows and visualization tools (specifically PowerBI) to create an incredibly powerful data ecosystem
+- So yes, Excel will change, but it's not going anywhere. 
+- And to Prof. Walden's knowledge, there's no non-coding spreadsheet program (including Apple Numbers, Google Sheets, open-source Libre Office Calc) that comes in terms of functionality.
+
+Additionally, these Excel workflows can help those without a data science/programming/data engineering/etc background understand some of the core concepts and steps involved in data modeling and database systems.
+- This helps immensely when you're in a work setting where you need to be able to talk to or interact with folks working in and around database engineering. Even if you're not the one building or maintaining the workflows, you are much better equipped to have intelligent conversations about what those individuals are doing and what you need these systems to do.
 
 ## Reflection Questions
 
