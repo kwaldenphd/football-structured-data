@@ -824,7 +824,7 @@ What types of visualizations were you able to generate in Excel using PivotChart
 
 To get started, you'll need to download the free version of Tableau (Tableau Public) on your personal computer.
 
-FIGURE 40
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_40.png?raw=true" alt="Capture" /></p>
 
 Head to https://public.tableau.com/ in a web browser and enter your email to download the program.
 
@@ -874,13 +874,13 @@ Once you've created an aggregate table for select fields, Tableau may generate a
 
 You can move your cursor over the chart to see the interactive data points.
 
-FIG 41
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_41.png?raw=true" alt="Capture" /></p>
 
 Tableau allows chart customization with the `Marks` panel.
 
 You can drag specific fields from `Dimensions` or `Measures` onto elements in the `Marks` panel to customize labels, size, shapes, color, etc.
 
-FIG 42
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_42.png?raw=true" alt="Capture" /></p>
 
 The `Show Me` panel on the right-hand side of the Tableau window shows other types of visualizations you can build in Tableau using this combination of data fields and calculations.
 
@@ -1078,7 +1078,7 @@ You can explore different available base maps to see what works best with your d
 
 For example, My Maps’s default base map includes topographical data. If that data is not essential for our analysis, a simpler base map (like `Simple Atlas`) can help users focus on the most important aspects of the spatial visualization.
 
-FIG 48
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_48.png?raw=true" alt="Capture" /></p>
 
 Click on the blue paint roller icon next to the data layer to open a pop-up with style customization options.
 
@@ -1086,17 +1086,17 @@ The default setting is a uniform style for all map markers.
 
 We want to think about display customization options that are a good fit for the data we're working with.
 
-FIG 43
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_43.png?raw=true" alt="Capture" /></p>
 
 We can experiment with grouping points by a particular field, coloring points based on discrete categories or numeric ranges (for numeric fields).
 - For example, if you're working with the directory information, you could color points by `Major`.
 - Or if you're working with the schedule information, you could color points by `Conf` or `Season`.
 
-FIGURE 45
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_45.png?raw=true" alt="Capture" /></p>
 
-FIG 46
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_46.png?raw=true" alt="Capture" /></p>
 
-FIG 47
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_47.png?raw=true" alt="Capture" /></p>
 
 Once you have a map display you like, you can download, share, or print, using some of the options highlighted in the screenshots.
 - Prof. Walden's sample Google My Map for this lab
@@ -1131,13 +1131,14 @@ From the [ArcGIS Online "Overview" page](https://www.esri.com/en-us/arcgis/produ
 
 ## Logging in to ArcGIS Online
 
-<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/ArcGIS-Online-tutorial/blob/DASIL-Workshop/screenshots/Capture_a.png?raw=true" alt="Capture" /></p>
+
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_54.png?raw=true" alt="Capture" /></p>
 
 Open Firefox or Chrome and navigate to https://www.arcgis.com/sharing/rest/oauth2/signup?client_id=arcgisonline&redirect_uri=http://www.arcgis.com&response_type=token in a web brower.
 
 Create a free ArcGIS public account.
 
-FIG 49
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_49.png?raw=true" alt="Capture" /></p>
 
 Once you have an account and have logged in, click `Map` in the top-left page menu.
 
@@ -1153,7 +1154,7 @@ Once you have an account and have logged in, click `Map` in the top-left page me
 
 Click the `Save` icon above the map to save your map.
 
-FIG 50
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_50.png?raw=true" alt="Capture" /></p>
 
 Add a title, tags, and summary, and click the blue `Save Map` icon. Provide information that will help you find and identify the map you're creating. 
 
@@ -1256,7 +1257,7 @@ Hover your cursor over the data layer and click the three dots that appear to se
 
 ### Additional Resources
 
-FIG 51
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_51.png?raw=true" alt="Capture" /></p>
 
 There's a lot more you can do with ArcGIS Online.
 
@@ -1442,11 +1443,11 @@ However, the map project will not be published or shared until you click the `Pu
 
 In this tutorial, we have been focusing on editing a data layer in Carto. The program also includes tools that let you analyze your data (`Layers` and `Analysis`) and add interactive `Widgets` for a dynamic public interface.
 
-Fig 52
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_52.png?raw=true" alt="Capture" /></p>
 
 [Link to Prof. Walden's sample map with widgets for this lab](https://kwalden.carto.com/builder/be217bb8-46f4-47a1-83dc-96ccd200e175/embed)
 
-Fig 53
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_53.png?raw=true" alt="Capture" /></p>
 
 To learn more about Carto's features and functionality: https://carto.com/help/
 
