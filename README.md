@@ -2029,6 +2029,13 @@ A few tutorials:
 - Python
   * John R. Ladd, Jessica Otis, Christopher N. Warren, and Scott Weingart, "Exploring and Analyzing Network Data with Python," The Programming Historian 6 (2017), https://doi.org/10.46430/phen0064.
   * Prof. Walden's [`networkx` Python tutorial](https://github.com/kwaldenphd/NetworkX-tutorial)
+  * [`pyvis` tutorial](https://pyvis.readthedocs.io/en/latest/tutorial.html) (for interactive network in Python)
+  * ["Interactive Network Visualizations"](https://pyvis.readthedocs.io/en/latest/), `pyvis` documentation
+  * Jose Manuel Napoles Duarte, ["Making network graphs interactive with Python and Pyvis"](https://towardsdatascience.com/making-network-graphs-interactive-with-python-and-pyvis-b754c22c270) *Towards Data Sciecne* (5 January 2021)
+- D3/JavaScript
+  * D3.js gallery, ["Network graph"](https://www.d3-graph-gallery.com/network)
+  * Jim Vallandingham, ["How to Make an Interactive Network Visualization"](https://flowingdata.com/2012/08/02/how-to-make-an-interactive-network-visualization/) *FlowingData* (2 August 2012)
+  * Elijah Meeks, [Network Viz Slide Deck](http://elijahmeeks.com/networkviz/)
 - Other
   * Jon MacKay, "Dealing with Big Data and Network Analysis Using Neo4j," The Programming Historian 7 (2018), https://doi.org/10.46430/phen0074.
   * Miriam Posner's ["Creating Network Graphs with Cytoscape"](https://github.com/miriamposner/cytoscape_tutorials) tutorial
@@ -2085,10 +2092,12 @@ A few tutorials:
 - Networks
   * Static
     * Gephi
+    * R/RStudio
     * Python
   * Interactive
     * Palladio
     * Python (`networkx` and `pyvis`)
+    * ConnectTheDots
 
 ## Addressing Your Research Questions
 
