@@ -7,6 +7,8 @@ This tutorial is licensed under a <a href="http://creativecommons.org/licenses/b
 
 This lab will involve using data analysis and visualization methods to interact with digitized football-related material from the University Archives as structured data. The project will include opportunities to develop a data model/structure, use manual or computational methods to map information from primary sources to a data structure, and conduct exploratory data analysis/visualization (using coding and no-coding tools/methods). This lab will focus on methods for working with structured data. 
 
+[Click here](https://github.com/kwaldenphd/football-structured-data/blob/main/acknowledgements.md) to view a full list of acknowledgements for this lab.
+
 # Table of Contents
 
 - [Background](#background)
@@ -304,118 +306,114 @@ When an institution or team is the `source` node, the weight is the number of se
 - Prioritize reproducability and version control when and where possible, but don't let perfect be the enemy of getting something you can work with.
 - When you start doing this on your own, we'll talk in more detail about tools/workflows/strategies/etc. for the materials you're working with and the topics/questions you want to explore.
 
-## Data
+# How to Work Through This Lab
 
-1- We'll be using three sample datasets in the Exploratory Data Analysis section of the lab.
+There are three main sections to this lab:
+- [Exploratory data analysis/visualization](https://github.com/kwaldenphd/football-structured-data/blob/main/eda.md) (EDA)
+- [Mapping](https://github.com/kwaldenphd/football-structured-data/blob/main/mapping.md)
+- [Network Analysis](https://github.com/kwaldenphd/football-structured-data/blob/main/networks.md)
 
-2- `ND_Directory_Cleaned_Geography.csv` represents a data structure based on the 1922-1923 student directory. Fields in the dataset include:
-- `Combined_Name_Original` (combined first name, last name, and major field)
-- `Combined_Name` (combined first name, last name field)
-- `Last_Name` (standarized last name)
-- `First_Name` (standardized first name)
-- `Major` (standardized major)
-- `Combined_Address` (combined street, city, state, and country field)
-- `Street` (standardized-ish street)
-- `City` (standardized city)
-- `State` (standardized state)
-- `Country` (standardized country)
-- `Standardized_Address` (standardized combined street, city, state, country field)
-- `Standardized_City_State` (standardized city, state, country field)
-- `Country` (standardized country)
-- `Latitude` (latitude)
-- `Longitude` (longitude)
+We'll spend two Thursday class periods leading up to the midterm break working on this lab (10/7, 10/14). Folks can (but are not required) to continue working over the break. 
 
-3- `combined_nd_rosters.csv` represents a data structure scraped from Sports Reference's Notre Dame college football season roster pages. Fields in the dataset include:
-- `Rk` (player rank on team at end of season)
-- `Season` (season)
-- `Player` (combined player name field)
-- `First_Name` (player first name)
-- `Last_Name` (player last name)
-- `G` (number of games)
-- `RushingAtt` (number of rushing yards attempted)
-- `RushingYds` (number of actual rushing yards)
-- `RushingAvg` (average number of rushing yards per attempt)
-- `RushingTD` (number of rushing touchdowns)
-- `ReceivingRec` (number of receiving receptions)
--  `ReceivingYds` (number of receiving yards)
--  `ReceivingAvg` (average number of receiving yards per reception)
--  `ReceivingTD` (number of receiving touchdowns)
--  `ScrimmagePlays` (number of plays from scrimmage, rush attempts + receptions)
--  `ScrimmageYds` (number of scrimmage yards, rushing + receiving yards)
--  `ScrimmageAvg` (average number of yards from scrimmage per play)
--  `ScrimmageTD` (number of touchdowns from scrimmage, receiving + rushing touchdowns)
+Our endpoint for this lab will be documenting your work going through the three sections of the lab. There will not be a "now it's your turn" section at the end of this lab.
 
-4- `combined_nd_schedules_cleaned.csv` represents a data structure scraped from Sports Reference's Notre Dame college football season results pages. Fields in the dataset include:
-- `G` (game number)
-- `Season` (season or year)
-- `Standarized_Date` (standardized game date, YYYY-MM-DD)
-- `Date` (original date field, MM DD, YYYY)
-- `Day` (game day of week)
-- `Time` (game time of day)
-- `School` (Notre Dame, includes ranking)
-- `Standardized_School` (standardized Notre Dame school field, does not include ranking)
-- `Game_Type` (home, away, neutral site game)
-- `Opponent` (opponent, includes ranking)
-- `Standarized_Opponent` (standardized opponent school field, does not include ranking)
-- `Post_Season` (Y/N field indicating if game is postseason/bowl/playoff game)
-- `Conf` (conference)
-- `Result` (W/L/T game result)
-- `Combined_Location` (combined game location, location/city/state/country)
-- `City` (game site city)
-- `State` (game site state)
-- `Country` (game site country)
-- `Pts` (number of ND points in game)
-- `Opp` (number of opponent points in game`
-- `W` (win number)
-- `L` (loss number)
-- `T` (tie number)
-- `Streak` (W/L/T streak)
-- `Notes` (additional notes on game)
-- `Latitude` (latitude)
-- `Longitude` (longitude)
+Given time constraints, we're going to try to wrap this lab up before the midterm break. And it's not going to be possible for folks to do more unstructured independent work within those time constraints.
 
-# Next Steps (aka, now it's your turn!)
+So folks who want to continue working with these tools/methods for your own research questions/topics will have an opportunity to do that in our third and last lab.
 
-## Collaborating Well
+Since there's not going to be a collaborative "now it's your turn" section at the end of the lab, folks will work in groups in class time, but you can also choose to turn in an individual lab notebook. 
 
-## Where to Start: Articulating a Research Question/Topic and Developing a Data Model
+Collaborate to the degree that it is useful and helpful to work through the material.
 
-## Data (Pre)Processing
+# Exploratory Data Analysis/Visualization
 
-## Tool Directory
+[Link to this section of the lab](https://github.com/kwaldenphd/football-structured-data/blob/main/eda.md)
 
-- Static 2D visualizations
-  * WTFcsv
-  * Excel
-  * Python (`matplotlib`)
-  * RStudio (`ggplot2`)
-- Interactive 2D visualizations
-  * Tableau
-  * Python (`plotly`)
-  * RStudio (`ggplotly`)
-- Mapping
-  * Static
-    * ArcMap/ArcPro
-    * QGIS
-    * Python (`matplotlib`)
-    * RStudio (`ggplot2`)
-  * Interactive
-    * Google MyMaps
-    * ArcGIS Online
-    * Palladio
-    * Python (`plotly`)
-    * RStudio (`plotly` and `leaflet`)
-    * `Leaflet` also has a JavaScript instantiation
-- Networks
-  * Static
-    * Gephi
-    * R/RStudio
-    * Python
-  * Interactive
-    * Palladio
-    * Python (`networkx` and `pyvis`)
-    * ConnectTheDots
+**Section table of contents**
+- [Exploratory Data Visualization](#exploratory-data-visualization)
+  * [DataBasic: WTFcsv](#databasic-wtfcsv)
+  * [Excel](#excel)
+  * [Tableau](#tableau)
+  * [Python](#python)
+  * [RStudio](#rstudio)
+- [Discussion/Reflection Questions](#discussionreflection-questions) 
 
-## Addressing Your Research Questions
+I'm asking everyone to spend some time with WTFcsv and Tableau.
+
+PICK ONE:
+- Folks with programming backgrounds can spend time working in RStudio/Python.
+- Folks who don't have a programming background can do more extensive work with Microsoft Excel and Google Sheets.
+
+The discussion/reflection questions at the end of the lab ask you to think holistically across the different programs/tools you focused on.
+- There will be some questions that related to specific programs/tools. You are not required to respond to or engage with all of the questions.
+- Definitely cover the general questions and any specific to WTFcsv and Tableau, but pick and choose from the others based on what programs/tools you worked with.
+
+# Mapping
+
+[Link to this section of the lab](https://github.com/kwaldenphd/football-structured-data/blob/main/mapping.md)
+
+**Section table of contents**
+
+- [Google MyMaps](#google-mymaps) 
+- [ArcGIS Online](#arcgis-online)
+- [Carto](#carto)
+- [Mapping in Python](#mapping-in-python)
+- [Mapping in RStudio](#mapping-in-rstudio)
+- [Other Mapping Tools/Resources](#other-mapping-toolsresources)
+  * [ArcGIS StoryMaps and Web App Builder](#arcgis-storymaps-and-web-app-builder)
+  * [ArcMap](#arcmap)
+  * [QGIS](#qgis)
+- [Mapping Discussion/Reflection Questions](#mapping-discussionreflection-questions)
+
+I'm asking everyone to spend some time with ArcGIS Online.
+- Folks who don't have a background with data/mapping might want to start with Google MyMaps before you jump into ArcGIS Online.
+
+PICK ONE:
+- Folks with programming backgrounds can spend time working in RStudio/Python.
+- Folks interested in doing more in-depth work with mapping can explore Carto (web-based program that does not involve any coding).
+
+The discussion/reflection questions at the end of the lab ask you to think holistically across the different programs/tools you focused on.
+- There will be some questions that related to specific programs/tools. You are not required to respond to or engage with all of the questions.
+- Definitely cover the general questions and any specific to ArcGIS Online, but pick and choose from the others based on what programs/tools you worked with.
+
+# Networks
+
+[Link to this section of the lab](https://github.com/kwaldenphd/football-structured-data/blob/main/networks.md)
+
+**Section table of contents**
+- [DataBasic: Connect the Dots](#databasic-connect-the-dots)
+- [Palladio](#palladio)
+- [Gephi](#gephi)
+- [Network Discussion/Reflection Questions](#network-discussionreflection-questions)
+- [Other Network Tools/Resources](#other-network-toolsresources)
+
+
+I'm asking everyone to spend some time with ConnectTheDots.
+
+PICK ONE:
+- Folks who want to more in-depth work with network analysis/statistics can spend time with Gephi (open-source software, no coding)
+- Folks who want to focus more on network graphs/visualizations can spend time with Palladio (web-based program, no coding)
+- Folks with programming backgrounds are welcome to explore some of the linked RStudio/Python resources and tutorials
+
+The discussion/reflection questions at the end of the lab ask you to think holistically across the different programs/tools you focused on.
+- There will be some questions that related to specific programs/tools. You are not required to respond to or engage with all of the questions.
+- Definitely cover the general questions and any specific to ConnectTheDots, but pick and choose from the others based on what programs/tools you worked with.
 
 # Lab Notebook Components
+
+- Reflections/observations from exploratory data analysis/visualization section of the lab
+- Reflections/observations from the mapping section of the lab
+- Reflections/observations from the networks section of the lab
+- Any data files you worked with (that aren't in the sample datasets)
+- If you worked with Python/RStudio: Scripts or notebooks for any original code you generated
+- Individual reflection
+  * At least 200 words (or 2-3 minutes audio/video), addressing the following questions:
+    * What you learned about working with structured data through this lab
+    * What you learned about data analysis/visualization through this lab
+    * How you're thinking about data analysis/visualization as they relate to ND football history and primary sources differently after this lab
+    * Where you would go next with these tools/methods (other research questions/topics you're interested in exploring, other data sources or types of data you would want to be able to work with, etc)
+    * Other comments/questions/observations
+
+If you're working in Google Drive, you can just submit a link to Google Drive.
+
+Notebooks can be individual or collaborative.
