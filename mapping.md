@@ -5,6 +5,8 @@ This tutorial is licensed under a <a href="http://creativecommons.org/licenses/b
 
 # Table of Contents
 
+- [Data](#data)
+- [Mapping Overview](#mapping-overview)
 - [Google MyMaps](#google-mymaps) 
 - [ArcGIS Online](#arcgis-online)
 - [Carto](#carto)
@@ -18,7 +20,7 @@ This tutorial is licensed under a <a href="http://creativecommons.org/licenses/b
  
 ## Data
 
-1- We'll be using three sample datasets in the Exploratory Data Analysis section of the lab.
+1- We'll be using two sample datasets in the Mapping section of the lab.
 
 2- `ND_Directory_Cleaned_Geography.csv` represents a data structure based on the 1922-1923 student directory. Fields in the dataset include:
 - `Combined_Name_Original` (combined first name, last name, and major field)
@@ -37,27 +39,7 @@ This tutorial is licensed under a <a href="http://creativecommons.org/licenses/b
 - `Latitude` (latitude)
 - `Longitude` (longitude)
 
-3- `combined_nd_rosters.csv` represents a data structure scraped from Sports Reference's Notre Dame college football season roster pages. Fields in the dataset include:
-- `Rk` (player rank on team at end of season)
-- `Season` (season)
-- `Player` (combined player name field)
-- `First_Name` (player first name)
-- `Last_Name` (player last name)
-- `G` (number of games)
-- `RushingAtt` (number of rushing yards attempted)
-- `RushingYds` (number of actual rushing yards)
-- `RushingAvg` (average number of rushing yards per attempt)
-- `RushingTD` (number of rushing touchdowns)
-- `ReceivingRec` (number of receiving receptions)
--  `ReceivingYds` (number of receiving yards)
--  `ReceivingAvg` (average number of receiving yards per reception)
--  `ReceivingTD` (number of receiving touchdowns)
--  `ScrimmagePlays` (number of plays from scrimmage, rush attempts + receptions)
--  `ScrimmageYds` (number of scrimmage yards, rushing + receiving yards)
--  `ScrimmageAvg` (average number of yards from scrimmage per play)
--  `ScrimmageTD` (number of touchdowns from scrimmage, receiving + rushing touchdowns)
-
-4- `combined_nd_schedules_cleaned.csv` represents a data structure scraped from Sports Reference's Notre Dame college football season results pages. Fields in the dataset include:
+3- `combined_nd_schedules_cleaned.csv` represents a data structure scraped from Sports Reference's Notre Dame college football season results pages. Fields in the dataset include:
 - `G` (game number)
 - `Season` (season or year)
 - `Standarized_Date` (standardized game date, YYYY-MM-DD)
@@ -86,16 +68,17 @@ This tutorial is licensed under a <a href="http://creativecommons.org/licenses/b
 - `Latitude` (latitude)
 - `Longitude` (longitude)
 
+# Mapping Overview
 
-# Mapping
+4- Up to this point, we have focused on exploratory data analysis/visualization in a Cartesian Coordinate system, that is data plotted on an `X` (horizontal) and `Y` (vertical) axis.
 
-5- Up to this point, we have focused on exploratory data analysis/visualization in a Cartesian Coordinate system, that is data plotted on an `X` (horizontal) and `Y` (vertical) axis.
+5- But for data with geographic or geospatial components, we might want to analyze and visualize those spatial components by mapping the data, or using the data to generate maps that use a `latitude` and `longitude` coordinate system.
 
-6- But for data with geographic or geospatial components, we might want to analyze and visualize those spatial components by mapping the data, or using the data to generate maps that use a `latitude` and `longitude` coordinate system.
+6- The next section of the lab covers a few different tools to get started with visualizing spatial data.
 
-7- The next section of the lab covers a few different tools to get started with visualizing spatial data.
+7- The lab procedure is going to used the `combined_nd_schedules_cleaned.csv` file.
 
-8- The lab procedure is going to used the `combined_nd_schedules_cleaned.csv` file, but you can use any of the sample datasets that include spatial (latitude/longitude) information.
+8- but you can use any of the sample datasets that include spatial (latitude/longitude) information.
 - Directories
 - Roster data merged with directory data (table we generated from the Excel section of the lab)
 
@@ -201,9 +184,13 @@ This tutorial is licensed under a <a href="http://creativecommons.org/licenses/b
   * [Public map](https://www.google.com/maps/d/edit?mid=1CUC36a-kqnX7ljy8Wtebc6lYvfxVZODV&usp=sharing)
   * [My Map project](https://www.google.com/maps/d/edit?mid=1CUC36a-kqnX7ljy8Wtebc6lYvfxVZODV&usp=sharing)
 
-### Discussion and Reflection Questions:
+### Google MyMaps Discussion/Relection Questions:
 
-asdfasf as df
+- How does working in this mapping tool shape your understanding of the data?
+- What types of visualizations (or aggregations) were you able to generate using this tool?
+- How could those visualizations shape or impact your understanding of the data?
+- What additional questions do you have about this data (or these datasets)? Where would you go next with exploring this dataset using some of the analysis or visualization tools/approaches?
+- Other comments/questions/observations
 
 ## ArcGIS Online
 
@@ -348,6 +335,14 @@ asdfasf as df
 
 66-Click the Print icon to generate a static image with your map and legend that you can save as an image or print to a PDF.
 - [Prof. Walden's sample map for this lab](https://arcg.is/1n5i1e)
+
+### ArcGIS Online Discussion/Reflection Questions
+
+- How does working in this mapping tool shape your understanding of the data?
+- What types of visualizations (or aggregations) were you able to generate using this tool?
+- How could those visualizations shape or impact your understanding of the data?
+- What additional questions do you have about this data (or these datasets)? Where would you go next with exploring this dataset using some of the analysis or visualization tools/approaches?
+- Other comments/questions/observations
 
 ### Additional Resources
 
@@ -510,6 +505,14 @@ asdfasf as df
 115- However, the map project will not be published or shared until you click the `Publish` blue rectangular icon on the bottom left-hand side of the page.
 - [Prof. Walden's sample map for this lab](https://kwalden.carto.com/builder/be217bb8-46f4-47a1-83dc-96ccd200e175/embed)
 
+### Carto Discussion/Reflection Questions
+
+- How does working in this mapping tool shape your understanding of the data?
+- What types of visualizations (or aggregations) were you able to generate using this tool?
+- How could those visualizations shape or impact your understanding of the data?
+- What additional questions do you have about this data (or these datasets)? Where would you go next with exploring this dataset using some of the analysis or visualization tools/approaches?
+- Other comments/questions/observations
+
 ### Additional Resources
 
 <p align="center"><a href="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_22.PNG?raw=true"><img class="size-full wp-image-459 aligncenter" src="https://github.com/kwaldenphd/carto-tutorial/blob/master/screenshots/Capture_22.PNG?raw=true" alt="" width="340" height="299" /></a></p>
@@ -551,6 +554,14 @@ asdfasf as df
 - [NBviewer](https://nbviewer.jupyter.org/github/kwaldenphd/football-structured-data/blob/main/notebooks/nd-football-eda.ipynb)
 - [Google CoLab](https://drive.google.com/file/d/1MybxGo9ngdm20rzV1xAqAGYZwNsLINTM/view?usp=sharing)
 
+### Python Discussion/Reflection Questions
+
+- How does with mapping in Python shape your understanding of the data?
+- What types of visualizations (or aggregations) were you able to generate using Python?
+- How could those visualizations shape or impact your understanding of the data?
+- What additional questions do you have about this data (or these datasets)? Where would you go next with exploring this dataset using some of the analysis or visualization tools/approaches?
+- Other comments/questions/observations
+
 ## Mapping in RStudio
 
 124- As mentioned earlier in the lab, Prof. Walden has built out an RMarkdown file that goes into more detail about using RStudio for exploratory data analysis for the sample datasets presented in this lab.
@@ -589,13 +600,22 @@ asdfasf as df
 - [GitHub, `.zip`](https://drive.google.com/file/d/1zex8zotq6TpLtzcDukl0NtH8oxaswBqR/view?usp=sharing)
 - [RStudio Cloud](https://rstudio.cloud/project/2977118)
 
-## MAPPING QUESTIONS/WRAP UP
-# Final reflection questions:
-<ul>
- 	<li>What interested you in this data? Would you have been able to find this information and draw conclusions from it without using spatial analysis tools?</li>
- 	<li>What questions do you still have about this data? How could you answer them? How could you answer them digitally?</li>
- 	<li>Were there any issues we talked about in historical mapping (change over time, error, certainty, etc.) that you think of differently now that you have tried it?</li>
-</ul>
+### RStudio Discussion/Reflection Questions
+
+- How does with mapping in RStudio shape your understanding of the data?
+- What types of visualizations (or aggregations) were you able to generate using RStudio?
+- How could those visualizations shape or impact your understanding of the data?
+- What additional questions do you have about this data (or these datasets)? Where would you go next with exploring this dataset using some of the analysis or visualization tools/approaches?
+- Other comments/questions/observations
+
+## Mapping Discussion/Reflection Questions
+
+- Thinking holistically across the mapping tool(s) you interacted with, what questions were you interested in asking or exploring about the spatial components of the sample datasets? 
+- How did using spatial analysis/visualization tools shape your understanding of the data?
+- Where would you go next with spatial analysis/visualization tools? 
+  * What questions or topics would you want to explore using the sample datasets? 
+  * Or, what other types of spatial information/data related to ND football would you want to work with?
+- Other comments/questions/observations
 
 ## Other Mapping Tools/Resources
 
