@@ -1049,7 +1049,7 @@ All sample datasets for this lab have already been geocoded.
 - [Carto](#carto)
 - [Mapping in Python](#mapping-in-python)
 - [Mapping in RStudio](#mapping-in-rstudio)
-- [Mapping Reflection/Discussion Questions](#mapping-reflectiondiscussion-questions
+- [Mapping Reflection/Discussion Questions](#mapping-reflectiondiscussion-questions)
 - [Other Mapping Tools/Resources](#other-mapping-toolsresources)
 
 ## Google MyMaps
@@ -1629,19 +1629,101 @@ We'll come back to these on-campus resources when we start working on the final 
 
 <p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/DataBasic-tutorial/blob/master/screenshots/Capture_1.jpg?raw=true" alt="Capture" /></p>
 
-Navigate back to the [DataBasic home page.](https://databasic.io)
+Navigate to the [DataBasic home page.](https://databasic.io)
 
 <p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/DataBasic-tutorial/blob/master/screenshots/Capture_13.png?raw=true" alt="Capture" /></p>
 
-Click on the ConnectTheDots icon to open the ConnectTheDots tool.
+Click on the `ConnectTheDots` icon to open the ConnectTheDots tool.
 
 As described on the page, “ConnectTheDots shows you how your data is connected by analyzing it as a network. Analyzing the connections between the "dots" in your data is a fundamentally different approach to understanding it. This tool shows you a network diagram to reveal those links, and gives you a high level report about what your network looks like.”
 
-<blockquote>What is a network? 
+## Knute Rockne Coaching Tree
 
-According to Miriam Posner, networks are “a finite set (or sets) of actors and the relations defined on them. It consists of three elements: (1) a set of actors; (2) each actor has a set of individual attributes; and (3) a set of ties that defines at least one relation among actors.” A network graph is “a common way to visually represent social networks, consisting of two dimensions: actors and relations (also called nodes and edges). Nodes are the entities in graph (also called vectors)..[edges] are the relationships between nodes.” 
+We'll also think in this lab about how structured data can be the starting point for looking at networks and relationships, under the umbrella of network analysis.
 
-Learn more via the [PDF included in this Repository.](https://github.com/kwaldenphd/DataBasic-tutorial/blob/master/Posner_SocialNetworkAnalysisGlossary.pdf) </blockquote>
+### What is a network?
+
+According to Miriam Posner, networks are “a finite set (or sets) of actors and the relations defined on them. It consists of three elements: 
+- (1) a set of actors;
+- (2) each actor has a set of individual attributes; and 
+- (3) a set of ties that defines at least one relation among actors.” 
+ 
+A network graph is “a common way to visually represent social networks, consisting of two dimensions: actors and relations (also called nodes and edges). Nodes are the entities in graph (also called vectors)..[edges] are the relationships between nodes.” 
+
+Learn more via the [PDF included in this Repository](https://github.com/kwaldenphd/football-structured-data/blob/main/files/Posner_SocialNetworkAnalysisGlossary.pdf)
+
+### Coaching tree as a type of network
+
+From [Wikipedia](https://en.wikipedia.org/wiki/Coaching_tree):
+
+"A coaching tree is similar to a family tree except that it shows the relationships of coaches instead of family members. There are several ways to define a relationship between two coaches. The most common way to make the distinction is if a coach worked as an assistant on a particular head coach's staff for at least a season then that coach can be counted as being a branch on the head coach's coaching tree. Coaching trees can also show philosophical influence from one head coach to an assistant.
+
+"Coaching trees are common in the National Football League and most coaches in the NFL can trace their lineage back to a certain head coach for whom they previously worked as an assistant."
+
+We can think of a coaching tree as a type of network, where the relationship of coaches in the tree is understood via nodes and edges.
+
+Let's take a look at a couple different representations of Knute Rockne's coaching tree:
+- "[Rockne's Coaching Tree](https://my.nd.edu/news/9551)" *Notre Dame, Alumni & Friends* (26 March 2013)
+- "[Knute Rockne, Coaching Tree](https://en.wikipedia.org/wiki/Knute_Rockne#Coaching_tree)", *Wikipedia*
+
+Discussion Questions:
+- What parts of information on this page would you want to work with as structured data?
+- What types of analysis/visualization or exploration would you be able to do with this resource as structured data?
+  * What questions or topics would you be able to explore using data from this resource? 
+- Other comments/questions about this source as structured data
+
+As an example of research that uses this approach/method:
+- Andrew Fast and David Donald Jensen, "[The NFL Coaching Network: Analysis of the Social Network Among Professional Football Coaches](https://www.researchgate.net/publication/228968729_The_NFL_Coaching_Network_Analysis_of_the_Social_Network_Among_Professional_Football_Coaches)" *American Association for Artificial Intelligence* (2006)
+
+### Rockne Coaching Tree Data Processing Overview
+
+No fancy Jupyter Notebooks for this one. Prof. Walden went through a few iterations of how to organize and structure the Rockne coaching tree facilitate network analysis.
+
+The `Rockne_Coaching_Tree` Excel workbook documents this iterative process:
+- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Rockne_Coaching_Tree.xlsx)
+- [Google Drive](https://docs.google.com/spreadsheets/d/1B2RaD_qtrQaupo6FznKzuAMnYCGt6eEJJ-aAcU9z8I4/edit?usp=sharing)
+
+The first step was to take the information on Wikipedia and map it onto a tabular data structure that would move in the direction of having nodes, edges, and weights.
+
+The `Original_Coaching_Tree.csv` file reflects this preliminary structure.
+- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Rockne_Coaching_Tree_Full.csv)
+- [Google Drive](https://docs.google.com/spreadsheets/d/1B2RaD_qtrQaupo6FznKzuAMnYCGt6eEJJ-aAcU9z8I4/edit?usp=sharing)
+
+The preliminary structure included the following columns:
+- `Name` (player/coach name)
+- `Played_Under` (Rockne)
+- `Years_Played` (years playing at ND)
+- `ND_No_Years` (total number of years played at ND)
+- `Next_Inst` (institution person coached at next)
+- `Years_Next_Inst` (years at next institution)
+- `Coach_No_Years` (total nubmer of years coaching at next institution)
+- `Coach_Rk` (coaching rank, head coach or associate)
+
+The most straightforward way to represent this data as a network is to have `source` and `target` nodes, in which Rockne is the source and the person who played/coached for him is the target. 
+
+The `Simplified_Coaching_Tree_CTD.csv` file reflects this `source-target` structure:
+- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Simplified_Coaching_Tree_CTD.csv)
+- [Google Drive](https://drive.google.com/file/d/1AvPk8sKYhlsCz6RjUTzkSyxxULX_Wf2U/view?usp=sharing)
+
+We can also include the other institutions these individuals played at as source nodes.
+
+The `Alternate_Simplified_Coaching_Tree_CTD.csv` file reflects this expanded `source-target` structure:
+- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Alternate_Simplified_Coaching_Tree_CTD.csv)
+- [Google Drive](https://drive.google.com/file/d/1OTel7xqn2yxx9fzDFWPQkdwR67oP-pJc/view?usp=sharing)
+
+But the simplified `source-target` structure doesn't account for aspects of these relationships like how many years someone played at ND, or how many years they coached at subsequent institutions.
+
+We can use the concept of weighted edges to incorporate these other pieces of data.
+
+One way to incorporate weighted edges is to use the number of years someone played at ND or coached elsewhere as the weight.
+
+The `Full_Coaching_Tree_Edges.csv` file reflects this weighted edge structure.
+- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Full_Coaching_Tree_Edges.csv)
+- [Google Drive](https://drive.google.com/file/d/1NK3JPimaISPy8NCifrCSSV7w8ZMtCOYO/view?usp=sharing)
+
+When Rockne is the `source` node, the weight is the number of seasons the `target` individual played under him at ND.
+
+When an institution or team is the `source` node, the weight is the number of seasons the `target` individual coached at this program.
 
 For ConnectTheDots, our network data is formatted as a list of edges, or connections, between a source and target node. 
 
@@ -1651,49 +1733,28 @@ For ConnectTheDots, our network data is formatted as a list of edges, or connect
     <th>target</th>
   </tr>
   <tr>
-    <td>Daddy Yankee</td>
-    <td>May-Be</td>
+    <td>Knute Rockne</td>
+    <td>Gus Dorais</td>
   </tr>
   <tr>
-    <td>Daddy Yankee</td>
-    <td>May-Be</td>
+    <td>Boston College</td>
+    <td>Frank Leahy</td>
   </tr>
-  <tr>
-    <td>Daddy Yankee</td>
-    <td>Glory</td>
-  </tr>
-  <tr>
-    <td>Daddy Yankee</td>
-    <td>Glory</td>
-  </tr>
-  <tr>
-    <td>Daddy Yankee</td>
-    <td>Glory</td>
-  </tr>
-  <tr>
-    <td>Daddy Yankee</td>
-    <td>Glory</td>
-  </tr>
-  <tr>
-    <td>Daddy Yankee</td>
-    <td>Blacka Nice</td>
-  </tr>
-  <tr>
-    <td>Daddy Yankee</td>
-    <td>Blacka Nice</td>
-  </tr>
-  </table>
+ </table>
 
-In this tutorial, we will be using a list of nodes and edges of the artists featured in the Barrio Fino album.
+<blockquote>Images and screenshots included in this tutorial are from a sample dataset and do not reflect what you will see working with different data.</blockquote>
 
-Download the Barrio_Fino_Network_Data.csv file included in this repository. Save the file to your desktop.
-
-  
 <p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/DataBasic-tutorial/blob/master/screenshots/Capture_14.png?raw=true" alt="Capture" /></p>
 
 ConnecTheDots gives you the option to use sample network data, paste your own data, or upload a file.
 
-Upload the SPN320_BarrioFino_NetworkData.csv file and click the Graph icon.
+We have two sample datasets that work with ConnectTheDots:
+- `Simplified_Coaching_Tree_CTD.csv` has Rockne is the source and the person who played/coached for him is the target
+  * [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Simplified_Coaching_Tree_CTD.csv)
+  * [Google Drive](https://drive.google.com/file/d/1AvPk8sKYhlsCz6RjUTzkSyxxULX_Wf2U/view?usp=sharing)
+- `Alternate_Simplified_Coaching_Tree_CTD.csv` has Rockne or institutions his players coached for as source nodes and the players/coaches as target nodes
+  * [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Alternate_Simplified_Coaching_Tree_CTD.csv)
+  * [Google Drive](https://drive.google.com/file/d/1OTel7xqn2yxx9fzDFWPQkdwR67oP-pJc/view?usp=sharing)
 
 <p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/DataBasic-tutorial/blob/master/screenshots/Capture_15.png?raw=true" alt="Capture" /></p>
 
@@ -1715,214 +1776,124 @@ Clicking the Download button by the network graph gives you the option to downlo
 
 #### Reflection Questions
 
-- What do you notice about Daddy Yankee’s collaboration practices in the Barrio Fino album through the results displayed in ConnectTheDotes?
-- How does ConnectTheDots’s results shape your understanding of the album’s content?
-- What additional questions do you have about the album?
+asdf asf dsa network something here
 
 ## Palladio
 
-
-As the authors of <em>Exploring Big Historical Data </em>outline in Chapter 7, historians can use a wide range of software programs and digital tools for network analysis and network visualizations. In this tutorial, we will use a combination of Palladio (a web-based GUI interface), NetworkX (a Python package) and Gephi (an GUI software) to explore various aspects of network analysis and visualization.
-
-<hr />
-
-## Network Analysis using Palladio
-
-<em>Developed through a National Endowment for the Humanities Implementation grant, <a href="http://hdlab.stanford.edu/palladio/">Palladio</a> was released by Stanford University in June 2016. Designed for historians and other digital humanities scholars, Palladio is a web-based application that allows users to analyze data that includes time and network features and display that data via maps, timelines, other types of visualizations, and gallery exhibits. Designed as a browser-based GUI interface, Palladio works well for quick visualizations and offers limited interactive export options.</em>
-
-<hr />
-
-## Data
-
-1-We will be working with sample networked data sets based on the <a href="http://www.oxforddnb.com/">Oxford Dictionary of National Biography</a> and the <a href="http://www.sixdegreesoffrancisbacon.com/">Six Degrees of Francis Bacon</a> project. These data sets include a list of names and relationships for early seventeenth-century Quakers.
-
-2-Download the the quakers_nodelist and quakers_edgelist CSV files from this repository 
-
-3-Save the files to your Desktop.
-
-4-Open these files in Microsoft Excel to explore the data structure.
-
-<blockquote>
-<ul>
- 	<li><em>What types of historical figures are represented? </em></li>
- 	<li><em>How are they described in the nodelist data? </em></li>
- 	<li><em>What additional questions do you have about the individuals who will be represented as nodes? </em></li>
- 	<li><em>How is the edgelist data structured?</em></li>
- 	<li><em>Based on a preliminary scan of the nodelist and edgelist CSV data, what types of networks do you think this data might illuminate? </em></li>
- 	<li><em>Are there gaps, silences, or alternative networks that are not accounted for in the data?</em></li>
-</ul>
-</blockquote>
-
-<hr />
+*Developed through a National Endowment for the Humanities Implementation grant, [Palladio](http://hdlab.stanford.edu/palladio) was released by Stanford University in June 2016. Designed for historians and other digital humanities scholars, Palladio is a web-based application that allows users to analyze data that includes time and network features and display that data via maps, timelines, other types of visualizations, and gallery exhibits. Designed as a browser-based GUI interface, Palladio works well for quick visualizations and offers limited interactive export options.*
 
 ## Loading data into Palladio
 
 <p align="center"><a href="https://github.com/kwaldenphd/Palladio-tutorial/blob/master/screenshots/Capture_1.PNG?raw=true"><img class="aligncenter size-large wp-image-498" src="https://github.com/kwaldenphd/Palladio-tutorial/blob/master/screenshots/Capture_1.PNG?raw=true" alt="" width="676" height="334" /></a></p>
 
-<p align="center"><a href="https://github.com/kwaldenphd/Palladio-tutorial/blob/master/screenshots/Capture_2.PNG?raw=true"><img class="aligncenter size-large wp-image-499" src="https://github.com/kwaldenphd/Palladio-tutorial/blob/master/screenshots/Capture_2.PNG?raw=true" alt="" width="676" height="454" /></a></p>
+Open the [Palladio home page](http://hdlab.stanford.edu/palladio) in Chrome or Firefox. 
 
-5-Open the <a href="http://hdlab.stanford.edu/palladio/">Palladio home page</a> in Chrome or Firefox. Click on the <strong>Start</strong> icon to open a new project.
+Click on the `Start` icon to open a new project.
+
+<p align="center"><a href="https://github.com/kwaldenphd/Palladio-tutorial/blob/master/screenshots/Capture_2.PNG?raw=true"><img class="aligncenter size-large wp-image-499" src="https://github.com/kwaldenphd/Palladio-tutorial/blob/master/screenshots/Capture_2.PNG?raw=true" alt="" width="676" height="454" /></a></p>
 
 <p align="center"><a href="https://github.com/kwaldenphd/Palladio-tutorial/blob/master/screenshots/Capture_3.PNG?raw=true"><img class="aligncenter size-full wp-image-500" src="https://github.com/kwaldenphd/Palladio-tutorial/blob/master/screenshots/Capture_3.PNG?raw=true" alt="" width="876" height="764" /></a></p>
 
-6-<strong>Drag and drop</strong> the nodelist CSV into the <strong>Load csv</strong> window.
+Drag and drop one of the Rockne network files into the `Load CSV` window.
 
-7-Click the <strong>Load</strong> icon to load the data into Palladio.
+Any of the network CSV files will work in Palladio.
+- `Simplified_Coaching_Tree_CTD.csv` (just Rockne and former players)
+- `Alternate_Simplified_Coaching_Tree_CTD.csv` (Rockne, former players, and institutions they coached for)
+- `Full_Coaching_Tree_Edges.csv` (Rockne, former players, and institutions they coached for with attached weights based on number of years played under Rockne or number of years coaching elsewhere)
+
+Click the `Load` icon to load the data.
 
 <p align="center"><a href="https://github.com/kwaldenphd/Palladio-tutorial/blob/master/screenshots/Capture_4.PNG?raw=true"><img class="aligncenter size-full wp-image-486" src="https://github.com/kwaldenphd/Palladio-tutorial/blob/master/screenshots/Capture_4.PNG?raw=true" alt="" width="502" height="531" /></a></p>
 
-8-Click on <strong>“Untitled”</strong> to relabel the table as <strong>Node_List</strong> or another descriptive name. You may notice Palladio has a red dot next to the Historical Significance field. <strong>Click on the red dot</strong> to open the <strong>Edit dimension</strong> pop-up window.
+Click on `Untitled` to give the table a descriptive label.
 
-<p align="center"><a href="https://github.com/kwaldenphd/Palladio-tutorial/blob/master/screenshots/Capture_5.PNG?raw=true"><img class="aligncenter size-full wp-image-487" src="https://github.com/kwaldenphd/Palladio-tutorial/blob/master/screenshots/Capture_5.PNG?raw=true" alt="" width="897" height="636" /></a></p>
+You may notice Palladio has a red dot next to some fields. We're going to ignore this message for now.
+- Palladio requires you to verify special or unexpected characters in the data fields. You can click on the red dot and select `Verify special characters` and then `Done` to address the error message.
 
-9-Palladio requires you to verify special or unexpected characters in the data fields—in this case, a comma in the “maker of clocks, watches, and barometers” role. Click <strong>Verify special characters </strong>icon, then click <strong>Done</strong>.
-
-10-Back on the <strong>Data screen</strong>, you can see the error has been resolved, and Palladio has also automatically described your data fields as a text, date, or number. Before visualizing this data, we want to also load the edgelist data.
-
-<p align="center"><a href="https://github.com/kwaldenphd/Palladio-tutorial/blob/master/screenshots/Capture_6.PNG?raw=true"><img class="aligncenter size-full wp-image-488" src="https://github.com/kwaldenphd/Palladio-tutorial/blob/master/screenshots/Capture_6.PNG?raw=true" alt="" width="910" height="636" /></a></p>
-
-11-Click on the <strong>Name field</strong> to open the <strong>Edit dimension</strong> window again.
-
-12-Under <strong>Extension</strong>, click the <strong>Add a new table</strong> icon.
-
-<p align="center"><a href="https://github.com/kwaldenphd/Palladio-tutorial/blob/master/screenshots/Capture_7.PNG?raw=true"><img class="aligncenter size-full wp-image-489" src="https://github.com/kwaldenphd/Palladio-tutorial/blob/master/screenshots/Capture_7.PNG?raw=true" alt="" width="903" height="571" /></a></p>
-
-13-<strong>Drag and drop</strong> the <strong>edgelist CSV file</strong> into the <strong>Add new table</strong> area. Click the <strong>Load</strong> icon.
-
-14-Palladio returns to the <strong>Edit dimension</strong> window and tells you out of the 119 names included in the nodelist table, 78 also appear in the edgelist table.
-
-15-Click the <strong>Done</strong> icon to add the new table to your Palladio project.
-
-<p align="center"><a href="https://github.com/kwaldenphd/Palladio-tutorial/blob/master/screenshots/Capture_8.PNG?raw=true"><img class="aligncenter size-large wp-image-490" src="https://github.com/kwaldenphd/Palladio-tutorial/blob/master/screenshots/Capture_8.PNG?rawtrue" alt="" width="676" height="342" /></a></p>
-
-16-The new <strong>Untitled</strong> table will appear in your <strong>Data</strong> tab. Rename the new table <strong>Edge_List</strong> or another descriptive name. Click on <strong>Provide a title to this project</strong> to rename the project <strong>Network_Tutorial</strong> or another descriptive name.
-
-<hr />
+Back on the `Data` screen, you can see the error has been resolved, and Palladio has also automatically described your data fields as a text, date, or number. 
 
 ## Analyzing and Visualizing Data in Palladio
 
 <p align="center"><a href="https://github.com/kwaldenphd/Palladio-tutorial/blob/master/screenshots/Capture_9.PNG?raw=true"><img class="aligncenter size-full wp-image-491" src="https://github.com/kwaldenphd/Palladio-tutorial/blob/master/screenshots/Capture_9.PNG?raw=true" alt="" width="391" height="55" /></a></p>
 
-17-Palladio does offer mapping functionality, but our data does not contain spatial information. Click on the <strong>Graph tab</strong> to start building a network visualization.
+Palladio does offer mapping functionality, but our data does not contain spatial information. 
+
+Click on the `Graph` tab to start building a network visualization.
 
 <p align="center"><a href="https://github.com/kwaldenphd/Palladio-tutorial/blob/master/screenshots/Capture_10.PNG?raw=true"><img class="aligncenter size-full wp-image-492" src="https://github.com/kwaldenphd/Palladio-tutorial/blob/master/screenshots/Capture_10.PNG?raw=true" alt="" width="614" height="364" /></a></p>
 
 <p align="center"><a href="https://github.com/kwaldenphd/Palladio-tutorial/blob/master/screenshots/Capture_11.PNG?raw=true"><img class="aligncenter size-large wp-image-493" src="https://github.com/kwaldenphd/Palladio-tutorial/blob/master/screenshots/Capture_11.PNG?raw=true" alt="" width="676" height="314" /></a></p>
 
-18-Select <strong>Source</strong> as the <strong>Source dimension</strong> and <strong>Target</strong> as the <strong>Target dimension</strong>, and Palladio will generate a network graph.
+Select `Source` from the `Source dimension` drop-down menu, and `Target` from the `Target dimension` drop-down.
 
-19-What do you notice about the networks generated in Palladio? How would you describe these networks using the terminology outlined in Chapter 6 of <em>Exploring Big Historical Data</em>? What surprises you about the networks, or what additional questions do you have?
+Palladio has now generated a network graph.
 
 <p align="center"><a href="https://github.com/kwaldenphd/Palladio-tutorial/blob/master/screenshots/Capture_13.PNG?raw=true"><img class="aligncenter size-large wp-image-495" src="https://github.com/kwaldenphd/Palladio-tutorial/blob/master/screenshots/Capture_13.PNG?raw=true" alt="" width="676" height="310" /></a></p>
 
-20-Check the bock next to <strong>Size nodes</strong> and select <strong>Number of Edge_List</strong> for <strong>According to</strong>. These changes sized our nodes based on where they appear in the edge_list data. Select <strong>Number of Node_List</strong> for <strong>According to</strong>, and the nodes are sized according to where they appear in the node_list data.
+We can also choose to size the nodes based on another data field.
 
-21-How do these graphs differ? What do they highlight or emphasize about the data? What questions do you have?
+Check the box next to `Size nodes` and select `Weight` for `According to`.
 
-<p align="center"><a href="https://github.com/kwaldenphd/Palladio-tutorial/blob/master/screenshots/Capture_14.PNG?raw=true"><img class="aligncenter size-large wp-image-496" src="https://github.com/kwaldenphd/Palladio-tutorial/blob/master/screenshots/Capture_14.PNG?raw=true" alt="" width="676" height="301" /></a></p>
+These settings size our nodes based on the weight assigned or determined by the number of years someone played under Rockne or number of years they coached at another institution.
 
-22-We can choose other <strong>Source</strong> and <strong>Target</strong> fields to alter the network visualization. For example, choosing <strong>Gender</strong> as <strong>Source</strong> and <strong>Name</strong> as <strong>Target</strong> reveals the gender ratio of the names represented in the data.
+Palladio offers additional facet, timeline, and timespan analysis via the buttons on the bottom of the page. These features can be useful depending on what types of information are included in the data you are working with.
 
-<p align="center"><a href="https://github.com/kwaldenphd/Palladio-tutorial/blob/master/screenshots/Capture_15.PNG?raw=true"><img class="aligncenter size-large wp-image-497" src="https://github.com/kwaldenphd/Palladio-tutorial/blob/master/screenshots/Capture_15.PNG?raw=true" alt="" width="676" height="306" /></a></p>
-
-23-Choosing <strong>Gender</strong> as <strong>Source</strong> and <strong>Historical Significance</strong> as <strong>Target</strong> highlights the gendering of historical roles in the data set.
-
-24-Palladio offers additional facet, timeline, and timespan analysis via the buttons on the bottom of the page. Feel free to explore these additional functions on your own.
+For a more in-depth look at network analysis in Palladio: Marten Düring, "From Hermeneutics to Data to Networks: Data Extraction and Network Visualization of Historical Sources," The Programming Historian 4 (2015), https://doi.org/10.46430/phen0044.
 
 ## Gephi
 
-In the last tutorial, we used a browser-based tool to visualize and briefly analyze networks in the Quaker data. While Palladio is useful for preliminary visualization of network data, it offers limited options for calculating or analyzing more advanced network metrics. <a href="https://github.com/gephi/gephi">Gephi</a> is an open-source network analysis and visualization software created by students at the University of Technology of Compiègne in 2008. The Gephi Consortium, which supports the ongoing development and documentation for Gephi, is a non-profit corporation supported by members that include SciencesPo, Linfluence, WebAtlas, and Quid. Gephi runs on Linux, Windows, and macOS operating systems and is available in 9 different languages.
-
-<hr />
+ConnecTheDots and Palladio are both browser-based tools for generating network visualizations and preliminary network analysis. Both tools offer limited options for calculating or analyzing more advanced network metrics. [Gephi](https://github.com/gephi/gephi) is an open-source network analysis and visualization software created by students at the University of Technology of Compiègne in 2008. The Gephi Consortium, which supports the ongoing development and documentation for Gephi, is a non-profit corporation supported by members that include SciencesPo, Linfluence, WebAtlas, and Quid. Gephi runs on Linux, Windows, and macOS operating systems and is available in 9 different languages.
 
 ## Installing Gephi
 
-To download Gephi on your own computer, go to Gephi’s <a href="https://gephi.org/users/download/">download page</a> and select the correct version for your operating system.
-
-<hr />
-
-## Data
-
-1-In this tutorial, we will be working with data about Grinnell faculty, the subject of their terminal degree, where they received their terminal degree, and when they were hired by the College.
-
-2-Download the <strong>GC_faculty_nodesheet</strong> and <strong>GC_faculty_edgesheet</strong> CSV files to your Desktop. Open the files in Microsoft Excel to explore the data structure.
-<ul>
- 	<li>What types of institutions and College instructors are represented?</li>
- 	<li>How are they described in the nodelist data?</li>
- 	<li>What additional questions do you have about the individuals and degree-granting institutions that will be represented as nodes?</li>
- 	<li>How is the edgelist data structured?</li>
- 	<li>Based on a preliminary scan of the nodelist and edgelist CSV data, what types of networks do you think this data might illuminate?</li>
- 	<li>Are there gaps, silences, or alternative networks that are not accounted for in the data?</li>
-</ul>
-3-Save these files to your desktop as “<strong>Grinnell_nodelist</strong>” and “<strong>Grinnell_edgelist</strong>” or another descriptive file name.
-
-<hr />
+To download Gephi on your own computer, go to [Gephi’s download page](https://gephi.org/users/download) and select the correct version for your operating system.
 
 ## Loading Data into Gephi
 
-4-Open <strong>Gephi</strong> by selecting it from <strong>Start-&gt;All Programs-&gt;Gephi</strong> or the <strong>Desktop icon</strong>.
-
-5-Click the <strong>X</strong> in the top right-hand corner of the <strong>Welcome</strong> popup window.
+Launch Gephi and select `New Project` in the `Welcome` pop-up window.
 
 <p align="center"><a href="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture.PNG?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture.PNG?raw=true" alt="" width="840" height="473" /></a></p>
 
-6-Click <strong>File-&gt;Import Spreadsheet</strong> and navigate to the <strong>Desktop</strong> where the <strong>nodelist and edgelist CSV files</strong> are saved on your computer.
+Select `Import Spreadsheet` under the `File` menu tab.
+
+Select the `Full_Coachign_Tree_Edges.csv` file.
 
 <p align="center"><a href="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture2.PNG?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture2.PNG?raw=true" alt="" width="843" height="500" /></a></p>
 
-7-Select the <strong>nodelist</strong> file, make sure <strong>Comma</strong> is selected as <strong>Separator</strong>, <strong>Nodes</strong> table is selected under <strong>Import as</strong>, and <strong>UTF-8 </strong>under <strong>Charset</strong>.
+Make sure `Comma` is selected as the `Seperator`, `Edges` table is selected under `Import as`.
+- If needed, make sure `UTF-8` is selected under `Charset`.
 
 <p align="center"><a href="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture3.PNG?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture3.PNG?raw=true" alt="" width="845" height="498" /></a></p>
 
-8-Click <strong>Next</strong>. Leave the default settings on the <strong>Import settings (2 of 2)</strong> popup, and click <strong>Finish</strong>.
+Click `Next`.
+
+In the `Import settings (2 of 2)` pop-up, leave the default settings, and click `Finish`.
 
 <p align="center"><a href="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture4.PNG?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture4.PNG?raw=true" alt="" width="662" height="460" /></a></p>
 
-9-Select <strong>Undirected</strong> for <strong>Graph Type</strong>, and switch the default selection from <strong>New workspace</strong> to <strong>Append to existing workspace</strong>.
+Select `Undirected` under `Graph Type`, and switch the default selection from `New workspace` to `Append to existing workspace`.
 
-10-Click <strong>OK</strong>.
+Click `OK` to load the data.
 
 <p align="center"><a href="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture5.PNG?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture5.PNG?raw=true" alt="" width="840" height="475" /></a></p>
 
-11-Your node data is now loaded in the <strong>Data Laboratory tab</strong> in Gephi.
+The Rockne coaching tree data is now loaded in the `Data Laboratory` tab.
 
-<p align="center"><a href="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture7.PNG?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture7.PNG?raw=true" alt="" width="763" height="114" /></a></p>
-
-12-Click <strong>Import Spreadsheet</strong>, and select the CSV with your edgelist data.
-
-<p align="center"><a href="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture8.PNG?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture8.PNG?raw=true" alt="" width="824" height="493" /></a></p>
-
-13-Make sure <strong>Comma</strong> is selected as <strong>Separator</strong>, <strong>Edges</strong> table under <strong>Import as</strong>, and <strong>UTF-8</strong> under <strong>Charset</strong>.
-
-14-Click <strong>Next</strong>.
-
-15-Leave the default settings on the <strong>Import settings (2 of 2)</strong> window and click <strong>Finish</strong>.
-
-<p align="center"><a href="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture9.PNG?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture9.PNG?raw=true" alt="" width="663" height="457" /></a></p>
-
-16-Make sure <strong>Undirected</strong> is selected as <strong>Graph Type</strong>, and switch the default selection from <strong>New workspace</strong> to <strong>Append to existing workspace</strong>.
-
-17-Click <strong>OK</strong>.
-
-<p align="center"><a href="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture10.PNG?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture10.PNG?raw=true" alt="" width="840" height="472" /></a></p>
-
-18-Now our nodes and edges data has been imported in Gephi.
-
-19-Click <strong>File-&gt;Save</strong> to save your project. Label the Gephi file “<strong>Network_Tutorial</strong>” or another descriptive name.
+Before we go any further, click `Save` under the `File` menu option to save the project.
 
 <p align="center"><a href="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture11.PNG?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture11.PNG?raw=true" alt="" width="511" height="105" /></a></p>
 
 <p align="center"><a href="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture12.PNG?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture12.PNG?raw=true" alt="" width="840" height="472" /></a></p>
 
-20-Click on the <strong>Overview</strong> tab to see Gephi’s default visualization of your network data.
+Click on the `Overview` tab (and `Graph` tab if needed) to see Gephi’s default visualization of your network data.
 
-21-As you probably noticed, the default visualization is an interesting connection of nodes and edges, but doesn’t do much to help us more fully understand and analyze our data.
+As you probably noticed, the default visualization is an interesting connection of nodes and edges, but doesn’t do much to help us more fully understand and analyze our data.
 
 <p align="center"><a href="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture14.PNG?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture14.PNG?raw=true" alt="" width="366" height="141" /></a></p>
 
-22-Click on <strong>Choose a layout</strong> under the <strong>Layout panel</strong> to select how Gephi displays your nodes and edges.
+Click on `Choose a layout` under the `Layout` panel to select how Gephi displays your nodes and edges.
 
-23-Gephi uses a variety of layout algorithms to determine the shape of network graphs. These different layouts algorithms highlight different aspects or features of your data.
+Gephi uses a variety of layout algorithms to determine the shape of network graphs. These different layouts algorithms highlight different aspects or features of your data.
 
 <table>
 <tbody>
@@ -1945,101 +1916,123 @@ To download Gephi on your own computer, go to Gephi’s <a href="https://gephi.o
 </tbody>
 </table>
 
-24-<strong>Label Adjust, Noverlap, Expansion, and Contraction</strong> make graphic adjustments to how your data displays, rather than using an underlying algorithm to change the structure of the network visualization.
+`Label Adjust`, `Noverlap`, `Expansion`, and `Contraction` make graphic adjustments to how your data displays, rather than using an underlying algorithm to change the structure of the network visualization.
 
-25-<strong>Select different Layout options</strong> and click the <strong>Run</strong> icon to see how the different algorithms and settings change the visualization of your data. Click the <strong>Stop</strong> icon to stop the layout operation.
-
-26-What Layout option(s) do you prefer, and why? How do different Layout options impact the visualization of your data? How could different Layout options be useful to answer different types of research questions?
-
-<hr />
+Select different layout options and click the `Run` icon to see how the different algorithms and settings change the visualization of your data. 
+- If needed, click the `Stop` icon to stop the layout operation.
 
 ## Calculating Network Metrics in Gephi
 
-27- As a GUI interface, Gephi allows us to calculate a variety of statistics without having to run the back-end code or use a library like NetworkX (which we will try next time).
+Gephi includes built-in options to calculate a number of different network statistics.
 
 <p align="center"><a href="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture15.PNG?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture15.PNG?raw=true" alt="" width="324" height="617" /></a></p>
 
-28-The <strong>Statistics panel</strong> gives you the option to run a number of different calculations on your network data.
+The `Statistics` panel gives you the option to run a number of different calculations on your network data.
 
-29-While Gephi allows us to easily perform these calculations, the program doesn’t automatically tell us what these measures mean or how they are calculated.
+While Gephi allows us to easily perform these calculations, the program doesn’t automatically tell us what these measures mean or how they are calculated.
 
 <p align="center"><a href="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture16.PNG?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture16.PNG?raw=true" alt="" width="701" height="603" /></a></p>
 
-30-The HTML report in the pop-up window that displays after you run a <strong>Statistics calculation</strong> gives you a graph of the data calculation, and sometimes the source for the algorithm used to calculate the statistic.
+The HTML report in the pop-up window that displays after you run a statistics gives you a graph of the data calculation, and sometimes the source for the algorithm used to calculate the statistic.
 
-31-Consult <a href="https://github.com/gephi/gephi/wiki/Statistics">Gephi’s GitHub repository</a> for more information on these statistics.
+Consult [Gephi's GitHub repository](https://github.com/gephi/gephi/wiki/Statistics) for more information on these statistics.
 
-32-Click <strong>Run</strong> for each of the options under <strong>Statistics</strong>.
+Click `Run` for some of the options under `Statistics`.
 
 <p align="center"><a href="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture19.PNG?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture19.PNG?raw=true" alt="" width="840" height="473" /></a></p>
 
-33-If you click on the <strong>Data Laboratory tab</strong>, you will see these calculated statistics have been added to your network data.
-
-34-What do these statistics tell you about your network? How do these statistics help you understand your network data more deeply? What questions do you have about the network data or these calculations?
-
-<hr />
+If you click on the `Data Laboratory` tab, you will see these calculated statistics have been added to your network data.
 
 ## Customizing a Network Visualization in Gephi
 
-35-Select <strong>Noverlap</strong> for your <strong>Layout</strong> so your nodes and edges don’t overlap as you are exploring display customization options.
+Select `Noverlap` for your Layout so your nodes and edges don’t overlap as you are exploring display customization options.
 
 <p align="center"><a href="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture21.PNG?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture21.PNG?raw=true" alt="" width="840" height="655" /></a></p>
 
-36-The <strong>border icons in the Graph panel</strong> allow you to customize the display of your network visualization.
+The border icons in the Graph panel allow you to customize the display of your network visualization.
 
 <p align="center"><a href="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture22.PNG?raw=true"><img class="size-full wp-image-196 alignright" src="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture22.PNG?raw=true" alt="" width="28" height="24" /></a></p>
 
-37-Click on the <strong>Show Node Labels icon</strong> to display the node labels. You can change the size of text for your labels by using the slider to the right of “Arial Bold, 32.”
+Click on the `Show Node Labels` icon to display the node labels. 
+
+You can change the size of text for your labels by using the slider to the right of `Arial Bold, 32.`
 
 <p align="center"><a href="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture24.PNG?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture24.PNG?raw=true" alt="" width="359" height="362" /></a></p>
 
 <p align="center"><a href="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture23.PNG?raw=true"><img class="alignright" src="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture23.PNG?raw=true" alt="" width="22" height="29" /></a></p>
 
-38-You can also click on the <strong>Attributes icon</strong> to customize what data fields display as part of your labels.
+You can also click on the `Attributes` icon to customize what data fields display as part of your labels.
 
-39-While your nodes now have labels, the large number of nodes and edges makes it difficult to differentiate or discern various attributes about our network data.
+While your nodes now have labels, the large number of nodes and edges makes it difficult to differentiate or discern various attributes about our network data.
 
 <p align="center"><a href="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture20.PNG?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture20.PNG?raw=true" alt="" width="347" height="110" /></a></p>
 
-40-The <strong>Appearance panel</strong> allows you to customize the color, size or weight, and labels for your nodes and edges. Changing the coloring or sizing of nodes in the Appearance panel can help make our network visualization more meaningful.
+The `Appearance` panel allows you to customize the color, size or weight, and labels for your nodes and edges. 
+
+Changing the coloring or sizing of nodes in the `Appearance` panel can help make our network visualization more meaningful.
 
 <p align="center"><a href="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture26.PNG?raw=true"><img class="alignright" src="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture26.PNG?raw=true" alt="" width="24" height="25" /></a></p>
 
-41-Select the <strong>Size icon  </strong>to change the default size of your nodes. You can explore different sizes, but 3 works well with this dataset. Click the <strong>Apply icon</strong> to change the setting for your network visualization.
+Select the `Size` icon to change the default size of your nodes. 
+- You can explore different sizes, but 3 works well with this dataset. 
+
+Click the `Apply` icon to change the setting for your network visualization.
 
 <p align="center"><a href="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture27.PNG?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Capture27.PNG?raw=true" alt="" width="349" height="330" /></a></p>
 
-42-You can also rank the size of nodes based on one of the network metrics you calculated in the Statistics panel.
+You can also rank the size of nodes based on one of the network metrics you calculated in the `Statistics` panel.
 
-43-Click the <strong>Ranking icon</strong> in the Appearance panel, and select <strong>Degree</strong> from the dropdown menu. Click <strong>Apply</strong>.
+Click the `Ranking` icon in the `Appearance` panel.
 
-44-Ranking our node size by degree determines the size of a node based on its degree of centrality (or connectedness). Nodes with higher numbers of connections appear larger, and nodes with lower numbers of connections are smaller.
+Select `Degree` from the drop-down menu. Click `Apply` to update the graph.
 
-45-What changes did you notice in your network visualization after sizing nodes by degree? How does changing the size of nodes impact your understanding of the network data? What do you see in the network data after this change that you weren’t able to see before?
+Ranking our node size by degree determines the size of a node based on its degree of centrality (or connectedness). Nodes with higher numbers of connections appear larger, and nodes with lower numbers of connections are smaller.
 
-46-You can change the minimum and maximum node size, and also select different statistics to use for determining node size.
+You can change the minimum and maximum node size, and also select different statistics to use for determining node size.
 
-47-Explore these different settings and options to see how different node size calculations shape your understanding of the network data.
+Explore these different settings and options to see how different node size calculations shape your understanding of the network data.
 
-48-Save your project.
-
-<hr />
+Save your project.
 
 ## Exporting Networks
 
 <p align="center"><a href="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Picx.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/Gephi-tutorial/blob/master/screenshots/Picx.png?raw=true" alt="" width="244" height="264" /></a></p>
 
-49-Click <strong>File-&gt;Export</strong> to save your project as a static image (SVG, PNG, PDF) or network file (CSV, GDF, GEXF, GraphML, Pajek Net).
+Click `Export` under the `File` menu tab to save your project as a static image (SVG, PNG, PDF) or network file (CSV, GDF, GEXF, GraphML, Pajek Net).
 
-50-You can learn more about the different export options on <a href="https://gephi.org/users/supported-graph-formats/">Gephi’s website documentation</a>.
+Learn more about the different export options by consulting Gephi's [graph format documentation](https://gephi.org/users/supported-graph-formats)
 
-51-Step 47 in this tutorial had you experiment with display customization settings.
+An earlier step in this section of the lab had you experiment with display customization settings.
 
-52-Return to the visualizations you explored in that step, and export those you find useful or interesting as PNG files.
+Return to the visualizations you explored in that step, and export those you find useful or interesting as PNG files.
 
 ## Other Network Tools/Resources
 
-NetworkX: https://github.com/kwaldenphd/NetworkX-tutorial
+A couple of additional Gephi tutorials:
+- Brian Sarnacki, ["The Complete n00b's Guide to Gephi"](http://www.briansarnacki.com/gephi-tutorial/) *blog* (26 March 2015)
+- Martin Grandjean, ["Introduction to Network Visualization with GEPHI"](http://www.martingrandjean.ch/introduction-to-network-visualization-gephi/) *blog* (7 January 2013)
+
+There are a number of other tools, libraries, and packages that can be used for network analysis, if folks want to dig in further.
+
+Some background reading and resources on networks:
+- Scott Weingart, ["Demystifying Networks"](http://www.scottbot.net/HIAL/index.html@p=6279.html) *blog* (14 December 2011)
+- [Miriam Posner's "Network Analysis" guide](http://miriamposner.com/classes/dh101f16/tutorials-guides/data-visualization/network-analysis/)
+- Shawn Graham, Ian Milligan, and Scott Weingart, *Exploring Big Historical Data: The Historian's Macroscope* (Imperial College Press, 2016)
+  * [Chapter 6 "Network Analysis" (195-234)](https://drive.google.com/file/d/1MQOF4wgXwjKcMhIsBqp6Ewuf4yXAFUJE/view?usp=sharing) (Google Drive, ND users)
+  * [Chapter 7 "Networks in Practice" (235-264) ](https://drive.google.com/file/d/1bES8da6Aa6l_aSpb76bhyRJ6qE49o56c/view?usp=sharing) (Google Drive, ND users)
+
+A few tutorials:
+- R/RStudio
+  * Alex Brey, "Temporal Network Analysis with R," The Programming Historian 7 (2018), https://doi.org/10.46430/phen0080.
+  * Ryan Deschamps, "Correspondence Analysis for Historical Research with R," The Programming Historian 6 (2017), https://doi.org/10.46430/phen0062.
+  * Katya Ognyanova, ["Network analysis with R and igraph"](https://kateto.net/networks-r-igraph) *blog* (10 January 2016)
+- Python
+  * John R. Ladd, Jessica Otis, Christopher N. Warren, and Scott Weingart, "Exploring and Analyzing Network Data with Python," The Programming Historian 6 (2017), https://doi.org/10.46430/phen0064.
+  * Prof. Walden's [`networkx` Python tutorial](https://github.com/kwaldenphd/NetworkX-tutorial)
+- Other
+  * Jon MacKay, "Dealing with Big Data and Network Analysis Using Neo4j," The Programming Historian 7 (2018), https://doi.org/10.46430/phen0074.
+  * Miriam Posner's ["Creating Network Graphs with Cytoscape"](https://github.com/miriamposner/cytoscape_tutorials) tutorial
+  * Miriam Posner's ["Build a simple network graph with Flourish"](http://miriamposner.com/classes/dh201w21/tutorials-guides/network-analysis/flourish-graph/) tutorial
 
 # Next Steps (aka, now it's your turn!)
 
