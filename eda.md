@@ -11,6 +11,7 @@ This tutorial is licensed under a <a href="http://creativecommons.org/licenses/b
   * [Tableau](#tableau)
   * [Python](#python)
   * [RStudio](#rstudio)
+- [General Discussion/Reflection Questions](#general-discussionreflection-questions)
 
 # Exploratory Data Visualization
 
@@ -687,4 +688,13 @@ To think about this another way, "the purpose of EDA is to use summary statistic
 - What types of visualizations (or aggregations) were you able to generate?
 - How could those visualizations shape or impact your understanding of the data?
 - What additional questions do you have about this data (or these datasets)? Where would you go next with exploring this dataset using some of the analysis or visualization tools/approaches?
+- Other comments/questions/observations
+
+## General Discussion/Reflection Questions
+
+- Thinking holistically across the data analysis/visualization tool(s) you interacted with, what questions were you interested in asking or exploring about the sample data (or datasets)?
+- How did using these tools shape your understanding of the data you worked with?
+- Where would you go next with some of these analysis/visualization tools?
+  * What questions or topics would you want to explore using the sample datasets?
+  * Or, what other types of information/data related to ND football would you want to work with?
 - Other comments/questions/observations
