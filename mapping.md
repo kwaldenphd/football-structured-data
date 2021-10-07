@@ -5,16 +5,15 @@ This tutorial is licensed under a <a href="http://creativecommons.org/licenses/b
 
 # Table of Contents
 
-- [Mapping](#mapping)
-  * [Google MyMaps](#google-mymaps) 
-  * [ArcGIS Online](#arcgis-online)
-  * [Carto](#carto)
-  * [Mapping in Python](#mapping-in-python)
-  * [Mapping in RStudio](#mapping-in-rstudio)
-  * [Other Mapping Tools/Resources](#other-mapping-toolsresources)
-    * [ArcGIS StoryMaps and Web App Builder](#arcgis-storymaps-and-web-app-builder)
-    * [ArcMap](#arcmap)
-    * [QGIS](#qgis)
+- [Google MyMaps](#google-mymaps) 
+- [ArcGIS Online](#arcgis-online)
+- [Carto](#carto)
+- [Mapping in Python](#mapping-in-python)
+- [Mapping in RStudio](#mapping-in-rstudio)
+- [Other Mapping Tools/Resources](#other-mapping-toolsresources)
+  * [ArcGIS StoryMaps and Web App Builder](#arcgis-storymaps-and-web-app-builder)
+  * [ArcMap](#arcmap)
+  * [QGIS](#qgis)
 - [Mapping Discussion/Reflection Questions](#mapping-discussionreflection-questions)
  
 ## Data
