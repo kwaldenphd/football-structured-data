@@ -3,13 +3,12 @@
 <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license"><img style="border-width: 0;" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" alt="Creative Commons License" /></a>
 This tutorial is licensed under a <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
-
 # Networks
 
 - [DataBasic: Connect the Dots](#databasic-connect-the-dots)
 - [Palladio](#palladio)
 - [Gephi](#gephi)
-- [Network Discussion/Reflection Questions](#network-discussionreflection-questions)
+- [General Network Discussion/Reflection Questions](#general-network-discussionreflection-questions)
 - [Other Network Tools/Resources](#other-network-toolsresources)
 
 ## Knute Rockne Coaching Tree
@@ -132,9 +131,12 @@ This tutorial is licensed under a <a href="http://creativecommons.org/licenses/b
 
 <p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/DataBasic-tutorial/blob/master/screenshots/Capture_16.png?raw=true" alt="Capture" /></p>
 
-#### Reflection Questions
+#### ConnectTheDots Discussion/Reflection Questions
 
-asdf asf dsa network something here
+- What do you notice about the results for this dataset displayed in ConnectTheDots?
+- How does the tool's analysis/visualization results shape your understanding of the data?
+- What additional questions do you have about this data? Where would you go next with exploring this dataset using some of the analysis tools/approaches highlighted in the tool?
+- Other comments/questions/observations
 
 ## Palladio
 
@@ -197,6 +199,13 @@ asdf asf dsa network something here
 46- Palladio offers additional facet, timeline, and timespan analysis via the buttons on the bottom of the page. These features can be useful depending on what types of information are included in the data you are working with.
 
 47- For a more in-depth look at network analysis in Palladio: Marten Düring, "From Hermeneutics to Data to Networks: Data Extraction and Network Visualization of Historical Sources," The Programming Historian 4 (2015), https://doi.org/10.46430/phen0044.
+
+### Palladio Discussion/Reflection Questions
+
+- What do you notice about the results for this dataset displayed in Palladio?
+- How does the tool's analysis/visualization results shape your understanding of the data?
+- What additional questions do you have about this data? Where would you go next with exploring this dataset using some of the analysis tools/approaches highlighted in the tool?
+- Other comments/questions/observations
 
 ## Gephi
 
@@ -358,7 +367,21 @@ asdf asf dsa network something here
 
 90- Learn more about the different export options by consulting Gephi's [graph format documentation](https://gephi.org/users/supported-graph-formats)
 
-## Network Questions
+### Gephi Discussion/Reflection Questions
+
+- What do you notice about the results for this dataset displayed in Gephi?
+- How does the tool's analysis/visualization results shape your understanding of the data?
+- What additional questions do you have about this data? Where would you go next with exploring this dataset using some of the analysis tools/approaches highlighted in the tool?
+- Other comments/questions/observations
+
+## General Network Discussion/Reflection Questions
+
+- Thinking holistically across the network analysis/visualization tool(s) you interacted with, what questions were you interested in asking or exploring about the sample network data?
+- How did using network analysis shape your understanding of the data (or the Rockne coaching tree more broadly)?
+- Where would you go next with network analysis/visualization tools?
+  * What questions or topics would you want to explore using the sample datasets?
+  * Or, what other types of network information/data related to ND football would you want to work with?
+- Other comments/questions/observations
 
 ## Other Network Tools/Resources
 
