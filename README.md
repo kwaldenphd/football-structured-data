@@ -22,7 +22,8 @@ This lab will involve using data analysis and visualization methods to interact 
 
 # How to Work Through This Lab
 
-There are three main sections to this lab:
+There are four main sections to this lab:
+- [Background, University Archives, and Sample Datasets](https://github.com/kwaldenphd/football-structured-data)
 - [Exploratory data analysis/visualization](https://github.com/kwaldenphd/football-structured-data/blob/main/eda.md) (EDA)
 - [Mapping](https://github.com/kwaldenphd/football-structured-data/blob/main/mapping.md)
 - [Network Analysis](https://github.com/kwaldenphd/football-structured-data/blob/main/networks.md)
