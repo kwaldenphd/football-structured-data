@@ -11,7 +11,6 @@ This tutorial is licensed under a <a href="http://creativecommons.org/licenses/b
   * [Tableau](#tableau)
   * [Python](#python)
   * [RStudio](#rstudio)
-- [Discussion/Reflection Questions](#discussionreflection-questions) 
 
 # Exploratory Data Visualization
 
@@ -304,14 +303,6 @@ To think about this another way, "the purpose of EDA is to use summary statistic
 
 63- Explore some of the searching, sorting, and filtering operations.
 
-#### Discussion and Reflection Questions
-
-- How do the AutoSum calculations impact or inform your understanding of the data?
-- What questions do you have about the data or calculations?
-- Why would it be helpful to be able to sort/filter/etc within a dataset?
-- As you explore the sort/search/filter functionality, what questions emerge about the data?
-- Other comments/questions/observations
-
 ### Data Visualization with Microsoft Excel
 
 64- Excel includes a range of built-in chart types that you can use to generate visualizations for data in your table.
@@ -329,10 +320,6 @@ To think about this another way, "the purpose of EDA is to use summary statistic
 69- For folks working in Google Sheets:
 - Google Docs Help Center, "[Types of charts & graphs in Google Sheets](https://support.google.com/docs/answer/190718?hl=en)"
 - Google Docs Help Center, "[Add & edit a chart or graph](https://support.google.com/docs/answer/63824?hl=en&co=GENIE.Platform%3DDesktop)"
-
-#### Discussion and Reflection Questions
-
-What types of visualizations were you able to generate in Excel using PivotChart? How could those visualizations shape or impact your understanding of the data? Did you generate any visualizations that were confusing or misleading? Alternatively, did you generate any visualizations that were unexpected or illuminating?
 
 ### PivotTables and PivotCharts
 
@@ -377,11 +364,15 @@ What types of visualizations were you able to generate in Excel using PivotChart
 
 81- You can right click on various parts of the bar chart to customize colors and labels.
 
-#### Discussion and Reflection Questions
+### Excel Discussion/Reflection Questions
 
-Experiment with other PivotChart functions and other data fields to generate different types of visualizations.
-
-What types of visualizations were you able to generate in Excel using PivotChart? How could those visualizations shape or impact your understanding of the data? Did you generate any visualizations that were confusing or misleading? Alternatively, did you generate any visualizations that were unexpected or illuminating?
+- Why would it be helpful to be able to sort/filter/etc within a dataset?
+- As you explore the sort/search/filter functionality, what questions emerge about the data?
+- How does working in Excel shape your understanding of the data?
+- What additional questions do you have about this data (or these datasets)? Where would you go next with exploring this dataset using some of the analysis or visualization tools/approaches?
+- What types of visualizations (or aggregations) were you able to generate in Excel using PivotCharts/PivotTables? 
+- How could those visualizations shape or impact your understanding of the data? 
+- Other comments/questions/observations
 
 ### PowerQuery
 
@@ -515,10 +506,6 @@ What types of visualizations were you able to generate in Excel using PivotChart
 115- Additionally, these Excel workflows can help those without a data science/programming/data engineering/etc background understand some of the core concepts and steps involved in data modeling and database systems.
 - This helps immensely when you're in a work setting where you need to be able to talk to or interact with folks working in and around database engineering. Even if you're not the one building or maintaining the workflows, you are much better equipped to have intelligent conversations about what those individuals are doing and what you need these systems to do.
 
-#### Reflection Questions
-
-What types of visualizations were you able to generate in Excel using PivotChart? How could those visualizations shape or impact your understanding of the data? Did you generate any visualizations that were confusing or misleading? Alternatively, did you generate any visualizations that were unexpected or illuminating?
-
 ## Tableau
 
 116- [Tableau](https://www.tableau.com) is a software company founded in Silicon Valley in 2003. Developed by researchers affiliated with Stanford University’s Computer Science Department, Tableau is a commercialized application of academic research. Represented as DATA on the New York Stock Exchange after a 2013 initial public offering, Tableau reported $877 million in revenue in <a href="s1.q4cdn.com/149179428/files/doc_financials/2017/FY2016-Annual-Report.pdf">the 2017 fiscal year</a>. Most often deployed in business environments, Tableau Desktop is a subscription-based data analysis and visualization software. Tableau Server and Tableau Online offer subscription-based web-publishing options for making data and interactive visualizations available on the web. Tableau Public offers limited Tableau Desktop functionality with some options for uploading visualizations through the Tableau Public website.
@@ -584,6 +571,14 @@ What types of visualizations were you able to generate in Excel using PivotChart
 
 135-The `Show Me` panel on the right-hand side of the Tableau window shows other types of visualizations you can build in Tableau using this combination of data fields and calculations.
 
+## Tableau Discusion/Reflection Questions
+
+- How does working in Tableau shape your understanding of the data?
+- What types of visualizations (or aggregations) were you able to generate in Tableau?
+- How could those visualizations shape or impact your understanding of the data?
+- What additional questions do you have about this data (or these datasets)? Where would you go next with exploring this dataset using some of the analysis or visualization tools/approaches?
+- Other comments/questions/observations
+
 ### Additional Resources
 
 - Tableau Public, ["How-To Videos and Resources"](https://public.tableau.com/en-us/s/resources)
@@ -640,6 +635,14 @@ What types of visualizations were you able to generate in Excel using PivotChart
 - [NBviewer](https://nbviewer.jupyter.org/github/kwaldenphd/football-structured-data/blob/main/notebooks/nd-football-eda.ipynb)
 - [Google CoLab](https://drive.google.com/file/d/1MybxGo9ngdm20rzV1xAqAGYZwNsLINTM/view?usp=sharing)
 
+### Python Discussion/Relection Questions
+
+- How does working in RStudio shape your understanding of the data?
+- What types of visualizations (or aggregations) were you able to generate?
+- How could those visualizations shape or impact your understanding of the data?
+- What additional questions do you have about this data (or these datasets)? Where would you go next with exploring this dataset using some of the analysis or visualization tools/approaches?
+- Other comments/questions/observations
+
 ## RStudio
 
 149- We can also use a scripting language like R/RStudio to generate and customize many of the types of visualizations we created using Excel and Tableau.
@@ -678,13 +681,10 @@ What types of visualizations were you able to generate in Excel using PivotChart
 - [GitHub, `.zip`](https://drive.google.com/file/d/1zex8zotq6TpLtzcDukl0NtH8oxaswBqR/view?usp=sharing)
 - [RStudio Cloud](https://rstudio.cloud/project/2977118)
 
-## EDA Discussion and Reflection Questions:
+### RStudio Discussion/Reflection Questions
 
-Experiment with other data fields and calculations to generate different types of visualizations. You can add new worksheets or duplicate an existing worksheet to build multiple visualizations.
-
-What types of visualizations were you able to generate in Tableau? How were those visualizations similar or different than what you generated in Excel?
-
-How could those visualizations shape or impact your understanding of the data? Did you generate any visualizations that were confusing or misleading? Alternatively, did you generate any visualizations that were unexpected or illuminating?</blockquote>
-
-- How is the data in Tableau presented or organized differently than the same information in Excel? 
-- What similarities or differences do you notice between the two user interfaces for building data visualizations?
+- How does working in RStudio shape your understanding of the data?
+- What types of visualizations (or aggregations) were you able to generate?
+- How could those visualizations shape or impact your understanding of the data?
+- What additional questions do you have about this data (or these datasets)? Where would you go next with exploring this dataset using some of the analysis or visualization tools/approaches?
+- Other comments/questions/observations
