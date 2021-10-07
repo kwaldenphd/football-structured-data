@@ -125,7 +125,32 @@ Jupyter Notebook for OCR:
 - [Google CoLab](https://drive.google.com/file/d/16K9-5dcEqkKXqxuJ_lo5kNEIx8mkFBP4/view?usp=sharing)
 - [NBviewer](https://nbviewer.jupyter.org/github/kwaldenphd/football-structured-data/blob/main/notebooks/directories-ocr-workflow.ipynb)
 
-We'll talk in-depth about OpenRefine and data cleaning later in this lab.
+### OpenRefine
+
+As described in Library Carpentry's ["Introduction to OpenRefine"](https://librarycarpentry.org/lc-open-refine/01-introduction/index.html):
+
+<em>OpenRefine is described as 'a power tool for working with messy data' ([David Huynh](http://web.archive.org/web/20141021040915/http://davidhuynh.net/spaces/nicar2011/tutorial.pdf)) - but what does this mean? It is probably easiest to describe the kinds of data OpenRefine is good at working with and the sorts of problems it can help you solve.
+
+OpenRefine is most useful where you have data in a simple tabular format such as a spreadsheet, a comma separated values file (csv) or a tab delimited file (tsv) but with internal inconsistencies either in data formats, or where data appears, or in terminology used. OpenRefine can be used to standardize and clean data across your file. 
+
+It can help you:
+- Get an overview of a data set
+- Resolve inconsistencies in a data set, for example standardizing date formatting
+- Help you split data up into more granular parts, for example splitting up cells with multiple authors into separate cells
+- Match local data up to other data sets, for example in matching local subjects against the Library of Congress Subject Headings
+- Enhance a data set with data from other sources
+
+Some common scenarios where you might use OpenRefine include:
+- Where you want to know how many times a particular value (name, publisher, subject) appears in a column in your data
+- Where you want to know how values are distributed across your whole data set
+- Where you have a list of dates which are formatted in different ways, and want to change all the dates in the list to a single common date format."</em>
+
+OpenRefine tutorials:
+- [Prof. Walden's OpenRefine tutorial](https://github.com/kwaldenphd/tidy-data-principles/blob/main/README.md#data-wrangling-using-openrefine)
+- [Library Carpentry OpenRefine tutorial](https://librarycarpentry.org/lc-open-refine/)
+
+See also:
+- [Library Carpentry Tidy Data for Librarians tutorial](https://librarycarpentry.org/lc-spreadsheets/)
 
 ## Football Rosters
 
