@@ -15,7 +15,7 @@ This lab will involve using data analysis and visualization methods to interact 
 - [Background](#background)
 - [University Archive Digital Collections](#university-archive-digital-collections)
 - [Sample Datasets](#sample-datasets)
-- [Exploratory Data Visualization](#exploratory-data-visualization)
+- [Exploratory Data Analysis/Visualization](#exploratory-data-analysisvisualization)
 - [Mapping](#mapping)
 - [Networks](#networks)
 - [Lab Notebook Components](#lab-notebook-components)
