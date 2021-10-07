@@ -22,14 +22,7 @@ This lab will involve using data analysis and visualization methods to interact 
 - [Exploratory Data Visualization](#exploratory-data-visualization)
 - [Mapping](#mapping)
 - [Networks](#networks)
-- [Next Steps (aka, now it's your turn!)](#next-steps-aka-now-its-your-turn)
-  * [Collaborating Well](#collaborating-well)
-  * [Where to Start: Articulating a Research Question/Topic and Developing a Data Model](#where-to-start-articulating-a-research-question-topic-and-developing-a-data-model)
-  * [Data (Pre)Processing](#data-preprocessing)
-  * [Tool Directory](#tool-directory)
-  * [Addressing Your Research Questions](#addressing-your-research-questions)
 - [Lab Notebook Components](#lab-notebook-components)
-- [Acknowledgements](#acknowledgements) 
 
 # Background
 
