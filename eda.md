@@ -27,7 +27,7 @@ To think about this another way, "the purpose of EDA is to use summary statistic
   * [Creating a Table](#creating-a-table)
   * [Data Visualization](#data-visualization)
   * [PivotTables and PivotCharts](#pivottables-and-pivotcharts) 
-  * [PowerQuery](#powerquery)
+  * [OPTIONAL: PowerQuery](#optional-powerquery)
 - [Tableau](#tableau)
   * [Uploading to Tableau Public](#uploading-to-tableau-public)
   * [Discussion and Reflection Questions](#discussion-and-reflection-questions)
@@ -375,7 +375,7 @@ To think about this another way, "the purpose of EDA is to use summary statistic
 - How could those visualizations shape or impact your understanding of the data? 
 - Other comments/questions/observations
 
-### PowerQuery
+### OPTIONAL: PowerQuery
 
 82- But one of the things we might want to be able to do with these datasets is connect across them, or generate visualizations that connect across the different discrete datasets.
 
