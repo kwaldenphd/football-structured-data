@@ -109,7 +109,7 @@ The discussion/reflection questions at the end of the lab ask you to think holis
 I'm asking everyone to spend some time with ArcGIS Online.
 - Folks who don't have a background with data/mapping might want to start with Google MyMaps before you jump into ArcGIS Online.
 
-PICK ONE:
+OPTIONAL:
 - Folks with programming backgrounds can spend time working in RStudio/Python.
 - Folks interested in doing more in-depth work with mapping can explore Carto (web-based program that does not involve any coding).
 
@@ -130,7 +130,7 @@ The discussion/reflection questions at the end of the lab ask you to think holis
 
 I'm asking everyone to spend some time with ConnectTheDots.
 
-PICK ONE:
+OPTIONAL:
 - Folks who want to more in-depth work with network analysis/statistics can spend time with Gephi (open-source software, no coding)
 - Folks who want to focus more on network graphs/visualizations can spend time with Palladio (web-based program, no coding)
 - Folks with programming backgrounds are welcome to explore some of the linked RStudio/Python resources and tutorials
