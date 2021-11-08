@@ -20,6 +20,13 @@ This lab will involve using data analysis and visualization methods to interact 
 - [Networks](#networks)
 - [Lab Notebook Components](#lab-notebook-components)
 
+[Link to Google Drive folder with lab materials and resources, including notebook template](https://drive.google.com/drive/folders/1L3eJm07Nt7mttozZujo4bsKkkZdAXKBn?usp=sharing) (ND Users)
+
+FOR NON-ND USERS:
+- [Link to make a copy of the lab notebook template, Google Doc](https://docs.google.com/document/d/1QmJQUuVH100xPn3rE74gstJC5Usm8uFrHc5W7IESOII/copy)
+- [Lab notebook template as a plain-text `.md.` file](https://github.com/kwaldenphd/football-structured-data/blob/main/notebook-template.md)
+- [Lab notebook template as a PDF](https://github.com/kwaldenphd/football-structured-data/blob/main/Lab_Notebook_Template.pdf)
+
 # How to Work Through This Lab
 
 There are four main sections to this lab:
