@@ -587,7 +587,7 @@ This tutorial is licensed under a <a href="http://creativecommons.org/licenses/b
 - Load data as `DataFrame`
 - Merging directory and roster datasets using `dplyr` and `tidyr`
 - Static visualization with `ggplot2`
-- Static geospatial data visualization with `ggplot2`, `sf, `sp`, `tmap`, and `maps`
+- Static geospatial data visualization with `ggplot2`, `sf`, `sp`, `tmap`, and `maps`
 - Interactive visualization with `plotly`
 - Interactive geospatial data visualization with `plotly` and `leaflet`
 
