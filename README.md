@@ -18,7 +18,7 @@ This lab will involve using data analysis and visualization methods to interact 
 - [Exploratory Data Analysis/Visualization](#exploratory-data-analysisvisualization)
 - [Mapping](#mapping)
 - [Networks](#networks)
-- [Lab Notebook Components](#lab-notebook-components)
+- [Next Steps (aka, now it's your turn!)](#next-steps-aka-now-its-your-turn)
 
 [Link to Google Drive folder with lab materials and resources, including notebook template](https://drive.google.com/drive/folders/1L3eJm07Nt7mttozZujo4bsKkkZdAXKBn?usp=sharing) (ND Users)
 
@@ -66,21 +66,8 @@ In this section of the lab, we're thinking about how structured data can be the 
 
 [Link to this section of the lab](https://github.com/kwaldenphd/football-structured-data/blob/main/networks.md)
 
-# Lab Notebook Components
+# Next Steps (aka, now it's your turn!)
 
-- Reflections/observations from exploratory data analysis/visualization section of the lab
-- Reflections/observations from the mapping section of the lab
-- Reflections/observations from the networks section of the lab
-- Any data files you worked with (that aren't in the sample datasets)
-- If you worked with Python/RStudio: Scripts or notebooks for any original code you generated
-- Individual reflection
-  * At least 200 words (or 2-3 minutes audio/video), addressing the following questions:
-    * What you learned about working with structured data through this lab
-    * What you learned about data analysis/visualization through this lab
-    * How you're thinking about data analysis/visualization as they relate to ND football history and primary sources differently after this lab
-    * Where you would go next with these tools/methods (other research questions/topics you're interested in exploring, other data sources or types of data you would want to be able to work with, etc)
-    * Other comments/questions/observations
+By this point in the lab we've covered a number of different tools for (computational) text analysis. Now it's your turn to come up with a small-scale question, topic, etc. related to the period of ND football history we've been looking at (or some of the broader themes we've been talking about) that you could explore using some of the primary sources and analysis/research methods covered in this lab.
 
-If you're working in Google Drive, you can just submit a link to Google Drive.
-
-Notebooks can be individual or collaborative.
+[Click here](https://github.com/kwaldenphd/football-structured-data/blob/main/next-steps.md) to open this section of the lab.
