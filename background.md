@@ -63,9 +63,7 @@ Discussion Questions:
 
 # Sample Datasets
 
-To get us started in this lab, Prof. Walden has prepared a few sample datasets based on some of these primary sources.
-
-We'll use these datasets as a starting point for our work in this lab, and as a model/starting point for thinking about what you could do on your own with structured data in this lab.
+To get us started in this lab, Prof. Walden has prepared a few sample datasets based on some of these primary sources. We'll use these datasets as a starting point for our work in this lab, and as a model/starting point for thinking about what you could do on your own with structured data in this lab.
 
 The sample datasets include:
 - [1922 Student Directory](#directories)
@@ -130,9 +128,7 @@ Other data cleaning/wrangling resources:
 
 ## Football Rosters
 
-Online sports data provider Sports Reference includes specific college football data resources.
-
-Take a look at [their page for Notre Dame's 1924 team](https://www.sports-reference.com/cfb/schools/notre-dame/1924.html).
+Online sports data provider Sports Reference includes specific college football data resources. Take a look at [their page for Notre Dame's 1924 team](https://www.sports-reference.com/cfb/schools/notre-dame/1924.html).
 
 Discussion Questions:
 - What parts of information on this page would you want to work with as structured data?
@@ -156,9 +152,7 @@ Eventually, we'll explore how we can get geographic information for these roster
 
 ## Football Schedules
 
-Sports Reference's college football resources also include information on Notre Dame football's schedules and season results.
-
-Take a look at [their page for Notre Dame's 1924 season](https://www.sports-reference.com/cfb/schools/notre-dame/1924-schedule.html).
+Sports Reference's college football resources also include information on Notre Dame football's schedules and season results. Take a look at [their page for Notre Dame's 1924 season](https://www.sports-reference.com/cfb/schools/notre-dame/1924-schedule.html).
 
 Discussion Questions:
 - What parts of information on this page would you want to work with as structured data?
@@ -192,21 +186,18 @@ According to Miriam Posner, networks are “a finite set (or sets) of actors and
 - (2) each actor has a set of individual attributes; and 
 - (3) a set of ties that defines at least one relation among actors.” 
  
-A network graph is “a common way to visually represent social networks, consisting of two dimensions: actors and relations (also called nodes and edges). Nodes are the entities in graph (also called vectors)..[edges] are the relationships between nodes.” 
-
-Learn more via the [PDF included in this Repository](https://github.com/kwaldenphd/football-structured-data/blob/main/files/Posner_SocialNetworkAnalysisGlossary.pdf)
+A network graph is “a common way to visually represent social networks, consisting of two dimensions: actors and relations (also called nodes and edges). Nodes are the entities in graph (also called vectors)..[edges] are the relationships between nodes.”  
+- Learn more via the [PDF included in this Repository](https://github.com/kwaldenphd/football-structured-data/blob/main/files/Posner_SocialNetworkAnalysisGlossary.pdf)
 
 ### Coaching tree as a type of network
 
 From [Wikipedia](https://en.wikipedia.org/wiki/Coaching_tree):
-
+<blockquote>
 "A coaching tree is similar to a family tree except that it shows the relationships of coaches instead of family members. There are several ways to define a relationship between two coaches. The most common way to make the distinction is if a coach worked as an assistant on a particular head coach's staff for at least a season then that coach can be counted as being a branch on the head coach's coaching tree. Coaching trees can also show philosophical influence from one head coach to an assistant.
+<br>
+"Coaching trees are common in the National Football League and most coaches in the NFL can trace their lineage back to a certain head coach for whom they previously worked as an assistant."</blockquote>
 
-"Coaching trees are common in the National Football League and most coaches in the NFL can trace their lineage back to a certain head coach for whom they previously worked as an assistant."
-
-We can think of a coaching tree as a type of network, where the relationship of coaches in the tree is understood via nodes and edges.
-
-Let's take a look at a couple different representations of Knute Rockne's coaching tree:
+We can think of a coaching tree as a type of network, where the relationship of coaches in the tree is understood via nodes and edges. Let's take a look at a couple different representations of Knute Rockne's coaching tree:
 - "[Rockne's Coaching Tree](https://my.nd.edu/news/9551)" *Notre Dame, Alumni & Friends* (26 March 2013)
 - "[Knute Rockne, Coaching Tree](https://en.wikipedia.org/wiki/Knute_Rockne#Coaching_tree)", *Wikipedia*
 
@@ -249,15 +240,11 @@ The `Alternate_Simplified_Coaching_Tree_CTD.csv` file reflects this expanded `so
 
 But the simplified `source-target` structure doesn't account for aspects of these relationships like how many years someone played at ND, or how many years they coached at subsequent institutions.
 
-We can use the concept of weighted edges to incorporate these other pieces of data.
-
-One way to incorporate weighted edges is to use the number of years someone played at ND or coached elsewhere as the weight.
+We can use the concept of weighted edges to incorporate these other pieces of data. One way to incorporate weighted edges is to use the number of years someone played at ND or coached elsewhere as the weight.
 
 The `Full_Coaching_Tree_Edges.csv` file reflects this weighted edge structure: *[GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Full_Coaching_Tree_Edges.csv), [Google Drive](https://drive.google.com/file/d/1NK3JPimaISPy8NCifrCSSV7w8ZMtCOYO/view?usp=sharing)*
-
-When Rockne is the `source` node, the weight is the number of seasons the `target` individual played under him at ND.
-
-When an institution or team is the `source` node, the weight is the number of seasons the `target` individual coached at this program.
+- When Rockne is the `source` node, the weight is the number of seasons the `target` individual played under him at ND.
+- When an institution or team is the `source` node, the weight is the number of seasons the `target` individual coached at this program.
 
 ## Things to Take Away From This Section
 
