@@ -145,7 +145,7 @@ Discussion Questions:
 Prof. Walden has [built out a Jupyter Notebook](https://drive.google.com/file/d/1u2kKRaZj_S3CRfWu4vF2OZTOcZ8UAPw8/view?usp=sharing) that scrapes the rosters into a combined CSV file in Python.
 - *NOTE: This notebook/workflow has not been updated since summer 2021 and may no longer run due to changes in the Sports Reference site structure. Folks are welcome to use this code as a starting point for developing their own web scraping programs, as long as the original work is cited.*
 
-Data scraping output: `combined_nd_rosters.csv` ([GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/combined_nd_rosters.csv), [Google Drive](https://drive.google.com/file/d/1LpT-mjNxvvmqsDV0pFmFBFvb8PSwJiTj/view?usp=sharing))
+Data scraping output: `combined_nd_rosters.csv` *[[GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/combined_nd_rosters.csv), [Google Drive](https://drive.google.com/file/d/1LpT-mjNxvvmqsDV0pFmFBFvb8PSwJiTj/view?usp=sharing)]*
 
 Big picture steps for this workflow:
 - Scrape HTML tables in Python using BeautifulSoup
@@ -171,9 +171,9 @@ Discussion Questions:
 Prof. Walden has [built out a Jupyter Notebook](https://drive.google.com/file/d/175Gf_-SNdwdUrhvyhPRKxApMgSaESx-d/view?usp=sharing) that scrapes the rosters into a combined CSV file in Python.
 - *NOTE: This notebook/workflow has not been updated since summer 2021 and may no longer run due to changes in the Sports Reference site structure. Folks are welcome to use this code as a starting point for developing their own web scraping programs, as long as the original work is cited.*
 
-Data scraping output: `combined_nd_schedules.csv` ([GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/combined_nd_schedules.csv), [Google Drive](https://drive.google.com/file/d/1-P_6693TjcE7QTgpUDlHrOTD1jprztb6/view?usp=sharing))
+Data scraping output: `combined_nd_schedules.csv` *[[GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/combined_nd_schedules.csv), [Google Drive](https://drive.google.com/file/d/1-P_6693TjcE7QTgpUDlHrOTD1jprztb6/view?usp=sharing)]*
 
-Excel data wrangling output: `combined_nd_schedules_cleaned.csv` ([GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/combined_nd_schedules_cleaned.csv), [Google Drive](https://drive.google.com/file/d/15U5nNbKX-BfIWO4CTCeabit7mdokf9SV/view?usp=sharing))
+Excel data wrangling output: `combined_nd_schedules_cleaned.csv` *[[GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/combined_nd_schedules_cleaned.csv), [Google Drive](https://drive.google.com/file/d/15U5nNbKX-BfIWO4CTCeabit7mdokf9SV/view?usp=sharing)]*
 
 Big picture steps for this workflow:
 - Scrape HTML tables in Python using BeautifulSoup
@@ -223,12 +223,11 @@ We'll come back to Rockne's coaching tree and network analysis later in the lab.
 
 No fancy Jupyter Notebooks for this one. Prof. Walden went through a few iterations of how to organize and structure the Rockne coaching tree facilitate network analysis.
 
-The `Rockne_Coaching_Tree` Excel workbook documents this iterative process: [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Rockne_Coaching_Tree.xlsx), [Google Drive](https://docs.google.com/spreadsheets/d/1B2RaD_qtrQaupo6FznKzuAMnYCGt6eEJJ-aAcU9z8I4/edit?usp=sharing)
+The `Rockne_Coaching_Tree` Excel workbook documents this iterative process: *[GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Rockne_Coaching_Tree.xlsx), [Google Drive](https://docs.google.com/spreadsheets/d/1B2RaD_qtrQaupo6FznKzuAMnYCGt6eEJJ-aAcU9z8I4/edit?usp=sharing)*
 
 The first step was to take the information on Wikipedia and map it onto a tabular data structure that would move in the direction of having nodes, edges, and weights.
 
-The `Original_Coaching_Tree.csv` file reflects this preliminary structure.
-- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Rockne_Coaching_Tree_Full.csv), [Google Drive](https://docs.google.com/spreadsheets/d/1B2RaD_qtrQaupo6FznKzuAMnYCGt6eEJJ-aAcU9z8I4/edit?usp=sharing)
+The `Original_Coaching_Tree.csv` file reflects this preliminary structure. *[[GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Rockne_Coaching_Tree_Full.csv), [Google Drive](https://docs.google.com/spreadsheets/d/1B2RaD_qtrQaupo6FznKzuAMnYCGt6eEJJ-aAcU9z8I4/edit?usp=sharing)]*
 
 The preliminary structure included the following columns:
 - `Name` (player/coach name)
@@ -242,13 +241,11 @@ The preliminary structure included the following columns:
 
 The most straightforward way to represent this data as a network is to have `source` and `target` nodes, in which Rockne is the source and the person who played/coached for him is the target. 
 
-The `Simplified_Coaching_Tree_CTD.csv` file reflects this `source-target` structure:
-- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Simplified_Coaching_Tree_CTD.csv), [Google Drive](https://drive.google.com/file/d/1AvPk8sKYhlsCz6RjUTzkSyxxULX_Wf2U/view?usp=sharing)
+The `Simplified_Coaching_Tree_CTD.csv` file reflects this `source-target` structure: *[GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Simplified_Coaching_Tree_CTD.csv), [Google Drive](https://drive.google.com/file/d/1AvPk8sKYhlsCz6RjUTzkSyxxULX_Wf2U/view?usp=sharing)]*
 
 We can also include the other institutions these individuals played at as source nodes.
 
-The `Alternate_Simplified_Coaching_Tree_CTD.csv` file reflects this expanded `source-target` structure:
-- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Alternate_Simplified_Coaching_Tree_CTD.csv), [Google Drive](https://drive.google.com/file/d/1OTel7xqn2yxx9fzDFWPQkdwR67oP-pJc/view?usp=sharing)
+The `Alternate_Simplified_Coaching_Tree_CTD.csv` file reflects this expanded `source-target` structure: *[GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Alternate_Simplified_Coaching_Tree_CTD.csv), [Google Drive](https://drive.google.com/file/d/1OTel7xqn2yxx9fzDFWPQkdwR67oP-pJc/view?usp=sharing)*
 
 But the simplified `source-target` structure doesn't account for aspects of these relationships like how many years someone played at ND, or how many years they coached at subsequent institutions.
 
@@ -256,8 +253,7 @@ We can use the concept of weighted edges to incorporate these other pieces of da
 
 One way to incorporate weighted edges is to use the number of years someone played at ND or coached elsewhere as the weight.
 
-The `Full_Coaching_Tree_Edges.csv` file reflects this weighted edge structure.
-- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Full_Coaching_Tree_Edges.csv), [Google Drive](https://drive.google.com/file/d/1NK3JPimaISPy8NCifrCSSV7w8ZMtCOYO/view?usp=sharing)
+The `Full_Coaching_Tree_Edges.csv` file reflects this weighted edge structure: *[GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Full_Coaching_Tree_Edges.csv), [Google Drive](https://drive.google.com/file/d/1NK3JPimaISPy8NCifrCSSV7w8ZMtCOYO/view?usp=sharing)*
 
 When Rockne is the `source` node, the weight is the number of seasons the `target` individual played under him at ND.
 
@@ -279,7 +275,10 @@ When an institution or team is the `source` node, the weight is the number of se
   * Or for student directories, you'll figure out what steps need to happen for cleaning/wrangling each document.
 - Data cleaning with tools like OpenRefine, Python, and RStudio lends itself to having reproducible workflows with some level of version control built in
 
-**But also, in the words of Tim Gunn, the goal at the end of the day is to make it work.**
+**But also, the goal at the end of the day is to make it work.**
+
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/project-runway-tim-gunn.gif?raw=true" alt="Capture" /></p>
+
 - If trying to make something happen with Python/RStudio is proving to be incredibly time-intensive, and an Excel pivot table or PowerQuery gets you where you need to go, that's absolutely fine. 
 - Prioritize reproducability and version control when and where possible, but don't let perfect be the enemy of getting something you can work with.
 - When you start doing this on your own, we'll talk in more detail about tools/workflows/strategies/etc. for the materials you're working with and the topics/questions you want to explore.
