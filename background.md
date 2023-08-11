@@ -181,6 +181,8 @@ We'll also think in this lab about how structured data can be the starting point
 
 ### What is a network?
 
+<p align="center"><a href="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/graphwords.png?raw=true"><img class="aligncenter size-large wp-image-473" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/graphwords.png?raw=true" alt="" width="676" height="332" /></a></p>
+
 According to Miriam Posner, networks are “a finite set (or sets) of actors and the relations defined on them. It consists of three elements: 
 - (1) a set of actors;
 - (2) each actor has a set of individual attributes; and 
@@ -207,7 +209,7 @@ Discussion Questions:
   * What questions or topics would you be able to explore using data from this resource? 
 - Other comments/questions about this source as structured data
 
-We'll come back to Rockne's coaching tree and network analysis later in the lab. But as an example of research that uses this approach/method:
+We'll come back to Rockne's coaching tree and network analysis later in the lab. An example of research that uses this approach/method:
 - Andrew Fast and David Donald Jensen, "[The NFL Coaching Network: Analysis of the Social Network Among Professional Football Coaches](https://www.researchgate.net/publication/228968729_The_NFL_Coaching_Network_Analysis_of_the_Social_Network_Among_Professional_Football_Coaches)" *American Association for Artificial Intelligence* (2006)
 
 ### Rockne Coaching Tree Data Processing Overview
