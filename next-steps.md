@@ -14,8 +14,9 @@ This tutorial is licensed under a <a href="http://creativecommons.org/licenses/b
 - [Collaborating Well](#collaborating-well)
 - [Where to Start: Articulating a Research Question or Topic](#where-to-start-articulating-a-research-question-or-topic)
 - [Addressing Your Research Question](#addressing-your-research-question)
-- [Lab Notebook Resources](#lab-notebook-resources)     
+- [Lab Notebook Resources](#lab-notebook-resources)
 
+[Link to Google Drive folder with lab materials and resources, including notebook template](https://drive.google.com/drive/folders/1BYuxNOQ-FoWuYtL8hVWZq0Re-FInkXr3?usp=sharing) (ND Users)  
 # Next Steps (aka, now it's your turn!)
 
 By this point in the lab we've covered a number of different tools for analyzing data from primary sources using digital and computational tools, including some that run in a web browser, some that run on your local computer, and some that involve working within a programming language.
@@ -93,7 +94,7 @@ Ferdio's [DataVizProject](https://datavizproject.com/) is a useful resource to e
 
 # Lab Notebook Resources
 
-[Link to Google Drive folder with lab materials and resources, including notebook template](https://drive.google.com/drive/folders/1L3eJm07Nt7mttozZujo4bsKkkZdAXKBn?usp=sharing) (ND Users)
+[Link to Google Drive folder with lab materials and resources, including notebook template](https://drive.google.com/drive/folders/1BYuxNOQ-FoWuYtL8hVWZq0Re-FInkXr3?usp=sharing) (ND Users)
 
 Components:
 - Reflections/observations from exploratory data analysis/visualization section of the lab
