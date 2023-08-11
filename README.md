@@ -11,7 +11,6 @@ This lab will involve using data analysis and visualization methods to interact 
 
 # Table of Contents
 
-- [How to Work Through This Lab](#how-to-work-through-this-lab)
 - [Background](#background)
 - [University Archive Digital Collections](#university-archive-digital-collections)
 - [Sample Datasets](#sample-datasets)
@@ -21,14 +20,6 @@ This lab will involve using data analysis and visualization methods to interact 
 - [Next Steps (aka, now it's your turn!)](#next-steps-aka-now-its-your-turn)
 
 [Link to Google Drive folder with lab materials and resources, including notebook template](https://drive.google.com/drive/folders/1BYuxNOQ-FoWuYtL8hVWZq0Re-FInkXr3?usp=sharing) (ND Users)
-
-# How to Work Through This Lab
-
-There are four main sections to this lab:
-- [Background, University Archives, and Sample Datasets](https://github.com/kwaldenphd/football-structured-data)
-- [Exploratory data analysis/visualization](https://github.com/kwaldenphd/football-structured-data/blob/main/eda.md) (EDA)
-- [Mapping](https://github.com/kwaldenphd/football-structured-data/blob/main/mapping.md)
-- [Network Analysis](https://github.com/kwaldenphd/football-structured-data/blob/main/networks.md)
 
 # Background
 
