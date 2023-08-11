@@ -20,7 +20,7 @@ This lab will involve using data analysis and visualization methods to interact 
 - [Networks](#networks)
 - [Next Steps (aka, now it's your turn!)](#next-steps-aka-now-its-your-turn)
 
-[Link to Google Drive folder with lab materials and resources, including notebook template](https://drive.google.com/drive/folders/1L3eJm07Nt7mttozZujo4bsKkkZdAXKBn?usp=sharing) (ND Users)
+[Link to Google Drive folder with lab materials and resources, including notebook template](https://drive.google.com/drive/folders/1BYuxNOQ-FoWuYtL8hVWZq0Re-FInkXr3?usp=sharing) (ND Users)
 
 # How to Work Through This Lab
 
