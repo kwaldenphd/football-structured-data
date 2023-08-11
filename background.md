@@ -277,7 +277,7 @@ When an institution or team is the `source` node, the weight is the number of se
 
 **But also, the goal at the end of the day is to make it work.**
 
-<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/project-runway-tim-gunn.gif?raw=true" alt="Capture" /></p>
+<p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/tim-gunn.jpg?raw=true" alt="Capture" /></p>
 
 - If trying to make something happen with Python/RStudio is proving to be incredibly time-intensive, and an Excel pivot table or PowerQuery gets you where you need to go, that's absolutely fine. 
 - Prioritize reproducability and version control when and where possible, but don't let perfect be the enemy of getting something you can work with.
