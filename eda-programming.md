@@ -8,7 +8,7 @@ This tutorial is licensed under a <a href="http://creativecommons.org/licenses/b
 - [Overview](#overview)
 - [Python](#python)
 - [R](#r)
-- [Discussion/Reflection Questions](discussionreflection-questions)
+- [Discussion/Reflection Questions](#discussionreflection-questions)
 
 # Overview 
 
