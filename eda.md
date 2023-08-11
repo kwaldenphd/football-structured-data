@@ -8,11 +8,11 @@ This tutorial is licensed under a <a href="http://creativecommons.org/licenses/b
 - [Files](#files)
 - [Exploratory Data Analysis](#exploratory-data-analysis)
   * [DataBasic: WTFcsv](#databasic-wtfcsv)
-  * [Excel](#excel)
-  * [Tableau](#tableau)
-  * [Python](#python)
-  * [RStudio](#rstudio)
-- [Discussion/Reflection Questions](#discussionreflection-questions)
+  * [Spreadsheet Programs](#spreadsheet-programs)
+    * [Microsoft Excel](#microsoft-excel)
+    * [Tableau](#tableau)
+  * [Oh, the Places You Could Go!](#oh-the-places-you-could-go)
+- [General Discussion/Reflection Questions](#general-discussionreflection-questions)
 
 # Files
 
