@@ -90,18 +90,10 @@ Discussion Questions:
 
 Let's take a look at one way of transforming the directory into structured data.
 
-- Initial OCR output (`DIR_1922_1923.txt`)
-  * [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/DIR_1922_1923.txt)
-  * [Google Drive](https://drive.google.com/file/d/1u7lk7WAFCU_CCUMqW83ANyN00tFEiRr-/view?usp=sharing)
-- First iteration of OpenRefine output (`ND_Directory_Raw.csv`)
-  * [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/ND_Directory_Raw.csv)
-  * [Google Drive](https://drive.google.com/file/d/1BRi8A6O_TFm2Y_Mt7Ek2y4rQLnIMnYa4/view?usp=sharing)
-- Second iteration of OpenRefine output (`ND_Directory_Cleaned.csv`)
-  * [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/ND_Directory_Cleaned.csv)
-  * [Google Drive](https://drive.google.com/file/d/1cuF_hhyh3QfwkevHlXX2YGkLaxbayjuG/view?usp=sharing)
-- Excel output with merged geographic data (`ND_Directory_Cleaned_Geography.csv`)
-  * [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/ND_Directory_Cleaned_Geography.csv)
-  * [Google Drive](https://drive.google.com/file/d/1x35ml-UUykUnMUXUjtI3VjTvHMT3UCS7/view?usp=sharing)
+- Initial OCR output (`DIR_1922_1923.txt`) *[GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/DIR_1922_1923.txt), [Google Drive](https://drive.google.com/file/d/1u7lk7WAFCU_CCUMqW83ANyN00tFEiRr-/view?usp=sharing)*
+- First iteration of OpenRefine output (`ND_Directory_Raw.csv`) *[GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/ND_Directory_Raw.csv), [Google Drive](https://drive.google.com/file/d/1BRi8A6O_TFm2Y_Mt7Ek2y4rQLnIMnYa4/view?usp=sharing)*
+- Second iteration of OpenRefine output (`ND_Directory_Cleaned.csv`) *[GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/ND_Directory_Cleaned.csv), [Google Drive](https://drive.google.com/file/d/1cuF_hhyh3QfwkevHlXX2YGkLaxbayjuG/view?usp=sharing)*
+- Excel output with merged geographic data (`ND_Directory_Cleaned_Geography.csv`) *[GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/ND_Directory_Cleaned_Geography.csv), [Google Drive](https://drive.google.com/file/d/1x35ml-UUykUnMUXUjtI3VjTvHMT3UCS7/view?usp=sharing)*
 
 Big picture steps for this workflow:
 - Scrape plain text from the directory using Optical Character Recognition (OCR) in Python
@@ -109,10 +101,7 @@ Big picture steps for this workflow:
 - More data cleaning/wrangling in OpenRefine (using a lot of regular expressions)
 - Data wrangling in Excel to incorporate latitude/longitude information for mapping
 
-Jupyter Notebook for OCR:
-- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/notebooks/directories-ocr-workflow.ipynb)
-- [Google CoLab](https://drive.google.com/file/d/16K9-5dcEqkKXqxuJ_lo5kNEIx8mkFBP4/view?usp=sharing)
-- [NBviewer](https://nbviewer.jupyter.org/github/kwaldenphd/football-structured-data/blob/main/notebooks/directories-ocr-workflow.ipynb)
+[Click here](https://drive.google.com/file/d/16K9-5dcEqkKXqxuJ_lo5kNEIx8mkFBP4/view?usp=sharing) to access the Jupyter Notebook for this OCR workflows via Google Colab.
 
 ### OpenRefine
 
@@ -153,14 +142,10 @@ Discussion Questions:
 
 ### Football Rosters Data Processing Overview
 
-Prof. Walden has built out a Jupyter Notebook that scrapes the rosters into a combined CSV file in Python.
-- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/notebooks/sf-nd-football-rosters.ipynb)
-- [NBViewer](https://nbviewer.jupyter.org/github/kwaldenphd/football-structured-data/blob/main/notebooks/sf-nd-football-rosters.ipynb)
-- [Google CoLab](https://drive.google.com/file/d/1u2kKRaZj_S3CRfWu4vF2OZTOcZ8UAPw8/view?usp=sharing)
+Prof. Walden has [built out a Jupyter Notebook](https://drive.google.com/file/d/1u2kKRaZj_S3CRfWu4vF2OZTOcZ8UAPw8/view?usp=sharing) that scrapes the rosters into a combined CSV file in Python.
+- *NOTE: This notebook/workflow has not been updated since summer 2021 and may no longer run due to changes in the Sports Reference site structure. Folks are welcome to use this code as a starting point for developing their own web scraping programs, as long as the original work is cited.*
 
-Data scraping output: `combined_nd_rosters.csv`
-- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/combined_nd_rosters.csv)
-- [Google Drive](https://drive.google.com/file/d/1LpT-mjNxvvmqsDV0pFmFBFvb8PSwJiTj/view?usp=sharing)
+Data scraping output: `combined_nd_rosters.csv` ([GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/combined_nd_rosters.csv), [Google Drive](https://drive.google.com/file/d/1LpT-mjNxvvmqsDV0pFmFBFvb8PSwJiTj/view?usp=sharing))
 
 Big picture steps for this workflow:
 - Scrape HTML tables in Python using BeautifulSoup
@@ -183,18 +168,12 @@ Discussion Questions:
 
 ### Football Schedules Data Processing Overview 
 
-Prof. Walden has built out a Jupyter Notebook that scrapes the rosters into a combined CSV file in Python.
-- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/notebooks/sf-nd-schedules.ipynb)
-- [NBViewer](https://nbviewer.jupyter.org/github/kwaldenphd/football-structured-data/blob/main/notebooks/sf-nd-schedules.ipynb)
-- [Google CoLab](https://drive.google.com/file/d/175Gf_-SNdwdUrhvyhPRKxApMgSaESx-d/view?usp=sharing)
+Prof. Walden has [built out a Jupyter Notebook](https://drive.google.com/file/d/175Gf_-SNdwdUrhvyhPRKxApMgSaESx-d/view?usp=sharing) that scrapes the rosters into a combined CSV file in Python.
+- *NOTE: This notebook/workflow has not been updated since summer 2021 and may no longer run due to changes in the Sports Reference site structure. Folks are welcome to use this code as a starting point for developing their own web scraping programs, as long as the original work is cited.*
 
-Data scraping output: `combined_nd_schedules.csv`
-- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/combined_nd_schedules.csv)
-- [Google Drive](https://drive.google.com/file/d/1-P_6693TjcE7QTgpUDlHrOTD1jprztb6/view?usp=sharing)
+Data scraping output: `combined_nd_schedules.csv` ([GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/combined_nd_schedules.csv), [Google Drive](https://drive.google.com/file/d/1-P_6693TjcE7QTgpUDlHrOTD1jprztb6/view?usp=sharing))
 
-Excel data wrangling output: `combined_nd_schedules_cleaned.csv`
-- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/combined_nd_schedules_cleaned.csv)
-- [Google Drive](https://drive.google.com/file/d/15U5nNbKX-BfIWO4CTCeabit7mdokf9SV/view?usp=sharing)
+Excel data wrangling output: `combined_nd_schedules_cleaned.csv` ([GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/combined_nd_schedules_cleaned.csv), [Google Drive](https://drive.google.com/file/d/15U5nNbKX-BfIWO4CTCeabit7mdokf9SV/view?usp=sharing))
 
 Big picture steps for this workflow:
 - Scrape HTML tables in Python using BeautifulSoup
@@ -244,15 +223,12 @@ We'll come back to Rockne's coaching tree and network analysis later in the lab.
 
 No fancy Jupyter Notebooks for this one. Prof. Walden went through a few iterations of how to organize and structure the Rockne coaching tree facilitate network analysis.
 
-The `Rockne_Coaching_Tree` Excel workbook documents this iterative process:
-- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Rockne_Coaching_Tree.xlsx)
-- [Google Drive](https://docs.google.com/spreadsheets/d/1B2RaD_qtrQaupo6FznKzuAMnYCGt6eEJJ-aAcU9z8I4/edit?usp=sharing)
+The `Rockne_Coaching_Tree` Excel workbook documents this iterative process: [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Rockne_Coaching_Tree.xlsx), [Google Drive](https://docs.google.com/spreadsheets/d/1B2RaD_qtrQaupo6FznKzuAMnYCGt6eEJJ-aAcU9z8I4/edit?usp=sharing)
 
 The first step was to take the information on Wikipedia and map it onto a tabular data structure that would move in the direction of having nodes, edges, and weights.
 
 The `Original_Coaching_Tree.csv` file reflects this preliminary structure.
-- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Rockne_Coaching_Tree_Full.csv)
-- [Google Drive](https://docs.google.com/spreadsheets/d/1B2RaD_qtrQaupo6FznKzuAMnYCGt6eEJJ-aAcU9z8I4/edit?usp=sharing)
+- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Rockne_Coaching_Tree_Full.csv), [Google Drive](https://docs.google.com/spreadsheets/d/1B2RaD_qtrQaupo6FznKzuAMnYCGt6eEJJ-aAcU9z8I4/edit?usp=sharing)
 
 The preliminary structure included the following columns:
 - `Name` (player/coach name)
@@ -267,14 +243,12 @@ The preliminary structure included the following columns:
 The most straightforward way to represent this data as a network is to have `source` and `target` nodes, in which Rockne is the source and the person who played/coached for him is the target. 
 
 The `Simplified_Coaching_Tree_CTD.csv` file reflects this `source-target` structure:
-- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Simplified_Coaching_Tree_CTD.csv)
-- [Google Drive](https://drive.google.com/file/d/1AvPk8sKYhlsCz6RjUTzkSyxxULX_Wf2U/view?usp=sharing)
+- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Simplified_Coaching_Tree_CTD.csv), [Google Drive](https://drive.google.com/file/d/1AvPk8sKYhlsCz6RjUTzkSyxxULX_Wf2U/view?usp=sharing)
 
 We can also include the other institutions these individuals played at as source nodes.
 
 The `Alternate_Simplified_Coaching_Tree_CTD.csv` file reflects this expanded `source-target` structure:
-- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Alternate_Simplified_Coaching_Tree_CTD.csv)
-- [Google Drive](https://drive.google.com/file/d/1OTel7xqn2yxx9fzDFWPQkdwR67oP-pJc/view?usp=sharing)
+- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Alternate_Simplified_Coaching_Tree_CTD.csv), [Google Drive](https://drive.google.com/file/d/1OTel7xqn2yxx9fzDFWPQkdwR67oP-pJc/view?usp=sharing)
 
 But the simplified `source-target` structure doesn't account for aspects of these relationships like how many years someone played at ND, or how many years they coached at subsequent institutions.
 
@@ -283,8 +257,7 @@ We can use the concept of weighted edges to incorporate these other pieces of da
 One way to incorporate weighted edges is to use the number of years someone played at ND or coached elsewhere as the weight.
 
 The `Full_Coaching_Tree_Edges.csv` file reflects this weighted edge structure.
-- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Full_Coaching_Tree_Edges.csv)
-- [Google Drive](https://drive.google.com/file/d/1NK3JPimaISPy8NCifrCSSV7w8ZMtCOYO/view?usp=sharing)
+- [GitHub](https://github.com/kwaldenphd/football-structured-data/blob/main/data/Full_Coaching_Tree_Edges.csv), [Google Drive](https://drive.google.com/file/d/1NK3JPimaISPy8NCifrCSSV7w8ZMtCOYO/view?usp=sharing)
 
 When Rockne is the `source` node, the weight is the number of seasons the `target` individual played under him at ND.
 
