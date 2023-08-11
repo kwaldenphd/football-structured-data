@@ -1,7 +1,7 @@
 # Lab #2: Structured Data
 
 <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license"><img style="border-width: 0;" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" alt="Creative Commons License" /></a>
-This tutorial is licensed under a <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
+This tutorial was written by <a href="https://github.com/kwaldenphd">Katherine Walden</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
 # Overview
 
@@ -22,11 +22,6 @@ This lab will involve using data analysis and visualization methods to interact 
 
 [Link to Google Drive folder with lab materials and resources, including notebook template](https://drive.google.com/drive/folders/1L3eJm07Nt7mttozZujo4bsKkkZdAXKBn?usp=sharing) (ND Users)
 
-FOR NON-ND USERS:
-- [Link to make a copy of the lab notebook template, Google Doc](https://docs.google.com/document/d/1QmJQUuVH100xPn3rE74gstJC5Usm8uFrHc5W7IESOII/copy)
-- [Lab notebook template as a plain-text `.md.` file](https://github.com/kwaldenphd/football-structured-data/blob/main/notebook-template.md)
-- [Lab notebook template as a PDF](https://github.com/kwaldenphd/football-structured-data/blob/main/Lab_Notebook_Template.pdf)
-
 # How to Work Through This Lab
 
 There are four main sections to this lab:
@@ -35,116 +30,41 @@ There are four main sections to this lab:
 - [Mapping](https://github.com/kwaldenphd/football-structured-data/blob/main/mapping.md)
 - [Network Analysis](https://github.com/kwaldenphd/football-structured-data/blob/main/networks.md)
 
-We'll spend two Thursday class periods leading up to the midterm break working on this lab (10/7, 10/14). Folks can (but are not required) to continue working over the break. 
-
-Our endpoint for this lab will be documenting your work going through the three sections of the lab. There will not be a "now it's your turn" section at the end of this lab.
-
-Given time constraints, we're going to try to wrap this lab up before the midterm break. And it's not going to be possible for folks to do more unstructured independent work within those time constraints.
-
-So folks who want to continue working with these tools/methods for your own research questions/topics will have an opportunity to do that in our third and last lab.
-
-Since there's not going to be a collaborative "now it's your turn" section at the end of the lab, folks will work in groups in class time, but you can also choose to turn in an individual lab notebook. 
-
-Collaborate to the degree that it is useful and helpful to work through the material.
-
 # Background
 
-[Link to this section of the lab](https://github.com/kwaldenphd/football-structured-data/blob/main/background.md)
+In the previous lab, we focused on using these source materials as unstructured text for different types of analysis facilitated by digital/computational tools.
 
-**Section table of contents**
-- [Background](https://github.com/kwaldenphd/football-structured-data/blob/main/background.md#background)
-- [University Archive Digital Collections](https://github.com/kwaldenphd/football-structured-data/blob/main/background.md#university-archive-digital-collections)
-- [Sample Datasets](https://github.com/kwaldenphd/football-structured-data/blob/main/background.md#sample-datasets)
-  * [Directories](https://github.com/kwaldenphd/football-structured-data/blob/main/background.md#directories)
-  * [Football Rosters](https://github.com/kwaldenphd/football-structured-data/blob/main/background.md#football-rosters)
-  * [Football Schedules](https://github.com/kwaldenphd/football-structured-data/blob/main/background.md#football-schedules)
-  * [Knute Rockne Coaching Tree](https://github.com/kwaldenphd/football-structured-data/blob/main/background.md#knute-rockne-coaching-tree)
-  * [Things to Take Away From This Section](https://github.com/kwaldenphd/football-structured-data/blob/main/background.md#things-to-take-away-from-this-section)
+Now we're going to think about how we can engage with primary source material with structured data as a starting point for other kinds of analysis and exploration that rely on modes of data analysis/visualization that work with structured data.
 
-I'm asking everyone to spend time with the discussion/reflection questions for the `Background` and `University Archives` sections.
-
-This lab includes four sample datasets.
+We'll start by looking at a few different types of data sources and data wrangling workflows for structured data:
 - `Directories` takes a PDF of digitized historical student directories and uses a combination of OCR, OpenRefine, and regular expressions to transform the PDF to a `CSV` file
 - `Football Rosters` uses Python to scrape Sports Reference web pages for ND football to get a data table
 - `Football Schedules` uses Python to scrape Sports Reference web pages for ND football schedule and game results to get data table
 - `Rockne Coaching Tree` transforms information about Rockne's coaching tree into a data table that could be used for network analysis
 
-I encourage folks to skim the information provided about the background/data processing workflow for all the sample datasets.
-
-For the lab notebook, you can engage with the discussion/reflection questions for 1-2 of the sample datasets.
+[Link to this section of the lab](https://github.com/kwaldenphd/football-structured-data/blob/main/background.md)
 
 # Exploratory Data Analysis/Visualization
 
+From [Wikipedia](https://en.wikipedia.org/wiki/Exploratory_data_analysis): "In statistics, exploratory data analysis is an approach of analyzing data sets to summarize their main characteristics, often using statistical graphics and other data visualization methods...EDA is for seeing what the data can tell us beyond the formal modeling or hypothesis testing task."
+
+To think about this another way, "the purpose of EDA is to use summary statistics and visualizations to better understand data, and find clues about the tendencies of the data, its quality and to formulate assumptions and the hypothesis of our analysis" (Andrew Andrade and Lukasz Golab, ["Exploratory Data Analysis"](https://datascienceguide.github.io/exploratory-data-analysis) *Data Science Guide*)
+
+Now that we have a sense of what types of data might come from primary sources, we'll work with some of those same datasets using tools and workflows geared toward visualizing structured data. We'll start by getting a sense of what's in a particular dataset (WTFcsv), then spend some time with a spreadsheet program (Microsoft Excel or Google Sheets). Folks comfortable with Python or R/RStudio will have the option to explore those workflows.
+
 [Link to this section of the lab](https://github.com/kwaldenphd/football-structured-data/blob/main/eda.md)
-
-**Section table of contents**
-- [Exploratory Data Visualization](https://github.com/kwaldenphd/football-structured-data/blob/main/eda.md#exploratory-data-visualization)
-  * [DataBasic: WTFcsv](https://github.com/kwaldenphd/football-structured-data/blob/main/eda.md#databasic-wtfcsv)
-  * [Excel](https://github.com/kwaldenphd/football-structured-data/blob/main/eda.md#excel)
-  * [Tableau](https://github.com/kwaldenphd/football-structured-data/blob/main/eda.md#tableau)
-  * [Python](https://github.com/kwaldenphd/football-structured-data/blob/main/eda.md#python)
-  * [RStudio](https://github.com/kwaldenphd/football-structured-data/blob/main/eda.md#rstudio)
-- [Discussion/Reflection Questions](#discussionreflection-questions) 
-
-I'm asking everyone to spend some time with WTFcsv and Tableau.
-
-PICK ONE:
-- Folks with programming backgrounds can spend time working in RStudio/Python.
-- Folks who don't have a programming background can do more extensive work with Microsoft Excel and Google Sheets.
-
-The discussion/reflection questions at the end of the lab ask you to think holistically across the different programs/tools you focused on.
-- There will be some questions that related to specific programs/tools. You are not required to respond to or engage with all of the questions.
-- Definitely cover the general questions and any specific to WTFcsv and Tableau, but pick and choose from the others based on what programs/tools you worked with.
 
 # Mapping
 
+Another aspect of data visualization we'll explore in this lab involves geospatial data, or data that includes location information. Thinking about our sample datasets, student directory data includes location information, as does the game schedule sample dataset. We'll start by getting a sense of how to work with geospatial data, using Google MyMaps and ArcGIS Online. Folks comfortable with Python or R/RStudio will have the option to explore those workflows.
+
 [Link to this section of the lab](https://github.com/kwaldenphd/football-structured-data/blob/main/mapping.md)
-
-**Section table of contents**
-
-- [Google MyMaps](https://github.com/kwaldenphd/football-structured-data/blob/main/mapping.md#google-mymaps) 
-- [ArcGIS Online](https://github.com/kwaldenphd/football-structured-data/blob/main/mapping.md#arcgis-online)
-- [Carto](https://github.com/kwaldenphd/football-structured-data/blob/main/mapping.md#carto)
-- [Mapping in Python](https://github.com/kwaldenphd/football-structured-data/blob/main/mapping.md#mapping-in-python)
-- [Mapping in RStudio](https://github.com/kwaldenphd/football-structured-data/blob/main/mapping.md#mapping-in-rstudio)
-- [Other Mapping Tools/Resources](https://github.com/kwaldenphd/football-structured-data/blob/main/mapping.md#other-mapping-toolsresources)
-  * [ArcGIS StoryMaps and Web App Builder](https://github.com/kwaldenphd/football-structured-data/blob/main/mapping.md#arcgis-storymaps-and-web-app-builder)
-  * [ArcMap](https://github.com/kwaldenphd/football-structured-data/blob/main/mapping.md#arcmap)
-  * [QGIS](https://github.com/kwaldenphd/football-structured-data/blob/main/mapping.md#qgis)
-- [Mapping Discussion/Reflection Questions](https://github.com/kwaldenphd/football-structured-data/blob/main/mapping.md#mapping-discussionreflection-questions)
-
-I'm asking everyone to spend some time with ArcGIS Online.
-- Folks who don't have a background with data/mapping might want to start with Google MyMaps before you jump into ArcGIS Online.
-
-OPTIONAL:
-- Folks with programming backgrounds can spend time working in RStudio/Python.
-- Folks interested in doing more in-depth work with mapping can explore Carto (web-based program that does not involve any coding).
-
-The discussion/reflection questions at the end of the lab ask you to think holistically across the different programs/tools you focused on.
-- There will be some questions that related to specific programs/tools. You are not required to respond to or engage with all of the questions.
-- Definitely cover the general questions and any specific to ArcGIS Online, but pick and choose from the others based on what programs/tools you worked with.
 
 # Networks
 
+In this section of the lab, we're thinking about how structured data can be the starting point for looking at networks and relationships, under the umbrella of network analysis. We can think of a coaching tree as a type of network, where the relationship of coaches in the tree is understood via nodes and edges. We'll explore Knute Rockne's coaching tree as a network using a couple of web-based tools (Palladio and Connect The Dots).
+
 [Link to this section of the lab](https://github.com/kwaldenphd/football-structured-data/blob/main/networks.md)
-
-**Section table of contents**
-- [DataBasic: Connect the Dots](https://github.com/kwaldenphd/football-structured-data/blob/main/networks.md#databasic-connect-the-dots)
-- [Palladio](https://github.com/kwaldenphd/football-structured-data/blob/main/networks.md#palladio)
-- [Gephi](https://github.com/kwaldenphd/football-structured-data/blob/main/networks.md#gephi)
-- [Network Discussion/Reflection Questions](https://github.com/kwaldenphd/football-structured-data/blob/main/networks.md#network-discussionreflection-questions)
-- [Other Network Tools/Resources](https://github.com/kwaldenphd/football-structured-data/blob/main/networks.md#other-network-toolsresources)
-
-I'm asking everyone to spend some time with ConnectTheDots.
-
-OPTIONAL:
-- Folks who want to more in-depth work with network analysis/statistics can spend time with Gephi (open-source software, no coding)
-- Folks who want to focus more on network graphs/visualizations can spend time with Palladio (web-based program, no coding)
-- Folks with programming backgrounds are welcome to explore some of the linked RStudio/Python resources and tutorials
-
-The discussion/reflection questions at the end of the lab ask you to think holistically across the different programs/tools you focused on.
-- There will be some questions that related to specific programs/tools. You are not required to respond to or engage with all of the questions.
-- Definitely cover the general questions and any specific to ConnectTheDots, but pick and choose from the others based on what programs/tools you worked with.
 
 # Lab Notebook Components
 
