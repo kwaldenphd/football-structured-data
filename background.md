@@ -11,7 +11,7 @@ This tutorial is licensed under a <a href="http://creativecommons.org/licenses/b
   * [Football Rosters](#football-rosters)
   * [Football Schedules](#football-schedules)
   * [Knute Rockne Coaching Tree](#knute-rockne-coaching-tree)
-  * [Things to Take Away From This Section](#things-to-take-away-from-this-section)
+- [Things to Take Away From This Section](#things-to-take-away-from-this-section)
 
 # Background
 
@@ -246,14 +246,14 @@ The `Full_Coaching_Tree_Edges.csv` file reflects this weighted edge structure: *
 - When Rockne is the `source` node, the weight is the number of seasons the `target` individual played under him at ND.
 - When an institution or team is the `source` node, the weight is the number of seasons the `target` individual coached at this program.
 
-## Things to Take Away From This Section
+# Things to Take Away From This Section
 
 **Develping a data model takes time (and is sometimes hard/messy).**
 - Don't overlook the conceptual work needed to figure out the desired endpoint or structure for data from a primary source.
 - Thinking through what data structure or format you want/need for the types of analysis and visualization you want to do helps you make choices about next steps for data scraping/cleaning/wrangling.
 - And as you go through those data processing steps, you are able to keep in mind what the endpoint is, or what you want/need the data to look like at the end of these processes.
 
-**Reproducability and version control are your friends.**
+**Reproducability & version control are your friends.**
 - You could fire up a Google Sheet or Excel File and hack away at manually entering values from a digitized student directory, Sports Reference web page, etc.
 - And sometimes, when you're dealing with data that has a very limited scope and you're not totally sure what the endpoint is going to be in terms of structure, hacking away at the process makes sense.
 - *See also: how Prof. Walden approached the Knute Rockne coaching tree data*
