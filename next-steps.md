@@ -1,4 +1,4 @@
-# Lab #1 (Text Analysis): Next Steps (aka, now it's your turn!)
+# Lab #2 (Structured Data): Next Steps (aka, now it's your turn!)
 
 <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license"><img style="border-width: 0;" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" alt="Creative Commons License" /></a>
 This tutorial is licensed under a <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
@@ -16,7 +16,8 @@ This tutorial is licensed under a <a href="http://creativecommons.org/licenses/b
 - [Addressing Your Research Question](#addressing-your-research-question)
 - [Lab Notebook Resources](#lab-notebook-resources)
 
-[Link to Google Drive folder with lab materials and resources, including notebook template](https://drive.google.com/drive/folders/1BYuxNOQ-FoWuYtL8hVWZq0Re-FInkXr3?usp=sharing) (ND Users)  
+[Link to Google Drive folder with lab materials and resources, including notebook template](https://drive.google.com/drive/folders/1BYuxNOQ-FoWuYtL8hVWZq0Re-FInkXr3?usp=sharing) (ND Users) 
+
 # Next Steps (aka, now it's your turn!)
 
 By this point in the lab we've covered a number of different tools for analyzing data from primary sources using digital and computational tools, including some that run in a web browser, some that run on your local computer, and some that involve working within a programming language.
@@ -55,8 +56,8 @@ Conclusions and next steps
 At least 200 words (or 2-3 minutes audio/video) from each member of the group, addressing the following questions:
 - Your contribution to the lab report
 - Challenges you faced in this lab and how you solved them
-- What you learned about text analysis through this lab
-- How you're thinking about text analysis (and ND football history/primary sources) differently after this lab
+- What you learned about exploratory data analysis and primary sources through this lab
+- How you're thinking about exploratory data analysis (and ND football history/primary sources) differently after this lab
 - Other comments/questions/observations
 
 ## Other Components
