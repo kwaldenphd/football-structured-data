@@ -10,6 +10,7 @@ This tutorial is licensed under a <a href="http://creativecommons.org/licenses/b
   * [DataBasic: WTFcsv](#databasic-wtfcsv)
   * [Spreadsheet Programs](#spreadsheet-programs)
     * [Microsoft Excel](#microsoft-excel)
+    * [Google Sheets](#google-sheets)
     * [Tableau](#tableau)
   * [Oh, the Places You Could Go!](#oh-the-places-you-could-go)
 - [General Discussion/Reflection Questions](#general-discussionreflection-questions)
