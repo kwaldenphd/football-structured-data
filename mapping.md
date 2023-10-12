@@ -176,7 +176,7 @@ Python and RStudio also have specialized packages to facilitate geocoding data:
 <p align="center"><img class=" size-full wp-image-53 aligncenter" src="https://github.com/kwaldenphd/football-structured-data/blob/main/figures/Fig_54.png?raw=true" alt="Capture" /></p>
 
 16- Accept the ArcGIS Online email invitation you received at your ND email address.
-- Alternatively, open Firefox or Chrome and navigate to https://www.arcgis.com/sharing/rest/oauth2/signup?client_id=arcgisonline&redirect_uri=http://www.arcgis.com&response_type=token in a web brower. Create a free ArcGIS public account.
+- Alternatively, open Firefox or Chrome and log in at https://notredame.maps.arcgis.com.
 
 ## Getting Started With ArcGIS Online
 
